@@ -10,5 +10,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    //jesselle lmao hehe xd
+    //jesselle lmao  Tayier
 }
