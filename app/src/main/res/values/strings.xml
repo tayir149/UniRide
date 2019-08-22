@@ -8,4 +8,7 @@
     <string name="uniide_driver">UniRide-Driver</string>
     <string name="create_trip">Create Trip</string>
     <string name="saved_trip">saved trip</string>
+    <string name="passenger">Passenger</string>
+    <string name="upcoming_trip">Upcoming trip</string>
+    <string name="earnings">Earnings</string>
 </resources>
