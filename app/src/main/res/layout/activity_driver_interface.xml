@@ -38,7 +38,7 @@
             android:layout_height="132dp"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="36dp"
             android:background="#FF6D1A"
             android:text="@string/create_trip"
             android:textColor="#FFFFFF"
@@ -51,7 +51,7 @@
             android:id="@+id/creatTripButton2"
             android:layout_width="145dp"
             android:layout_height="129dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="36dp"
             android:layout_marginRight="36dp"
             android:background="#FF6D1A"
@@ -68,7 +68,7 @@
             android:layout_height="132dp"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="36dp"
             android:background="#FF6D1A"
             android:text="@string/earnings"
             android:textColor="#FFFFFF"
@@ -81,7 +81,7 @@
             android:id="@+id/creatTripButton4"
             android:layout_width="149dp"
             android:layout_height="132dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="36dp"
             android:layout_marginRight="36dp"
             android:background="#FF6D1A"
@@ -91,6 +91,36 @@
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/creatTripButton2" />
+
+    <Button
+            android:id="@+id/creatTripButton5"
+            android:layout_width="149dp"
+            android:layout_height="132dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:background="#FF6D1A"
+            android:text="@string/options"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/creatTripButton4" />
+
+    <Button
+            android:id="@+id/creatTripButton6"
+            android:layout_width="149dp"
+            android:layout_height="132dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="36dp"
+            android:background="#FF6D1A"
+            android:text="@string/trip_history"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/creatTripButton3" />
 
     <Switch
             android:id="@+id/driverPassengerSwitch"
