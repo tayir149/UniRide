@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">UniRide</string>
+    <string name="uniRide_driver">UniRide-Driver</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="uniide_driver">UniRide-Driver</string>
+    <string name="create_trip">Create Trip</string>
+    <string name="saved_trip">saved trip</string>
 </resources>
