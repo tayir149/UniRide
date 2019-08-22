@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">UniRide</string>
     <string name="uniRide_driver">UniRide-Driver</string>
+    <string name="uniRide_passenger">UniRide-Passenger</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
