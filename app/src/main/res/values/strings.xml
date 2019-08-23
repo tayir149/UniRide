@@ -12,6 +12,4 @@
     <string name="passenger">Passenger</string>
     <string name="upcoming_trip">Upcoming trip</string>
     <string name="earnings">Earnings</string>
-    <string name="saved_trips">Saved Trips</string>
-    <string name="booked_trips">Booked Trips</string>
 </resources>
