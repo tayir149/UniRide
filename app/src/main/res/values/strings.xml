@@ -12,8 +12,11 @@
     <string name="passenger">Passenger</string>
     <string name="upcoming_trip">Upcoming trip</string>
     <string name="earnings">Earnings</string>
-    <string name="options">options</string>
-    <string name="options">options</string>
-    <string name="trip_history">trip history</string>
-    <string name="page_title">Home to University</string>
+    <string name="booked_trips">Booked Trips</string>
+    <string name="saved_trips">Saved Trips</string>
+    <string name="trip_history">Trip History</string>
+    <string name="options">Options</string>
+    <string name="home_to_university">Home To University</string>
+    <string name="university_to_home">University To Home</string>
+    <string name="driver">Driver</string>
 </resources>
