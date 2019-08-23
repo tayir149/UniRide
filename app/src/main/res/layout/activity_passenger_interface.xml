@@ -35,9 +35,9 @@
             android:id="@+id/bookedTripsButton"
             android:layout_width="149dp"
             android:layout_height="132dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="36dp"
             android:background="#FF6D1A"
             android:text="@string/saved_trips"
             android:textColor="#FFFFFF"
@@ -47,18 +47,87 @@
             app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <Button
+            android:id="@+id/tripHistoryButton"
+            android:layout_width="149dp"
+            android:layout_height="132dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginBottom="36dp"
+            android:background="#FF6D1A"
+            android:text="@string/trip_history"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+            android:id="@+id/homeToUniversityButton"
+            android:layout_width="149dp"
+            android:layout_height="132dp"
+            android:background="#FF6D1A"
+            android:text="@string/home_to_university"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/tripHistoryButton"
+            app:layout_constraintStart_toStartOf="@+id/bookedTripsButton"
+            app:layout_constraintTop_toBottomOf="@+id/bookedTripsButton" />
+
+    <Button
+            android:id="@+id/universityToHomeButton"
+            android:layout_width="149dp"
+            android:layout_height="132dp"
+            android:background="#FF6D1A"
+            android:text="@string/university_to_home"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/optionsButton"
+            app:layout_constraintEnd_toEndOf="@+id/savedTripsButton5"
+            app:layout_constraintTop_toBottomOf="@+id/savedTripsButton5" />
+
+    <Button
+            android:id="@+id/optionsButton"
+            android:layout_width="149dp"
+            android:layout_height="132dp"
+            android:layout_marginBottom="36dp"
+            android:layout_marginRight="36dp"
+            android:background="#FF6D1A"
+            android:text="@string/options"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
             android:id="@+id/savedTripsButton5"
             android:layout_width="149dp"
             android:layout_height="132dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
             android:background="#FF6D1A"
             android:text="@string/booked_trips"
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/bookedTripsButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bookedTripsButton"
-            app:layout_constraintTop_toTopOf="@+id/bookedTripsButton" />
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <Switch
+            android:id="@+id/driverPassengerSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/driver"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/header"
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
