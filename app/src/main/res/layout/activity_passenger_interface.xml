@@ -32,19 +32,33 @@
             app:layout_constraintTop_toTopOf="@+id/header" />
 
     <Button
-            android:id="@+id/creatTripButton"
+            android:id="@+id/bookedTripsButton"
             android:layout_width="149dp"
             android:layout_height="132dp"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="32dp"
             android:background="#FF6D1A"
-            android:text="@string/create_trip"
+            android:text="@string/saved_trips"
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header"/>
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <Button
+            android:id="@+id/savedTripsButton5"
+            android:layout_width="149dp"
+            android:layout_height="132dp"
+            android:background="#FF6D1A"
+            android:text="@string/booked_trips"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="false"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bookedTripsButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bookedTripsButton"
+            app:layout_constraintTop_toTopOf="@+id/bookedTripsButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
