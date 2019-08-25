@@ -3,19 +3,18 @@ package com.example.uniride
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_create_trip.*
 
-class MainActivity : AppCompatActivity() {
+class CreateTrip : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_create_trip)
 
-        button01.setOnClickListener{
+
+        backButton.setOnClickListener{
             val intent = Intent(this, DriverInterface::class.java)
             startActivity(intent)
         }
     }
-
-
 }
