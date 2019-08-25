@@ -19,4 +19,12 @@
     <string name="home_to_university">Home To University</string>
     <string name="university_to_home">University To Home</string>
     <string name="driver">Driver</string>
+    <string name="textview_header_history"><![CDATA[History]]></string>
+    <string name="textviewDate">8 August, 2019</string>
+    <string name="textviewDriver">Driver: Jesselle Grata</string>
+    <string name="textviewPickupTime">Pickup Time: 8:15 am</string>
+    <string name="textviewETA">ETA at Uni: 9:00 am</string>
+    <string name="textviewNumberOfPsg">No. of passengers: 3</string>
+    <string name="buttonHistory1">SHOW ROUTE</string>
+    <string name="buttonHistory2">MESSAGE DRIVER</string>
 </resources>
