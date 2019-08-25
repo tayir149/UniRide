@@ -59,16 +59,17 @@
             android:id="@+id/page_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
             android:inputType="textPersonName"
-            android:text="<   Home to University"
+            android:text="Home to University"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:fontFamily="sans-serif"
             app:layout_constraintBottom_toBottomOf="@+id/header1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.551" />
 
     <EditText
             android:id="@+id/trip_date"
@@ -78,7 +79,7 @@
             android:layout_marginLeft="20dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="00/00/00"
+            android:hint="00/00/00"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enter_details2" />
 
@@ -90,7 +91,7 @@
             android:layout_marginLeft="20dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="00:00am"
+            android:hint="00:00am"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enter_details3" />
 
@@ -154,5 +155,16 @@
             android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header1" />
+
+    <Button
+            android:id="@+id/button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="38dp"
+            android:layout_height="54dp"
+            android:background="#FF5224"
+            android:text="<"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
