@@ -45,10 +45,9 @@
             android:layout_marginEnd="27dp"
             android:layout_marginRight="27dp"
             android:layout_marginBottom="40dp"
-            android:autoText="false"
             android:clickable="false"
             android:gravity="center"
-            android:text="UniRide: Student Carpooling App"
+            android:text="@string/uniride_student_carpooling_app"
             android:textColor="#ff6d1a"
             android:textSize="15pt"
             android:textStyle="bold"
@@ -65,14 +64,15 @@
             android:layout_marginTop="8dp"
 
             android:layout_marginEnd="24dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.406"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username" />
+            app:layout_constraintTop_toBottomOf="@+id/username"
+            android:autofillHints="" />
 
     <EditText
             android:id="@+id/username"
@@ -82,13 +82,14 @@
             android:layout_marginTop="380dp"
             android:layout_marginEnd="24dp"
 
-            android:hint="University Email"
+            android:hint="@string/university_email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:autofillHints="" />
 
     <EditText
             android:id="@+id/address"
@@ -100,12 +101,13 @@
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             android:ems="10"
-            android:hint="Address"
+            android:hint="@string/address"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lastName" />
+            app:layout_constraintTop_toBottomOf="@+id/lastName"
+            android:autofillHints="" />
 
     <EditText
             android:id="@+id/firstName"
@@ -117,12 +119,13 @@
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             android:ems="10"
-            android:hint="First Name"
+            android:hint="@string/first_name"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appName" />
+            app:layout_constraintTop_toBottomOf="@+id/appName"
+            android:autofillHints="" />
 
     <EditText
             android:id="@+id/lastName"
@@ -134,12 +137,13 @@
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             android:ems="10"
-            android:hint="Last Name"
+            android:hint="@string/last_name"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstName" />
+            app:layout_constraintTop_toBottomOf="@+id/firstName"
+            android:autofillHints="" />
     "
     tools:layout_editor_absoluteX="32dp"
     tools:layout_editor_absoluteY="104dp" />
