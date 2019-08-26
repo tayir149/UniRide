@@ -25,12 +25,12 @@
     <string name="please_enter_the_trip_date">Please enter the trip Date</string>
     <string name="_00_00_00">00/00/00</string>
     <string name="dd_mm_yy">DD/MM/YY</string>
-    <string name="textview_header_history"><![CDATA[History]]></string>
-    <string name="textviewDate">8 August, 2019</string>
-    <string name="textviewDriver">Driver: Jesselle Grata</string>
-    <string name="textviewPickupTime">Pickup Time: 8:15 am</string>
-    <string name="textviewETA">ETA at Uni: 9:00 am</string>
-    <string name="textviewNumberOfPsg">No. of passengers: 3</string>
     <string name="buttonHistory1">SHOW ROUTE</string>
     <string name="buttonHistory2">MESSAGE DRIVER</string>
+    <string name="HistoryHeader">History</string>
+    <string name="historyDate">Date</string>
+    <string name="historyDriver">Driver: </string>
+    <string name="historyPickup">Pickup Time: </string>
+    <string name="historyETA">ETA</string>
+    <string name="historyNumOfPsg">No. of passengers: </string>
 </resources>
