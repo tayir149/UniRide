@@ -33,4 +33,13 @@
     <string name="textviewNumberOfPsg">No. of passengers: 3</string>
     <string name="buttonHistory1">SHOW ROUTE</string>
     <string name="buttonHistory2">MESSAGE DRIVER</string>
+    <string name="estimated_arrival_time">Estimated Arrival Time</string>
+    <string name="_00_00">00:00</string>
+    <string name="price">Price</string>
+    <string name="car_make_and_model">Car make and model</string>
+    <string name="textview">TextView</string>
+    <string name="_0_00">0.00</string>
+    <string name="please_enter_your_car_make_and_model">Please enter your car make and model</string>
+    <string name="confirm">Confirm</string>
+
 </resources>

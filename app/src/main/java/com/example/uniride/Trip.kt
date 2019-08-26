@@ -1,6 +1,4 @@
 package com.example.uniride
 
-class Trips {
-
-
+class Trip {
 }
