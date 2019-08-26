@@ -6,44 +6,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/enter_details3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Time to Arrive at Uni by:"
-            android:textSize="15sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trip_date"></TextView>
-
-    <TextView
-            android:id="@+id/enter_details2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Date DD/MM/YY:"
-            android:textSize="15sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_details"></TextView>
-
-    <TextView
-            android:id="@+id/enter_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Please enter desired trip details:"
-            android:textSize="30sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header1" />
 
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/header1"
@@ -55,20 +17,60 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+            android:id="@+id/button_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="38dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="15dp"
+            android:background="#FF5224"
+            android:text="<"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toStartOf="@+id/text_pageTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header1" />
     <TextView
-            android:id="@+id/page_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:id="@+id/text_pageTitle"
+            android:layout_width="199dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
             android:inputType="textPersonName"
-            android:text="<   Home to University"
+            android:text="Home to University"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:fontFamily="sans-serif"
             app:layout_constraintBottom_toBottomOf="@+id/header1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.551" />
+    <TextView
+            android:id="@+id/text_enterDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Please enter desired trip details:"
+            android:textSize="30sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header1" />
+
+    <TextView
+            android:id="@+id/text_enterDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Date DD/MM/YY:"
+            android:textSize="15sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_enterDetails"></TextView>
 
     <EditText
             android:id="@+id/trip_date"
@@ -77,10 +79,23 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
+            android:hint="00/00/00"
             android:inputType="textPersonName"
-            android:text="00/00/00"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_details2" />
+            app:layout_constraintTop_toBottomOf="@+id/text_enterDate" />
+
+    <TextView
+            android:id="@+id/text_enterTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Time to Arrive at Uni by:"
+            android:textSize="15sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_date"></TextView>
 
     <EditText
             android:id="@+id/trip_time"
@@ -90,36 +105,12 @@
             android:layout_marginLeft="20dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="00:00am"
+            android:hint="00:00am"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_details3" />
-
-    <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cheapest"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Earliest"
-            app:layout_constraintStart_toStartOf="@+id/radioButton"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton" />
-
-    <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fastest"
-            app:layout_constraintStart_toStartOf="@+id/radioButton2"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
+            app:layout_constraintTop_toBottomOf="@+id/text_enterTime" />
 
     <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/text_filterBy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -136,23 +127,47 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5">
+            app:layout_constraintTop_toBottomOf="@+id/text_filterBy">
+
+        <RadioButton
+                android:id="@+id/radioButton_cheapest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cheapest"
+                app:layout_constraintStart_toStartOf="@+id/text_filterBy"
+                app:layout_constraintTop_toBottomOf="@+id/text_filterBy" />
+
+        <RadioButton
+                android:id="@+id/radioButton_earliest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Earliest"
+                app:layout_constraintStart_toStartOf="@+id/radioButton_cheapest"
+                app:layout_constraintTop_toBottomOf="@+id/radioButton_cheapest" />
+
+        <RadioButton
+                android:id="@+id/radioButton_fastest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fastest"
+                app:layout_constraintStart_toStartOf="@+id/radioButton_earliest"
+                app:layout_constraintTop_toBottomOf="@+id/radioButton_earliest" />
 
     </RadioGroup>
 
     <Button
-            android:id="@+id/searchTrip_button"
+            android:id="@+id/button_searchTrip"
             android:layout_width="354dp"
             android:layout_height="95dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="20dp"
             android:background="#FF6D1A"
             android:text="Search for Trips"
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header1" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
