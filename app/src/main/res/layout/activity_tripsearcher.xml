@@ -24,12 +24,13 @@
             android:layout_height="54dp"
             android:layout_marginTop="15dp"
             android:background="#FF5224"
-            android:text="<"
+            android:text="@string/backButton"
             android:textSize="20sp"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toStartOf="@+id/text_pageTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/header1" />
+
     <TextView
             android:id="@+id/text_pageTitle"
             android:layout_width="199dp"
@@ -38,7 +39,7 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:inputType="textPersonName"
-            android:text="Home to University"
+            android:text="@string/home_to_university"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:fontFamily="sans-serif"
@@ -53,7 +54,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Please enter desired trip details:"
+            android:text="@string/please_enter_desired_trip_details"
             android:textSize="30sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +67,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Date DD/MM/YY:"
+            android:text="@string/date_dd_mm_yy"
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +80,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:hint="00/00/00"
+            android:hint="@string/_00_00_00"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_enterDate" />
@@ -91,7 +92,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Time to Arrive at Uni by:"
+            android:text="@string/time_to_arrive_at_uni_by"
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +108,8 @@
             android:inputType="textPersonName"
             android:hint="00:00am"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_enterTime" />
+            app:layout_constraintTop_toBottomOf="@+id/text_enterTime"
+            android:importantForAutofill="no" />
 
     <TextView
             android:id="@+id/text_filterBy"

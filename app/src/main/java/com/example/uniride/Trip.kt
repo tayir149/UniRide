@@ -1,4 +1,6 @@
 package com.example.uniride
 
-class Trip {
+class Trip{
+    lateinit var startingAddress : String
+    lateinit var driver: Driver
 }
