@@ -11,11 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button01.setOnClickListener{
-            val intent = Intent(this, DriverInterface::class.java)
-            startActivity(intent)
         }
-    }
+
 
 
 }
