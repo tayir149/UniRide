@@ -24,7 +24,7 @@
             android:layout_height="54dp"
             android:layout_marginTop="15dp"
             android:background="#FF5224"
-            android:text="@string/backButton"
+            android:text="<"
             android:textSize="20sp"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toStartOf="@+id/text_pageTitle"
@@ -37,7 +37,8 @@
             android:layout_marginStart="60dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
-            android:text="@string/home_to_university"
+            android:inputType="textPersonName"
+            android:text="Home to University"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:fontFamily="sans-serif"
@@ -52,7 +53,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="@string/please_enter_desired_trip_details"
+            android:text="Please enter desired trip details:"
             android:textSize="30sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +66,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="@string/date_dd_mm_yy"
+            android:text="Date DD/MM/YY:"
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,8 +79,8 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:hint="@string/_00_00_00"
-            android:inputType="date"
+            android:hint="00/00/00"
+            android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_enterDate" />
 
@@ -90,7 +91,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="@string/time_to_arrive_at_uni_by"
+            android:text="Time to Arrive at Uni by:"
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,8 +104,8 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:inputType="time"
-            android:hint="@string/_00_00am"
+            android:inputType="textPersonName"
+            android:hint="00:00am"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_enterTime" />
 
@@ -115,7 +116,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="@string/filter_by"
+            android:text="Filter By:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/trip_time" />
 
@@ -132,7 +133,7 @@
                 android:id="@+id/radioButton_cheapest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cheapest"
+                android:text="Cheapest"
                 app:layout_constraintStart_toStartOf="@+id/text_filterBy"
                 app:layout_constraintTop_toBottomOf="@+id/text_filterBy" />
 
@@ -140,7 +141,7 @@
                 android:id="@+id/radioButton_earliest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/earliest"
+                android:text="Earliest"
                 app:layout_constraintStart_toStartOf="@+id/radioButton_cheapest"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton_cheapest" />
 
@@ -148,7 +149,7 @@
                 android:id="@+id/radioButton_fastest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/fastest"
+                android:text="Fastest"
                 app:layout_constraintStart_toStartOf="@+id/radioButton_earliest"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton_earliest" />
 
@@ -162,7 +163,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:background="#FF6D1A"
-            android:text="@string/search_for_trips"
+            android:text="Search for Trips"
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="28sp"
