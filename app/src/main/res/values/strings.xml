@@ -40,7 +40,10 @@
     <string name="cheapest">Cheapest</string>
     <string name="_00_00am">00:00am</string>
     <string name="time_to_arrive_at_uni_by">Time to Arrive at Uni by:</string>
-    <string name="_00_00_00">00/00/00</string>
-    <string name="date_dd_mm_yy">Date DD/MM/YY:</string>
     <string name="please_enter_desired_trip_details">Please enter desired trip details:</string>
+    <string name="price">Price</string>
+    <string name="price0">0</string>
+    <string name="car_make_and_model">Car make and model</string>
+    <string name="please_enter_your_car_make_and_model">PLease enter your car make and model</string>
+    <string name="confirm">Confirm</string>
 </resources>
