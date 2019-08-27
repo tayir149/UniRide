@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Placeholder for navigating between activity
         button01.setOnClickListener{
             val intent = Intent(this, DriverInterface::class.java)
             startActivity(intent)
