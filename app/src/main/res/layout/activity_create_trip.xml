@@ -92,7 +92,6 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="16dp"
-            android:text="@string/estimated_arrival_time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/date_of_trip_in_create" />
 
@@ -102,13 +101,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:autofillHints="Enter the estimated time of arrival"
             android:ems="10"
+            android:hint="@string/_00_00am"
             android:inputType="time"
+            android:labelFor="@id/enterArrivalTime"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterArrivalTime"
-            android:autofillHints="Enter the estimated time of arrival"
-            android:labelFor="@id/enterArrivalTime"
-            android:hint="@string/_00_00"
             tools:targetApi="o" />
 
     <RadioGroup
@@ -151,13 +150,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:autofillHints="enter the price of the trip"
             android:ems="10"
+            android:hint="@string/price0"
             android:inputType="numberDecimal"
+            android:labelFor="@id/price"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/price"
-            android:hint="@string/_0_00"
-            android:labelFor="@id/price"
-            android:autofillHints="enter the price of the trip" tools:targetApi="o" />
+            tools:targetApi="o" />
 
     <TextView
             android:id="@+id/carMake"
@@ -177,12 +177,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/carMake"
-            android:autofillHints="Please enter your car make and model" tools:targetApi="o"
+            android:autofillHints="Please enter your car make and model"
             android:hint="@string/please_enter_your_car_make_and_model"
             android:labelFor="@id/carMake"
-            android:text="@string/please_enter_your_car_make_and_model" />
+            android:text="@string/please_enter_desired_trip_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carMake"
+            tools:targetApi="o" />
 
     <Button
             android:id="@+id/confirmationButton"
