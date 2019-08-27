@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -11,7 +10,7 @@
             android:id="@+id/header1"
             android:layout_width="430dp"
             android:layout_height="81dp"
-            android:background="#FF5224"
+            android:background="@color/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -23,10 +22,10 @@
             android:layout_width="38dp"
             android:layout_height="54dp"
             android:layout_marginTop="15dp"
-            android:background="#FF5224"
+            android:background="@color/colorPrimary"
             android:text="@string/backButton"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/whiteFont"
             app:layout_constraintEnd_toStartOf="@+id/text_pageTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/header1" />
@@ -38,7 +37,7 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:text="@string/home_to_university"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/whiteFont"
             android:textSize="24sp"
             app:fontFamily="sans-serif"
             app:layout_constraintBottom_toBottomOf="@+id/header1"
@@ -69,7 +68,7 @@
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_enterDetails"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/text_enterDetails"/>
 
     <EditText
             android:id="@+id/trip_date"
@@ -94,7 +93,7 @@
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trip_date"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/trip_date"/>
 
     <EditText
             android:id="@+id/trip_time"
@@ -161,9 +160,9 @@
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:background="#FF6D1A"
+            android:background="@color/colorButton"
             android:text="@string/search_for_trips"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/whiteFont"
             android:textIsSelectable="false"
             android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"

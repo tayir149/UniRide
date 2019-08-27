@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".DriverInterface" />
         <activity android:name=".CreateTrip" />
+        <activity android:name=".TripSearcher" />
     </application>
 
 </manifest>
