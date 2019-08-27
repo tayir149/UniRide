@@ -9,6 +9,7 @@
     <string name="uniide_driver">UniRide-Driver</string>
     <string name="create_trip">Create Trip</string>
     <string name="saved_trip">saved trip</string>
+    <string name="passenger">Passenger</string>
     <string name="upcoming_trip">Upcoming trip</string>
     <string name="earnings">Earnings</string>
     <string name="booked_trips">Booked Trips</string>
@@ -17,7 +18,7 @@
     <string name="options">Options</string>
     <string name="home_to_university">Home To University</string>
     <string name="university_to_home">University To Home</string>
-
+    <string name="driver">Driver</string>
     <string name="backButton"><![CDATA[<]]></string>
     <string name="please_enter_trip_details">Please enter trip details:</string>
     <string name="date_dd_mm_yy">Date DD/MM/YY:</string>
@@ -32,14 +33,14 @@
     <string name="historyPickup">Pickup Time: </string>
     <string name="historyETA">ETA</string>
     <string name="historyNumOfPsg">No. of passengers: </string>
-    <string name="are_you_a_passenger_or_driver">Are you a passenger or driver...</string>
-    <string name="driver">Driver</string>
-    <string name="passenger">Passenger</string>
-    <string name="uniride_student_carpooling_app">UniRide: Student Carpooling App</string>
-    <string name="last_name">Last Name</string>
-    <string name="password">Password</string>
-    <string name="first_name">First Name</string>
-    <string name="address">Address</string>
-    <string name="university_email">University Email</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="search_for_trips">Search for Trips</string>
+    <string name="fastest">Fastest</string>
+    <string name="earliest">Earliest</string>
+    <string name="filter_by">Filter By:</string>
+    <string name="cheapest">Cheapest</string>
+    <string name="_00_00am">00:00am</string>
+    <string name="time_to_arrive_at_uni_by">Time to Arrive at Uni by:</string>
+    <string name="_00_00_00">00/00/00</string>
+    <string name="date_dd_mm_yy">Date DD/MM/YY:</string>
+    <string name="please_enter_desired_trip_details">Please enter desired trip details:</string>
 </resources>

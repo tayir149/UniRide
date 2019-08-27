@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="@string/please_enter_trip_details"
             android:textSize="30sp"
             app:fontFamily="sans-serif"
@@ -63,12 +63,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="@string/please_enter_the_trip_date"
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_details5"/>
+            app:layout_constraintTop_toBottomOf="@+id/enter_details5" />
 
     <EditText
             android:id="@+id/date_of_trip_in_create"
@@ -84,5 +84,117 @@
             android:labelFor="@id/enter_details6"
             android:hint="@string/dd_mm_yy"
             tools:targetApi="o" />
+
+    <TextView
+            android:id="@+id/enterArrivalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/estimated_arrival_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_of_trip_in_create" />
+
+    <EditText
+            android:id="@+id/arrivalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:inputType="time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterArrivalTime"
+            android:autofillHints="Enter the estimated time of arrival"
+            android:labelFor="@id/enterArrivalTime"
+            android:hint="@string/_00_00"
+            tools:targetApi="o" />
+
+    <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="211dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/arrivalTime">
+
+        <RadioButton
+                android:id="@+id/homeToUni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/home_to_university" />
+
+        <RadioButton
+                android:id="@+id/uniToHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/university_to_home" />
+    </RadioGroup>
+
+    <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <EditText
+            android:id="@+id/enterPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            android:hint="@string/_0_00"
+            android:labelFor="@id/price"
+            android:autofillHints="enter the price of the trip" tools:targetApi="o" />
+
+    <TextView
+            android:id="@+id/carMake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/_0_00"
+            android:text="@string/car_make_and_model"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterPrice" />
+
+    <TextView
+            android:id="@+id/enterCarMake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carMake"
+            android:autofillHints="Please enter your car make and model" tools:targetApi="o"
+            android:hint="@string/please_enter_your_car_make_and_model"
+            android:labelFor="@id/carMake"
+            android:text="@string/please_enter_your_car_make_and_model" />
+
+    <Button
+            android:id="@+id/confirmationButton"
+            android:layout_width="189dp"
+            android:layout_height="47dp"
+            android:layout_marginBottom="4dp"
+            android:background="#FF6D1A"
+            android:text="@string/confirm"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

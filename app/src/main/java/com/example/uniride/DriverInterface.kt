@@ -11,6 +11,7 @@ class DriverInterface : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_interface)
 
+        //When CREATE TRIP button pressed, will be switched to create trip page
         createTripButton.setOnClickListener{
             val intent = Intent(this, CreateTrip::class.java)
             startActivity(intent)

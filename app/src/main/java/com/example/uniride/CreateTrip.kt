@@ -11,7 +11,7 @@ class CreateTrip : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_trip)
 
-
+        //When back button pressed, page will go back to driver interface
         backButton.setOnClickListener{
             val intent = Intent(this, DriverInterface::class.java)
             startActivity(intent)
