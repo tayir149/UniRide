@@ -10,11 +10,24 @@ class Trip{
     lateinit var uniAddress: Address
     lateinit var driver: Driver
     lateinit var date: Date
-    lateinit var time: Time
+    lateinit var estimatedArrivalTime: Time
     var price = 0.00
     lateinit var carMakeModel: String
     lateinit var listOfPickups: Array<Pickup>
     lateinit var listOfPassenger: Array<Passenger>
 
+    fun setHomeAddress(address: String){
+        homeAddress.setAddressLine()
+    }
 
+
+
+
+
+
+
+}
+
+private fun Address.setAddressLine() {
+    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 }
