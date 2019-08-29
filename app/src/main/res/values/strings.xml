@@ -45,7 +45,7 @@
     <string name="price">Price</string>
     <string name="price0">0</string>
     <string name="car_make_and_model">Car make and model</string>
-    <string name="please_enter_your_car_make_and_model">PLease enter your car make and model</string>
+    <string name="please_enter_your_car_make_and_model">Please enter your car make and model</string>
     <string name="confirm">Confirm</string>
     <string name="estimated_arrival_time">Estimated arrival time</string>
 </resources>

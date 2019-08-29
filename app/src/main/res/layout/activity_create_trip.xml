@@ -175,18 +175,18 @@
             android:autofillHints="Please enter your car make and model"
             android:hint="@string/please_enter_your_car_make_and_model"
             android:labelFor="@id/carMake"
-            android:text="@string/please_enter_desired_trip_details"
+            android:text="@string/please_enter_your_car_make_and_model"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/carMake"
             tools:targetApi="o" />
 
     <Button
-            android:id="@+id/confirmationButton"
+            android:id="@+id/createTripButton"
             android:layout_width="189dp"
             android:layout_height="47dp"
             android:layout_marginBottom="4dp"
             android:background="#FF6D1A"
-            android:text="@string/confirm"
+            android:text="@string/create_trip"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

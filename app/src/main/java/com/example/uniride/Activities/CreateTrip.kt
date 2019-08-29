@@ -16,6 +16,8 @@ class CreateTrip : AppCompatActivity() {
 
     private var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
     private var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
+    val homeAddress : String = "New Lynn, Auckland"
+    val uniAddress : String = "Auckland University of Technology"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +66,7 @@ class CreateTrip : AppCompatActivity() {
                 now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false)
             timePicker.show()
         }
+
 
     }
 }
