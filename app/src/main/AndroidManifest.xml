@@ -11,7 +11,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.CreatTripConfirmationActivity"></activity>
+        <activity android:name=".Activities.CreateTripConfirmationActivity"></activity>
         <activity android:name=".Activities.HistoryActivity" />
         <activity android:name=".Activities.SignUp">
             <intent-filter>

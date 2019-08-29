@@ -50,9 +50,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/please_enter_trip_details"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header2" />
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/please_enter_the_trip_date"
             android:textSize="15sp"
             app:fontFamily="sans-serif"
@@ -112,7 +112,7 @@
             android:layout_height="66dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/arrivalTime">
 
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/price"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressSelectorRadioButtons" />
@@ -161,12 +161,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/car_make_and_model"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterPrice" />
 
-    <TextView
+    <EditText
             android:id="@+id/enterCarMake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
             android:autofillHints="Please enter your car make and model"
             android:hint="@string/please_enter_your_car_make_and_model"
             android:labelFor="@id/carMake"
-            android:text="@string/please_enter_your_car_make_and_model"
+            android:singleLine="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/carMake"
             tools:targetApi="o" />
@@ -184,6 +184,7 @@
             android:id="@+id/createTripButton"
             android:layout_width="189dp"
             android:layout_height="47dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="4dp"
             android:background="#FF6D1A"
             android:text="@string/create_trip"
@@ -191,7 +192,8 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterCarMake" />
 
     <TextView
             android:id="@+id/textView9"
@@ -199,7 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/estimated_arrival_time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/date_of_trip_in_create" />

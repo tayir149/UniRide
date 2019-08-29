@@ -16,8 +16,9 @@ class CreateTrip : AppCompatActivity() {
 
     private var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
     private var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
-    val homeAddress : String = "New Lynn, Auckland"
-    val uniAddress : String = "Auckland University of Technology"
+    private val homeAddress : String = "New Lynn, Auckland"
+    private val uniAddress : String = "Auckland University of Technology"
+    var Route : String = "Unknown Route"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +68,28 @@ class CreateTrip : AppCompatActivity() {
             timePicker.show()
         }
 
+        homeToUni.setOnClickListener {
+            Route  = "From $homeAddress to $uniAddress"
+        }
 
+        uniToHome.setOnClickListener{
+            Route = "From $uniAddress to $homeAddress"
+        }
+
+        createTripButton.setOnClickListener {
+
+            val dateOfTrip = date_of_trip_in_create.text.toString()
+            val eta = arrivalTime.text.toString()
+            val priceOfTrip = java.lang.Double.parseDouble(enterPrice.text.toString())
+            val carDetail = enterCarMake.text.toString()
+
+            val intent = Intent(this, CreateTripConfirmationActivity::class.java)
+            intent.putExtra("Date of trip", dateOfTrip)
+            intent.putExtra("Arrival time", eta)
+            intent.putExtra("Price of trip", priceOfTrip)
+            intent.putExtra("Car details", carDetail)
+
+
+        }
     }
 }
