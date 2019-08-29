@@ -1,4 +1,4 @@
-package com.example.uniride
+package com.example.uniride.Classes
 
 class Trip {
     /*lateinit var homeAddress: Address

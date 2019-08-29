@@ -1,4 +1,4 @@
-package com.example.uniride
+package com.example.uniride.Activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.uniride.R
 import kotlinx.android.synthetic.main.activity_create_trip.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,7 +32,7 @@ class CreateTrip : AppCompatActivity() {
 
         date_of_trip_in_create.setOnClickListener {
 
-            //Shows the date picker and sets the takes the user selected date and shows on date textview
+            //Shows the date picker and takes the user selected date and shows on date text view
             val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, mYear, mMonth, mDay ->
                 val selectedDate = Calendar.getInstance()
                 selectedDate.set(Calendar.YEAR, mYear)
@@ -51,6 +52,7 @@ class CreateTrip : AppCompatActivity() {
             datePicker.show()
         }
 
+        //Shows time picker and takes the user selected time and shows on time text view
         arrivalTime.setOnClickListener{
             val timePicker = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
                 val selectedTime = Calendar.getInstance()
@@ -62,8 +64,6 @@ class CreateTrip : AppCompatActivity() {
                 now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false)
             timePicker.show()
         }
-
-
 
     }
 }

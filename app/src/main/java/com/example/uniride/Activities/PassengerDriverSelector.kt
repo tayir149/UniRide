@@ -1,8 +1,8 @@
-package com.example.uniride
+package com.example.uniride.Activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.uniride.R
 
 class PassengerDriverSelector: AppCompatActivity(){
 

@@ -1,10 +1,9 @@
-package com.example.uniride
+package com.example.uniride.Activities
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_tripsearcher.*
+import com.example.uniride.R
 
 class TripSearcher : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
