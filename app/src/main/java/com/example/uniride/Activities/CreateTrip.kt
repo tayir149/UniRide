@@ -76,28 +76,35 @@ class CreateTrip : AppCompatActivity() {
             route = "From $uniAddress to $homeAddress"
         }
 
+        //When Create trip button pressed, information entered will be sent to confirmation page
         createTripButton.setOnClickListener {
 
             val dateOfTrip = date_of_trip_in_create.text.toString()
             val eta = arrivalTime.text.toString()
             val priceOfTrip = java.lang.Double.parseDouble(enterPrice.text.toString())
             val carDetail = enterCarMake.text.toString()
-            val routeOfTrip = route
+            val numberOfPassenger = Integer.parseInt(numberOfPassenger.text.toString())
 
-            if(dateOfTrip.isEmpty()) Toast.makeText(this, "Please enter a date for the trip", Toast.LENGTH_SHORT).show()
-            else if(eta.isEmpty()) Toast.makeText(this, "Please enter an arrival time for the trip", Toast.LENGTH_SHORT).show()
-            else if(routeOfTrip == "Unknown Route") Toast.makeText(this, "Please select the route", Toast.LENGTH_SHORT).show()
-            else if(priceOfTrip == 0.00) Toast.makeText(this, "Please enter a price for the trip", Toast.LENGTH_SHORT).show()
-            else if(carDetail.isEmpty()) Toast.makeText(this, "Please enter you car make and model", Toast.LENGTH_SHORT).show()
-            else {
-                val intent = Intent(this, CreateTripConfirmationActivity::class.java)
-                intent.putExtra("Date of trip", dateOfTrip)
-                intent.putExtra("Arrival time", eta)
-                intent.putExtra("Price of trip", priceOfTrip)
-                intent.putExtra("Car details", carDetail)
-                intent.putExtra("Route of trip", routeOfTrip)
+            //If any of the field empty, will not proceed until every field filled
+            when {
+                dateOfTrip.isEmpty() -> Toast.makeText(this, "Please enter a date for the trip", Toast.LENGTH_SHORT).show()
+                eta.isEmpty() -> Toast.makeText(this, "Please enter an arrival time for the trip", Toast.LENGTH_SHORT).show()
+                route == "Unknown Route" -> Toast.makeText(this, "Please select the route", Toast.LENGTH_SHORT).show()
+                priceOfTrip == 0.00 -> Toast.makeText(this, "Please enter a price for the trip", Toast.LENGTH_SHORT).show()
+                carDetail.isEmpty() -> Toast.makeText(this, "Please enter you car make and model", Toast.LENGTH_SHORT).show()
+                numberOfPassenger == 0 -> Toast.makeText(this, "Please enter number of passenger", Toast.LENGTH_SHORT).show()
+                else -> {
+                    //send the information to confirmation page
+                    val intent = Intent(this, CreateTripConfirmationActivity::class.java)
+                    intent.putExtra("Date of trip", dateOfTrip)
+                    intent.putExtra("Arrival time", eta)
+                    intent.putExtra("Price of trip", priceOfTrip)
+                    intent.putExtra("Car details", carDetail)
+                    intent.putExtra("Route of trip", route)
+                    intent.putExtra("Number of passenger", numberOfPassenger)
 
-                startActivity(intent)
+                    startActivity(intent)
+                }
             }
         }
     }

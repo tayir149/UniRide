@@ -48,4 +48,8 @@
     <string name="please_enter_your_car_make_and_model">Please enter your car make and model</string>
     <string name="confirm">Confirm</string>
     <string name="estimated_arrival_time">Estimated arrival time</string>
+    <string name="trip_confirmation">Trip Confirmation</string>
+    <string name="_0">0</string>
+    <string name="maximum_passenger">Maximum Passenger</string>
+    <string name="enter_the_number_of_passenger_you_can_take">Enter the number of passenger you can take</string>
 </resources>

@@ -18,6 +18,13 @@ class DriverInterface : AppCompatActivity() {
             startActivity(intent)
         }
 
+        driverPassengerSwitch.setOnCheckedChangeListener { _, _ ->
+                val intent = Intent(this, PassengerInterface::class.java)
+                startActivity(intent)
+        }
+
+
+
 
 
 
