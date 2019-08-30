@@ -18,7 +18,7 @@ class CreateTrip : AppCompatActivity() {
     private var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
     private val homeAddress : String = "New Lynn, Auckland"
     private val uniAddress : String = "Auckland University of Technology"
-    var Route : String = "Unknown Route"
+    var route : String = "Unknown Route"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,11 +69,11 @@ class CreateTrip : AppCompatActivity() {
         }
 
         homeToUni.setOnClickListener {
-            Route  = "From $homeAddress to $uniAddress"
+            route  = "From $homeAddress to $uniAddress"
         }
 
         uniToHome.setOnClickListener{
-            Route = "From $uniAddress to $homeAddress"
+            route = "From $uniAddress to $homeAddress"
         }
 
         createTripButton.setOnClickListener {
@@ -82,14 +82,23 @@ class CreateTrip : AppCompatActivity() {
             val eta = arrivalTime.text.toString()
             val priceOfTrip = java.lang.Double.parseDouble(enterPrice.text.toString())
             val carDetail = enterCarMake.text.toString()
+            val routeOfTrip = route
 
-            val intent = Intent(this, CreateTripConfirmationActivity::class.java)
-            intent.putExtra("Date of trip", dateOfTrip)
-            intent.putExtra("Arrival time", eta)
-            intent.putExtra("Price of trip", priceOfTrip)
-            intent.putExtra("Car details", carDetail)
+            if(dateOfTrip.isEmpty()) Toast.makeText(this, "Please enter a date for the trip", Toast.LENGTH_SHORT).show()
+            else if(eta.isEmpty()) Toast.makeText(this, "Please enter an arrival time for the trip", Toast.LENGTH_SHORT).show()
+            else if(routeOfTrip == "Unknown Route") Toast.makeText(this, "Please select the route", Toast.LENGTH_SHORT).show()
+            else if(priceOfTrip == 0.00) Toast.makeText(this, "Please enter a price for the trip", Toast.LENGTH_SHORT).show()
+            else if(carDetail.isEmpty()) Toast.makeText(this, "Please enter you car make and model", Toast.LENGTH_SHORT).show()
+            else {
+                val intent = Intent(this, CreateTripConfirmationActivity::class.java)
+                intent.putExtra("Date of trip", dateOfTrip)
+                intent.putExtra("Arrival time", eta)
+                intent.putExtra("Price of trip", priceOfTrip)
+                intent.putExtra("Car details", carDetail)
+                intent.putExtra("Route of trip", routeOfTrip)
 
-
+                startActivity(intent)
+            }
         }
     }
 }

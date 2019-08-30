@@ -149,6 +149,7 @@
             android:autofillHints="enter the price of the trip"
             android:ems="10"
             android:hint="@string/price0"
+            android:text="0"
             android:inputType="numberDecimal"
             android:labelFor="@id/price"
             app:layout_constraintStart_toStartOf="parent"
