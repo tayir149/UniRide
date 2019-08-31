@@ -1,4 +1,4 @@
-package com.example.uniride.Activities
+package com.example.uniride.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,12 +12,13 @@ class DriverInterface : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_interface)
 
-        //When CREATE TRIP button pressed, will be switched to create trip page
+        /* When CREATE TRIP button pressed, will navigate to create trip page */
         createTripButton.setOnClickListener{
             val intent = Intent(this, CreateTrip::class.java)
             startActivity(intent)
         }
 
+        /* Switch between Driver Interface and Passenger Interface */
         driverPassengerSwitch.setOnCheckedChangeListener { _, _ ->
                 val intent = Intent(this, PassengerInterface::class.java)
                 startActivity(intent)

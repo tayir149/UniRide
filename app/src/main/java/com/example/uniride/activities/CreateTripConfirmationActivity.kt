@@ -1,10 +1,10 @@
-package com.example.uniride.Activities
+package com.example.uniride.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
+import com.example.uniride.showToast
 import kotlinx.android.synthetic.main.activity_create_trip_confirmation.*
 
 class CreateTripConfirmationActivity : AppCompatActivity() {
@@ -13,7 +13,7 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_trip_confirmation)
 
-        //Receive information from create trip page
+        /* Receive information from create trip page */
         val bundle: Bundle? = intent.extras
         val dateOfTrip = bundle!!.getString("Date of trip")
         val eta = bundle.getString("Arrival time")
@@ -22,7 +22,7 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         val carDetails = bundle.getString("Car details")
         val numberOfPassenger = bundle.getInt("Number of passenger")
 
-        //Display the trip details on screen
+        /* Display the trip details on screen */
         val tripDetails = "Date: $dateOfTrip\n" +
                 "Arrival Time: $eta\n" +
                 "Route: $route\n" +
@@ -42,16 +42,9 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         }
 
         confirmButton.setOnClickListener {
-            Toast.makeText(this, "Trip Created Successfully", Toast.LENGTH_SHORT).show()
+            showToast("Trip Created Successfully")
         }
     }
-
-
-
-
-
-
-
 
 
     private fun backToCreateTrip() {

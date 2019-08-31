@@ -1,4 +1,4 @@
-package com.example.uniride.Activities
+package com.example.uniride.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ class PassengerInterface : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passenger_interface)
 
+        /* Switch between Driver Interface and Passenger Interface */
         driverPassengerSwitch.setOnCheckedChangeListener { _, _ ->
             val intent = Intent(this, DriverInterface::class.java)
             startActivity(intent)

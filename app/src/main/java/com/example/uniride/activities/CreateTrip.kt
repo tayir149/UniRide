@@ -1,4 +1,4 @@
-package com.example.uniride.Activities
+package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
+import com.example.uniride.showToast
 import kotlinx.android.synthetic.main.activity_create_trip.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -87,12 +88,12 @@ class CreateTrip : AppCompatActivity() {
 
             //If any of the field empty, will not proceed until every field filled
             when {
-                dateOfTrip.isEmpty() -> Toast.makeText(this, "Please enter a date for the trip", Toast.LENGTH_SHORT).show()
-                eta.isEmpty() -> Toast.makeText(this, "Please enter an arrival time for the trip", Toast.LENGTH_SHORT).show()
-                route == "Unknown Route" -> Toast.makeText(this, "Please select the route", Toast.LENGTH_SHORT).show()
-                priceOfTrip == 0.00 -> Toast.makeText(this, "Please enter a price for the trip", Toast.LENGTH_SHORT).show()
-                carDetail.isEmpty() -> Toast.makeText(this, "Please enter you car make and model", Toast.LENGTH_SHORT).show()
-                numberOfPassenger == 0 -> Toast.makeText(this, "Please enter number of passenger", Toast.LENGTH_SHORT).show()
+                dateOfTrip.isEmpty() -> showToast("Please enter a date for the trip")
+                eta.isEmpty() -> showToast("Please enter an arrival time for the trip")
+                route == "Unknown Route" -> showToast("Please select the route")
+                priceOfTrip == 0.00 -> showToast("Please enter a price for the trip")
+                carDetail.isEmpty() -> showToast("Please enter you car make and model")
+                numberOfPassenger == 0 -> showToast("Please enter number of passenger")
                 else -> {
                     //send the information to confirmation page
                     val intent = Intent(this, CreateTripConfirmationActivity::class.java)

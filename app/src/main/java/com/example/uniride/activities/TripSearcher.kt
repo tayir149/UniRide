@@ -1,4 +1,4 @@
-package com.example.uniride.Activities
+package com.example.uniride.activities
 
 import android.os.Bundle
 import android.view.View
