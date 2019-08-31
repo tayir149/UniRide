@@ -1,10 +1,10 @@
 package com.example.uniride.activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import kotlinx.android.synthetic.main.activity_passenger_interface.*
+import org.jetbrains.anko.startActivity
 
 class PassengerInterface : AppCompatActivity(){
 
@@ -14,8 +14,7 @@ class PassengerInterface : AppCompatActivity(){
 
         /* Switch between Driver Interface and Passenger Interface */
         driverPassengerSwitch.setOnCheckedChangeListener { _, _ ->
-            val intent = Intent(this, DriverInterface::class.java)
-            startActivity(intent)
+            startActivity<DriverInterface>()
         }
     }
 }

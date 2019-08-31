@@ -1,10 +1,10 @@
 package com.example.uniride.activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import kotlinx.android.synthetic.main.activity_driver_interface.*
+import org.jetbrains.anko.startActivity
 
 class DriverInterface : AppCompatActivity() {
 
@@ -14,14 +14,12 @@ class DriverInterface : AppCompatActivity() {
 
         /* When CREATE TRIP button pressed, will navigate to create trip page */
         createTripButton.setOnClickListener{
-            val intent = Intent(this, CreateTrip::class.java)
-            startActivity(intent)
+            startActivity<CreateTrip>()
         }
 
         /* Switch between Driver Interface and Passenger Interface */
         driverPassengerSwitch.setOnCheckedChangeListener { _, _ ->
-                val intent = Intent(this, PassengerInterface::class.java)
-                startActivity(intent)
+            startActivity<PassengerInterface>()
         }
 
 

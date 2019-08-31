@@ -1,11 +1,11 @@
 package com.example.uniride.activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import com.example.uniride.showToast
 import kotlinx.android.synthetic.main.activity_create_trip_confirmation.*
+import org.jetbrains.anko.startActivity
 
 class CreateTripConfirmationActivity : AppCompatActivity() {
 
@@ -27,28 +27,22 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
                 "Arrival Time: $eta\n" +
                 "Route: $route\n" +
                 "Price: \$$price\n" +
-                "Car make and model: $carDetails" +
+                "Car make and model: $carDetails\n" +
                 "Maximum number of passenger: $numberOfPassenger"
         tripConfirmationText.text = tripDetails
 
 
         backButton2.setOnClickListener {
-            backToCreateTrip()
+            startActivity<CreateTrip>()
 
         }
 
         cancelButton.setOnClickListener {
-            backToCreateTrip()
+            startActivity<CreateTrip>()
         }
 
         confirmButton.setOnClickListener {
             showToast("Trip Created Successfully")
         }
-    }
-
-
-    private fun backToCreateTrip() {
-        val intent = Intent(this, CreateTrip::class.java)
-        startActivity(intent)
     }
 }

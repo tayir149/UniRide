@@ -2,7 +2,6 @@ package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
@@ -10,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import com.example.uniride.showToast
 import kotlinx.android.synthetic.main.activity_create_trip.*
+import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,8 +27,7 @@ class CreateTrip : AppCompatActivity() {
 
         //When back button pressed, page will go back to driver interface
         backButton.setOnClickListener{
-            val intent = Intent(this, DriverInterface::class.java)
-            startActivity(intent)
+            startActivity<DriverInterface>()
         }
 
         //Calendar for getting current date and time
@@ -95,16 +94,13 @@ class CreateTrip : AppCompatActivity() {
                 carDetail.isEmpty() -> showToast("Please enter you car make and model")
                 numberOfPassenger == 0 -> showToast("Please enter number of passenger")
                 else -> {
-                    //send the information to confirmation page
-                    val intent = Intent(this, CreateTripConfirmationActivity::class.java)
-                    intent.putExtra("Date of trip", dateOfTrip)
-                    intent.putExtra("Arrival time", eta)
-                    intent.putExtra("Price of trip", priceOfTrip)
-                    intent.putExtra("Car details", carDetail)
-                    intent.putExtra("Route of trip", route)
-                    intent.putExtra("Number of passenger", numberOfPassenger)
-
-                    startActivity(intent)
+                    //Sends the information to Create trip confirmation activity
+                    startActivity<CreateTripConfirmationActivity>("Date of trip" to dateOfTrip,
+                        "Arrival time" to eta,
+                        "Price of trip" to priceOfTrip,
+                        "Car details" to carDetail,
+                        "Route of trip" to route,
+                        "Number of passenger" to numberOfPassenger)
                 }
             }
         }
