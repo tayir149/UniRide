@@ -24,7 +24,6 @@
             android:layout_marginRight="24dp"
             android:layout_marginBottom="62dp"
             android:background="#ff6d1a"
-            android:enabled="false"
             android:outlineAmbientShadowColor="#ff6d1a"
             android:text="Sign Up"
             android:textColor="#ffffff"
