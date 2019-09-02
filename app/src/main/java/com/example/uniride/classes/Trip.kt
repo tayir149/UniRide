@@ -1,16 +1,5 @@
 package com.example.uniride.classes
 
-class Trip {
-    /*lateinit var homeAddress: Address
-    lateinit var uniAddress: Address
-    lateinit var driver: Driver
-    lateinit var date: Date
-    lateinit var estimatedArrivalTime: Time
-    var price = 0.00
-    lateinit var carMakeModel: String
-    lateinit var listOfPickups: Array<Pickup>
-    lateinit var listOfPassenger: Array<Passenger>*/
-
-
+class Trip (val driver: Driver,val dateOfTrip: String, val eta: String, val route: String, val priceOfTrip: Double, val carDetails: String, val numberOfPassenger: Int, var listOfPickUps: Array<Pickup>) {
 
 }

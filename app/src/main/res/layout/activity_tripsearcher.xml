@@ -8,7 +8,7 @@
 
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/header1"
+            android:id="@+id/header1_searcher"
             android:layout_width="430dp"
             android:layout_height="81dp"
             android:background="@color/colorPrimary"
@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-            android:id="@+id/button_back"
+            android:id="@+id/button_back_searcher"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="38dp"
             android:layout_height="54dp"
@@ -27,12 +27,12 @@
             android:text="@string/backButton"
             android:textSize="20sp"
             android:textColor="@color/whiteFont"
-            app:layout_constraintEnd_toStartOf="@+id/text_pageTitle"
+            app:layout_constraintEnd_toStartOf="@+id/text_pageTitle_searcher"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/header1" />
+            app:layout_constraintTop_toTopOf="@+id/header1_searcher" />
 
     <TextView
-            android:id="@+id/text_pageTitle"
+            android:id="@+id/text_pageTitle_searcher"
             android:layout_width="274dp"
             android:layout_height="39dp"
             android:layout_marginStart="60dp"
@@ -42,12 +42,12 @@
             android:textColor="@color/whiteFont"
             android:textSize="24sp"
             app:fontFamily="sans-serif"
-            app:layout_constraintBottom_toBottomOf="@+id/header1"
+            app:layout_constraintBottom_toBottomOf="@+id/header1_searcher"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.551" />
     <TextView
-            android:id="@+id/text_enterDetails"
+            android:id="@+id/text_enterDetails_searcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -57,10 +57,10 @@
             android:textSize="30sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header1" />
+            app:layout_constraintTop_toBottomOf="@+id/header1_searcher" />
 
     <TextView
-            android:id="@+id/text_enterDate"
+            android:id="@+id/text_enterDate_searcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -70,22 +70,24 @@
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_enterDetails"/>
+            app:layout_constraintTop_toBottomOf="@+id/text_enterDetails_searcher"/>
 
     <EditText
-            android:id="@+id/trip_date"
+            android:id="@+id/trip_date_searcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:hint="@string/_00_00_00"
-            android:inputType="date"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_enterDate" />
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:hint="@string/dd_mm_yy"
+                    android:inputType="date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_enterDate_searcher" />
 
     <TextView
-            android:id="@+id/text_enterTime"
+            android:id="@+id/text_enterTime_searcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -95,22 +97,24 @@
             android:textSize="15sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trip_date"/>
+            app:layout_constraintTop_toBottomOf="@+id/trip_date_searcher"/>
 
     <EditText
-            android:id="@+id/trip_time"
+            android:id="@+id/trip_time_searcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
             android:inputType="time"
             android:hint="@string/_00_00am"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_enterTime" />
+            app:layout_constraintTop_toBottomOf="@+id/text_enterTime_searcher" />
 
     <TextView
-            android:id="@+id/text_filterBy"
+            android:id="@+id/text_filterBy_searcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -118,45 +122,45 @@
             android:layout_marginTop="30dp"
             android:text="@string/filter_by"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trip_time" />
+            app:layout_constraintTop_toBottomOf="@+id/trip_time_searcher" />
 
     <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/radioGroup_searcher"
             android:layout_width="292dp"
             android:layout_height="100dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_filterBy">
+            app:layout_constraintTop_toBottomOf="@+id/text_filterBy_searcher">
 
         <RadioButton
-                android:id="@+id/radioButton_cheapest"
+                android:id="@+id/radioButton_cheapest_searcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cheapest"
-                app:layout_constraintStart_toStartOf="@+id/text_filterBy"
-                app:layout_constraintTop_toBottomOf="@+id/text_filterBy" />
+                app:layout_constraintStart_toStartOf="@+id/text_filterBy_searcher"
+                app:layout_constraintTop_toBottomOf="@+id/text_filterBy_searcher" />
 
         <RadioButton
-                android:id="@+id/radioButton_earliest"
+                android:id="@+id/radioButton_earliest_searcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/earliest"
-                app:layout_constraintStart_toStartOf="@+id/radioButton_cheapest"
-                app:layout_constraintTop_toBottomOf="@+id/radioButton_cheapest" />
+                app:layout_constraintStart_toStartOf="@+id/radioButton_cheapest_searcher"
+                app:layout_constraintTop_toBottomOf="@+id/radioButton_cheapest_searcher" />
 
         <RadioButton
-                android:id="@+id/radioButton_fastest"
+                android:id="@+id/radioButton_fastest_searcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fastest"
-                app:layout_constraintStart_toStartOf="@+id/radioButton_earliest"
-                app:layout_constraintTop_toBottomOf="@+id/radioButton_earliest" />
+                app:layout_constraintStart_toStartOf="@+id/radioButton_earliest_searcher"
+                app:layout_constraintTop_toBottomOf="@+id/radioButton_earliest_searcher" />
 
     </RadioGroup>
 
     <Button
-            android:id="@+id/button_searchTrip"
+            android:id="@+id/button_searchTrip_searcher"
             android:layout_width="354dp"
             android:layout_height="95dp"
             android:layout_marginStart="20dp"
@@ -168,6 +172,6 @@
             android:textIsSelectable="false"
             android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup_searcher" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
