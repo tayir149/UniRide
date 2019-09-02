@@ -79,7 +79,8 @@
             android:layout_marginLeft="32dp"
             android:text="@string/HistoryHeader"
             android:textColor="#FFFEFE"
-            android:textSize="24sp"
+            android:textSize="30sp"
+            app:fontFamily="sans-serif"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -114,6 +115,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginBottom="8dp"
             android:background="#00F5F1F1"
+            app:fontFamily="sans-serif"
             android:text="@string/buttonHistory1"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/divider2"
@@ -129,6 +131,7 @@
             android:layout_marginBottom="8dp"
             android:background="#00F5F1F1"
             android:text="@string/buttonHistory1"
+            app:fontFamily="sans-serif"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/divider8"
             app:layout_constraintStart_toEndOf="@+id/divider7" />
@@ -142,6 +145,7 @@
             android:layout_marginRight="50dp"
             android:layout_marginBottom="8dp"
             android:background="#00ECE3E3"
+            app:fontFamily="sans-serif"
             android:text="@string/buttonHistory2"
             android:textColor="#16BE12"
             android:textStyle="bold"
@@ -157,6 +161,7 @@
             android:layout_marginRight="50dp"
             android:layout_marginBottom="8dp"
             android:background="#00ECE3E3"
+            app:fontFamily="sans-serif"
             android:text="@string/buttonHistory2"
             android:textColor="#16BE12"
             android:textStyle="bold"
@@ -217,6 +222,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            app:fontFamily="sans-serif"
             android:text="@string/historyDate"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -230,6 +236,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            app:fontFamily="sans-serif"
             android:text="@string/historyDate"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -243,6 +250,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+            app:fontFamily="sans-serif"
             android:text="@string/historyDriver"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/divider3"
@@ -255,6 +263,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+            app:fontFamily="sans-serif"
             android:text="@string/historyDriver"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/divider7"
@@ -268,6 +277,7 @@
             android:layout_marginLeft="16dp"
             android:text="@string/historyPickup"
             android:textSize="18sp"
+            app:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/divider3"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -279,6 +289,7 @@
             android:layout_marginLeft="16dp"
             android:text="@string/historyPickup"
             android:textSize="18sp"
+            app:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/divider7"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -288,6 +299,7 @@
             android:layout_height="wrap_content"
             android:text="@string/historyETA"
             android:textSize="18sp"
+            app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -299,6 +311,7 @@
             android:layout_marginLeft="16dp"
             android:text="@string/historyETA"
             android:textSize="18sp"
+            app:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/divider7"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -310,6 +323,7 @@
             android:layout_marginLeft="19dp"
             android:text="@string/historyNumOfPsg"
             android:textSize="18sp"
+            app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="@+id/divider3"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -321,6 +335,7 @@
             android:layout_marginLeft="16dp"
             android:text="@string/historyNumOfPsg"
             android:textSize="18sp"
+            app:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/divider7"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 

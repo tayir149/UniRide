@@ -94,7 +94,7 @@ class CreateTrip : AppCompatActivity() {
                 carDetail.isEmpty() -> showToast("Please enter you car make and model")
                 numberOfPassenger == 0 -> showToast("Please enter number of passenger")
                 else -> {
-                    //Sends the information to Create trip confirmation activity
+                    //Sends the information to Create trip confirmation page
                     startActivity<CreateTripConfirmationActivity>("Date of trip" to dateOfTrip,
                         "Arrival time" to eta,
                         "Price of trip" to priceOfTrip,
