@@ -12,7 +12,12 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activities.CreateTripConfirmationActivity"/>
-        <activity android:name=".activities.HistoryActivity" />
+        <activity android:name=".activities.HistoryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activities.SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
