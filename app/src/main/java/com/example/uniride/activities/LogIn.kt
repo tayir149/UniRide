@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
-class SignUp: AppCompatActivity(){
+class LogIn: AppCompatActivity(){
 
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
-         setContentView(R.layout.activity_sign_up)
+         setContentView(R.layout.activity_login)
 
          login.setOnClickListener {
              val intent = Intent(this, PassengerDriverSelector::class.java)
