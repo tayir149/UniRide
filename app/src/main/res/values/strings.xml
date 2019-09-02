@@ -38,7 +38,7 @@
     <string name="earliest">Earliest</string>
     <string name="filter_by">Filter By:</string>
     <string name="cheapest">Cheapest</string>
-    <string name="_00_00am">00:00am</string>
+    <string name="_00_00am">00:00AM</string>
     <string name="time_to_arrive_at_uni_by">Time to Arrive at Uni by:</string>
     <string name="please_enter_desired_trip_details">Please enter desired trip details:</string>
     <string name="are_you_a_passenger_or_driver">Are you a passenger or driver...</string>
