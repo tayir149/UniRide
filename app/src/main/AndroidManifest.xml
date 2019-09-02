@@ -11,25 +11,31 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.CreatTripConfirmationActivity"></activity>
-        <activity android:name=".Activities.HistoryActivity" />
-        <activity android:name=".Activities.SignUp">
+        <activity android:name=".activities.CreateTripConfirmationActivity"/>
+        <activity android:name=".activities.HistoryActivity" />
+        <activity android:name=".activities.SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.DriverInterface">
+        <activity android:name=".activities.DriverInterface">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.CreateTrip" />
-        <activity android:name=".Activities.PassengerDriverSelector" />
-        <activity android:name=".Activities.TripSearcher" />
+        <activity android:name=".activities.CreateTrip" />
+        <activity android:name=".activities.PassengerDriverSelector" />
+        <activity android:name=".activities.TripSearcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.PassengerInterface"/>
     </application>
 
 </manifest>

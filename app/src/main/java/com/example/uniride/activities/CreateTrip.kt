@@ -1,14 +1,15 @@
-package com.example.uniride.Activities
+package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
+import com.example.uniride.showToast
 import kotlinx.android.synthetic.main.activity_create_trip.*
+import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,8 +17,9 @@ class CreateTrip : AppCompatActivity() {
 
     private var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
     private var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
-    val homeAddress : String = "New Lynn, Auckland"
-    val uniAddress : String = "Auckland University of Technology"
+    private val homeAddress : String = "New Lynn, Auckland"
+    private val uniAddress : String = "Auckland University of Technology"
+    var route : String = "Unknown Route"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +27,7 @@ class CreateTrip : AppCompatActivity() {
 
         //When back button pressed, page will go back to driver interface
         backButton.setOnClickListener{
-            val intent = Intent(this, DriverInterface::class.java)
-            startActivity(intent)
+            startActivity<DriverInterface>()
         }
 
         //Calendar for getting current date and time
@@ -67,6 +68,41 @@ class CreateTrip : AppCompatActivity() {
             timePicker.show()
         }
 
+        homeToUni.setOnClickListener {
+            route  = "From $homeAddress to $uniAddress"
+        }
 
+        uniToHome.setOnClickListener{
+            route = "From $uniAddress to $homeAddress"
+        }
+
+        //When Create trip button pressed, information entered will be sent to confirmation page
+        createTripButton.setOnClickListener {
+
+            val dateOfTrip = date_of_trip_in_create.text.toString()
+            val eta = arrivalTime.text.toString()
+            val priceOfTrip = java.lang.Double.parseDouble(enterPrice.text.toString())
+            val carDetail = enterCarMake.text.toString()
+            val numberOfPassenger = Integer.parseInt(numberOfPassenger.text.toString())
+
+            //If any of the field empty, will not proceed until every field filled
+            when {
+                dateOfTrip.isEmpty() -> showToast("Please enter a date for the trip")
+                eta.isEmpty() -> showToast("Please enter an arrival time for the trip")
+                route == "Unknown Route" -> showToast("Please select the route")
+                priceOfTrip == 0.00 -> showToast("Please enter a price for the trip")
+                carDetail.isEmpty() -> showToast("Please enter you car make and model")
+                numberOfPassenger == 0 -> showToast("Please enter number of passenger")
+                else -> {
+                    //Sends the information to Create trip confirmation activity
+                    startActivity<CreateTripConfirmationActivity>("Date of trip" to dateOfTrip,
+                        "Arrival time" to eta,
+                        "Price of trip" to priceOfTrip,
+                        "Car details" to carDetail,
+                        "Route of trip" to route,
+                        "Number of passenger" to numberOfPassenger)
+                }
+            }
+        }
     }
 }
