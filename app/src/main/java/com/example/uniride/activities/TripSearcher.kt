@@ -2,23 +2,32 @@ package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.DatePicker
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
+import com.example.uniride.showToast
 import kotlinx.android.synthetic.main.activity_create_trip.*
 import kotlinx.android.synthetic.main.activity_tripsearcher.*
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class TripSearcher : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     private var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
     private var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tripsearcher)
@@ -27,7 +36,7 @@ class TripSearcher : AppCompatActivity() {
         val now = Calendar.getInstance()
 
         //get date entered by user
-        trip_date_searcher.setOnClickListener{
+        trip_date_searcher.setOnClickListener(){
             //Shows the date picker and takes the user selected date and shows on date text view
             val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, mYear, mMonth, mDay ->
                 val selectedDate = Calendar.getInstance()
@@ -49,6 +58,7 @@ class TripSearcher : AppCompatActivity() {
 
         }
 
+
         //Shows time picker and takes the user selected time and shows on time text view
         trip_time_searcher.setOnClickListener{
             val timePicker = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
@@ -57,16 +67,40 @@ class TripSearcher : AppCompatActivity() {
                 selectedTime.set(Calendar.MINUTE, minute)
                 val time = timeFormat.format(selectedTime.time)
 
-                //if selected time is earlier than current date
-                if(selectedTime.time < now.time){
-                    val toast = Toast.makeText(this,"Please enter a later time!", Toast.LENGTH_SHORT)
-                    toast.setGravity(Gravity.TOP, 10, 700)
-                    toast.show()
+                val dateOfTrip = trip_date_searcher.text.toString()
+
+                //TODO: IF DATE IS TODAY, CHECK IF TIME IS BEFORE CURRENT TIME!
+                when {
+                    dateOfTrip.isEmpty() -> showToast("Please enter a date first!")
+                    else -> trip_time_searcher.setText(time)
                 }
-                else trip_time_searcher.setText(time)
             },
                 now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false)
             timePicker.show()
+        }
+
+        radioGroup_searcher.setOnCheckedChangeListener(
+            RadioGroup.OnCheckedChangeListener{ group, checkedId ->
+                val radio: RadioButton = findViewById(checkedId)
+            }
+        )
+
+        button_searchTrip_searcher.setOnClickListener{
+            val dateOfTrip = trip_date_searcher.text.toString()
+            val timeOfTrip = trip_time_searcher.text.toString()
+            
+            //get chosen filter
+            var id: Int = radioGroup_searcher.checkedRadioButtonId
+
+            when {
+                dateOfTrip.isEmpty() -> showToast("Please enter a date first!")
+                timeOfTrip.isEmpty() -> showToast("Please enter a time first!")
+                id==-1 -> showToast("No filter chosen!")
+                else ->         setContentView(R.layout.activity_history)
+            }
+        }
+        button_back_searcher.setOnClickListener{
+            setContentView(R.layout.activity_passenger_interface)
         }
     }
 }
