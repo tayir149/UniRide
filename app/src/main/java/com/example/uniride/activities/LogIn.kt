@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.activity_sign_up.login
 
 class LogIn: AppCompatActivity(){
 
@@ -14,6 +16,11 @@ class LogIn: AppCompatActivity(){
 
          login.setOnClickListener {
              val intent = Intent(this, PassengerDriverSelector::class.java)
+             startActivity(intent)
+         }
+
+         signupnowbutton.setOnClickListener {
+             val intent = Intent(this, SignUp::class.java)
              startActivity(intent)
          }
      }

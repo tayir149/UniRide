@@ -52,4 +52,5 @@
     <string name="_0">0</string>
     <string name="maximum_passenger">Maximum Passenger</string>
     <string name="enter_the_number_of_passenger_you_can_take">Enter the number of passenger you can take</string>
+    <string name="title_activity_options">Options</string>
 </resources>

@@ -16,6 +16,11 @@ class SignUp: AppCompatActivity(){
              val intent = Intent(this, PassengerDriverSelector::class.java)
              startActivity(intent)
          }
+
+         loginherebutton.setOnClickListener {
+             val intent = Intent(this, LogIn::class.java)
+             startActivity(intent)
+         }
      }
 
 }

@@ -154,18 +154,19 @@
             android:layout_marginBottom="85dp"
             android:text="Already have an account?"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintEnd_toStartOf="@+id/loginherebutton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/loginherebutton"
             android:layout_width="87dp"
             android:layout_height="20dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="117dp"
             android:layout_marginRight="117dp"
             android:layout_marginBottom="85dp"
+            android:clickable="true"
             android:text="Login here."
             android:textColor="#FF5722"
             app:layout_constraintBottom_toBottomOf="parent"
