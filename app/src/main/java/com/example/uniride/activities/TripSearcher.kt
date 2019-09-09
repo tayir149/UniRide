@@ -88,7 +88,7 @@ class TripSearcher : AppCompatActivity() {
         button_searchTrip_searcher.setOnClickListener{
             val dateOfTrip = trip_date_searcher.text.toString()
             val timeOfTrip = trip_time_searcher.text.toString()
-            
+
             //get chosen filter
             var id: Int = radioGroup_searcher.checkedRadioButtonId
 
