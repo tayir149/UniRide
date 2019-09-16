@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.HistoryActivity">
+
+    <Button
+            android:id="@+id/triplist_route_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:background="#00F5F1F1"
+            android:text="@string/buttonHistory1"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="@+id/triplist_noPassengers_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_noPassengers_text" />
+
+    <Button
+            android:id="@+id/triplist_message_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:background="#00ECE3E3"
+            android:text="@string/buttonHistory2"
+            android:textColor="#16BE12"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/triplist_route_button"
+            app:layout_constraintTop_toTopOf="@+id/triplist_route_button" />
+
+    <TextView
+            android:id="@+id/triplist_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/historyDate"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/triplist_driver_text"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/historyDriver"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="@+id/triplist_date"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_date" />
+
+    <TextView
+            android:id="@+id/triplist_pickup_text"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:text="@string/historyPickup"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="@+id/triplist_driver_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_driver_text" />
+
+    <TextView
+            android:id="@+id/triplist_eta_text"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:text="@string/historyETA"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="@+id/triplist_pickup_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_pickup_text" />
+
+    <TextView
+            android:id="@+id/triplist_noPassengers_text"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:text="@string/historyNumOfPsg"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="@+id/triplist_eta_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_eta_text" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
