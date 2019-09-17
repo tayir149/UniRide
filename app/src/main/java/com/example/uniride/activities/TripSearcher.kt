@@ -2,6 +2,7 @@ package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import com.example.uniride.showToast
 import kotlinx.android.synthetic.main.activity_create_trip.*
+import kotlinx.android.synthetic.main.activity_passenger_interface.*
 import kotlinx.android.synthetic.main.activity_tripsearcher.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -31,6 +33,14 @@ class TripSearcher : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tripsearcher)
+
+        //check which button was pressed to enter tripsearcher activity
+        val pIntent = intent
+        val prevAct = pIntent.getStringExtra("FROM_ACTIVITY")
+        when(prevAct){
+            "uni-home" -> text_pageTitle_searcher.text = "University to Home"
+            "home-uni" -> text_pageTitle_searcher.text = "Home to University"
+        }
 
         //Calendar for current time
         val now = Calendar.getInstance()
@@ -88,19 +98,20 @@ class TripSearcher : AppCompatActivity() {
         button_searchTrip_searcher.setOnClickListener{
             val dateOfTrip = trip_date_searcher.text.toString()
             val timeOfTrip = trip_time_searcher.text.toString()
-            
+
             //get chosen filter
             var id: Int = radioGroup_searcher.checkedRadioButtonId
 
+            val intent = Intent(this, TripList::class.java)
             when {
                 dateOfTrip.isEmpty() -> showToast("Please enter a date first!")
                 timeOfTrip.isEmpty() -> showToast("Please enter a time first!")
                 id==-1 -> showToast("No filter chosen!")
-                else ->         setContentView(R.layout.activity_history)
+                else ->  startActivity(intent)
             }
         }
         button_back_searcher.setOnClickListener{
-            setContentView(R.layout.activity_passenger_interface)
+            finish()
         }
     }
 }

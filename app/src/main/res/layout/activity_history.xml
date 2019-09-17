@@ -61,7 +61,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/header_history"
+            android:id="@+id/history_header"
             android:layout_width="0dp"
             android:layout_height="72dp"
             android:background="#FF5224"
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-            android:id="@+id/textView"
+            android:id="@+id/history_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
