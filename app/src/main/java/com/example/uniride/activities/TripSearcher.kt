@@ -89,11 +89,10 @@ class TripSearcher : AppCompatActivity() {
             timePicker.show()
         }
 
-        radioGroup_searcher.setOnCheckedChangeListener(
-            RadioGroup.OnCheckedChangeListener{ group, checkedId ->
-                val radio: RadioButton = findViewById(checkedId)
-            }
-        )
+        radioGroup_searcher.setOnCheckedChangeListener { _, checkedId ->
+            val radio: RadioButton = findViewById(checkedId)
+            println(radio)
+        }
 
         button_searchTrip_searcher.setOnClickListener{
             val dateOfTrip = trip_date_searcher.text.toString()
