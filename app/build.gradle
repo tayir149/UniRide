@@ -39,4 +39,10 @@ dependencies {
     implementation 'org.jetbrains.anko:anko-design:0.10.7'
     implementation 'org.jetbrains.anko:anko-recyclerview-v7:0.10.7'
     implementation 'org.jetbrains.anko:anko-cardview-v7:0.10.7'
+
+    implementation 'com.google.firebase:firebase-auth:19.0.0'
+
+    // add SDKs for desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
+
 }
