@@ -24,8 +24,8 @@ class SignUp: AppCompatActivity(){
                  return@setOnClickListener
              }
 
-             val intent = Intent(this, PassengerDriverSelector::class.java)
-             startActivity(intent)
+             //val intent = Intent(this, PassengerDriverSelector::class.java)
+             //startActivity(intent)
 
              Log.d("SignUp.kt", "Email is: " +email)
              Log.d("SignUp.kt", "Password: $password")
@@ -35,7 +35,10 @@ class SignUp: AppCompatActivity(){
                      if (!it.isSuccessful) return@addOnCompleteListener
 
                      // else if successful
-                     //Log.d("Main","Successfully created user with uid: ${it.result.user.uid}")
+                     Log.d("Main","Successfully created user with uid: ${it.result.user.uid}")
+                 }
+                 .addOnFailureListener(){
+                     Log.d("Main", "Failed to create user: ${it.message}")
                  }
          }
 
