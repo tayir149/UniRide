@@ -17,15 +17,12 @@ class SignUp: AppCompatActivity(){
 
          login.setOnClickListener {
              val email = username.text.toString()
-             val password = password.text.toString()
+             val password = password_signup.text.toString()
 
              if (email.isEmpty() || password.isEmpty()){
                  Toast.makeText(this, "Please enter text in the email/password", Toast.LENGTH_SHORT).show()
                  return@setOnClickListener
              }
-
-             //val intent = Intent(this, PassengerDriverSelector::class.java)
-             //startActivity(intent)
 
              Log.d("SignUp.kt", "Email is: " +email)
              Log.d("SignUp.kt", "Password: $password")
@@ -36,9 +33,13 @@ class SignUp: AppCompatActivity(){
 
                      // else if successful
                      Log.d("Main","Successfully created user with uid: ${it.result.user.uid}")
+                     val intent = Intent(this, PassengerDriverSelector::class.java)
+                     startActivity(intent)
                  }
                  .addOnFailureListener(){
                      Log.d("Main", "Failed to create user: ${it.message}")
+                     Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
+                         .show()
                  }
          }
 

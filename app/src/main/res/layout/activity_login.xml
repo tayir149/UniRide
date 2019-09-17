@@ -48,7 +48,6 @@
             android:id="@+id/textView16"
             android:layout_width="147dp"
             android:layout_height="21dp"
-            android:layout_marginTop="11dp"
             android:layout_marginEnd="224dp"
             android:layout_marginRight="224dp"
             android:layout_marginBottom="296dp"
@@ -56,8 +55,7 @@
             android:textColor="#FF5722"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintStart_toEndOf="@+id/textView2" />
 
     <Button
             android:id="@+id/login"
@@ -100,39 +98,40 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-            android:id="@+id/password"
-            android:layout_width="329dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-
-            android:layout_marginEnd="24dp"
-            android:autofillHints=""
-            android:hint="Password"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.406"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username" />
-
-    <EditText
-            android:id="@+id/username"
-            android:layout_width="329dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="232dp"
-            android:layout_marginEnd="24dp"
-
-            android:autofillHints=""
+            android:id="@+id/university_email"
+            android:layout_width="327dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="4dp"
+            android:editable="true"
+            android:ems="10"
             android:hint="University Email"
             android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.411"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" /><![CDATA[
+            app:layout_constraintBottom_toTopOf="@+id/password_login"
+            app:layout_constraintEnd_toEndOf="@+id/appName"
+            app:layout_constraintStart_toStartOf="@+id/appName"
+            app:layout_constraintTop_toBottomOf="@+id/appName" />
+
+    <EditText
+            android:id="@+id/password_login"
+            android:layout_width="329dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="30dp"
+            android:editable="true"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/textView16"
+            app:layout_constraintEnd_toEndOf="@+id/university_email"
+            app:layout_constraintStart_toStartOf="@+id/university_email"
+            app:layout_constraintTop_toBottomOf="@+id/university_email" /><![CDATA[
+
+
+
+
+
+
 
 
 
@@ -141,6 +140,9 @@
     "
     tools:layout_editor_absoluteX="32dp"
     tools:layout_editor_absoluteY="104dp" />
+
+
+
 
 
 ]]>

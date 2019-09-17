@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/password_login"
             app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -56,7 +56,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-            android:id="@+id/password"
+            android:id="@+id/password_signup"
             android:layout_width="329dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
