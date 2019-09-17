@@ -6,10 +6,19 @@
         android:layout_height="match_parent"
         tools:context=".activities.HistoryActivity">
 
+        <ListView
+            android:id="@+id/triplist_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+    </ListView>
+
+
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/triplist_header"
-            android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_width="430dp"
+            android:layout_height="81dp"
             android:background="#FF5224"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
@@ -18,44 +27,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-            android:id="@+id/triplist_listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
+    <Button
+            android:id="@+id/triplist_back_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="38dp"
+            android:layout_height="54dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/backButton"
+            android:textColor="@color/whiteFont"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/triplist_header"
+            app:layout_constraintEnd_toStartOf="@+id/triplist_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/triplist_header" />
 
     <TextView
             android:id="@+id/triplist_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
+            android:layout_width="165dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
             android:text="@string/list_of_trips"
             android:textColor="#FFFEFE"
             android:textSize="30sp"
             app:fontFamily="sans-serif"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintBottom_toBottomOf="@+id/triplist_header"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.10925645" />
-
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="98dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

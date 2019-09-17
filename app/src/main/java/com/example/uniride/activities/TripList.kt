@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import kotlinx.android.synthetic.main.activity_history.*
+import kotlinx.android.synthetic.main.activity_triplist.*
 import kotlinx.android.synthetic.main.activity_triprow.*
 import org.jetbrains.anko.startActivity
 
@@ -25,10 +26,14 @@ class TripList : AppCompatActivity() {
         //adaptor telling list what to render
         listView.adapter = MyCustomAdapter(this)
 
-//        triplist_message_button.setOnClickListener{
-//            val userID = "royalty37"
-//            startActivity<Messenger>("userID" to userID)
-//        }
+        triplist_back_button.setOnClickListener{
+            finish()
+        }
+
+        triplist_message_button.setOnClickListener{
+            val userID = "royalty37"
+            startActivity<Messenger>("userID" to userID)
+        }
     }
     private class MyCustomAdapter(context: Context):BaseAdapter(){
         private val mContext: Context
@@ -56,5 +61,9 @@ class TripList : AppCompatActivity() {
 
             return rowMain
         }
+
+//        public class ViewHolder{
+//            Button button;
+//        }
     }
 }
