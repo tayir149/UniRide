@@ -6,6 +6,42 @@
         android:layout_height="match_parent"
         tools:context=".activities.HistoryActivity">
 
+    <TextView
+            android:id="@+id/triplist_driver_textValue"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/triplist_driver_text"
+            app:layout_constraintTop_toTopOf="@+id/triplist_driver_text" />
+
+    <TextView
+            android:id="@+id/triplist_noPassengers_textValue"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/triplist_noPassengers_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_eta_textValue" />
+
+    <TextView
+            android:id="@+id/triplist_eta_textValue"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/triplist_eta_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_pickup_textValue" />
+
+    <TextView
+            android:id="@+id/triplist_pickup_textValue"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/triplist_pickup_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_driver_textValue" />
+
     <Button
             android:id="@+id/triplist_route_button"
             style="?android:attr/borderlessButtonStyle"
@@ -52,7 +88,7 @@
 
     <TextView
             android:id="@+id/triplist_driver_text"
-            android:layout_width="300dp"
+            android:layout_width="150dp"
             android:layout_height="25dp"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
@@ -65,7 +101,7 @@
 
     <TextView
             android:id="@+id/triplist_pickup_text"
-            android:layout_width="300dp"
+            android:layout_width="150dp"
             android:layout_height="25dp"
             android:text="@string/historyPickup"
             android:textSize="18sp"
@@ -75,7 +111,7 @@
 
     <TextView
             android:id="@+id/triplist_eta_text"
-            android:layout_width="300dp"
+            android:layout_width="150dp"
             android:layout_height="25dp"
             android:text="@string/historyETA"
             android:textSize="18sp"
@@ -85,7 +121,7 @@
 
     <TextView
             android:id="@+id/triplist_noPassengers_text"
-            android:layout_width="300dp"
+            android:layout_width="150dp"
             android:layout_height="25dp"
             android:text="@string/historyNumOfPsg"
             android:textSize="18sp"
