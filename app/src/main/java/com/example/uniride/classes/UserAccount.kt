@@ -1,21 +1,34 @@
 package com.example.uniride.classes
 
+import android.util.Log
+import com.google.firebase.firestore.FirebaseFirestore
 import java.math.BigDecimal
 
 class UserAccount (firstName:String?,lastName:String?,address:String?){
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
     private val userFirstName = firstName
     private val userLastName = lastName
     private val userAddress = address
-    //get userURD from database
+
     //urd = uniride dollar
-    var userURD : BigDecimal? = BigDecimal.ZERO
-    fun printUser(){
-        println(userFirstName+userLastName+":"+userAddress)
-        println("You have: "+userURD)
+    //var userURD : BigDecimal? = BigDecimal.ZERO
+
+    fun saveUserToDatabase(){
+        val user = mapOf("first name" to userFirstName,"last name" to userLastName, "address" to userAddress)
+
+        db.collection("users")
+            .add(user)
+            .addOnCompleteListener {
+                if (!it.isSuccessful) return@addOnCompleteListener
+
+                // else if successful
+                Log.d("Main","Successfully created user")
+            }
+            .addOnFailureListener(){
+                Log.d("Main", "Failed to create user: ${it.message}")
+//                Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
+//                    .show()
+            }
     }
 }
-//testing
-//fun main(args: Array<String>){
-//    val obj = UserAccount("Jekk","Grata","my address 01")
-//    obj.printUser()
-//}
