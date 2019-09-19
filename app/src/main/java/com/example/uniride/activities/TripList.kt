@@ -36,10 +36,10 @@ class TripList : AppCompatActivity() {
     private class MyCustomAdapter(context: Context):BaseAdapter(){
         private val mContext: Context = context
         private val names = arrayListOf<String>(
-            "Jekk", "Bruv", "Yeet"
+            "Name 1", "Name 2", "Name 3"
         )
 
-        override fun getItem(p0: Int): Any {return "womp womp"}
+        override fun getItem(p0: Int): Any {return "trial"}
         override fun getItemId(p0: Int): Long {return p0.toLong()}
         override fun getCount(): Int {return names.size}
 
