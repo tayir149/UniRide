@@ -34,16 +34,6 @@ class SignUp: AppCompatActivity(){
                  address.isEmpty() -> Toast.makeText(this, "Please enter your address!", Toast.LENGTH_SHORT).show()
 
                  else ->{
-                     //GRAB INFORMATION
-                     val userAccount = com.example.uniride.classes.UserAccount(userFirstName, userLastName, address, email)
-                     userAccount.saveUserToDatabase()
-                 }
-
-             }
-
-                     Log.d("SignUp.kt", "Email is: " +email)
-                     Log.d("SignUp.kt", "Password: $password")
-
                      FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                          .addOnCompleteListener {
                              if (!it.isSuccessful) return@addOnCompleteListener
@@ -61,6 +51,17 @@ class SignUp: AppCompatActivity(){
                              Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
                                  .show()
                          }
+                     //GRAB INFORMATION
+                     val userAccount = com.example.uniride.classes.UserAccount(userFirstName, userLastName, address, email)
+                     userAccount.saveUserToDatabase()
+                 }
+
+             }
+
+                     Log.d("SignUp.kt", "Email is: " +email)
+                     Log.d("SignUp.kt", "Password: $password")
+
+
 
                  }
          loginherebutton.setOnClickListener {
