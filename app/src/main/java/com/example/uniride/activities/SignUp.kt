@@ -26,8 +26,9 @@ class SignUp: AppCompatActivity(){
                  Toast.makeText(this, "Please enter text in the email/password", Toast.LENGTH_SHORT).show()
                  return@setOnClickListener
              }
-
              when{
+//                 email.isEmpty() -> Toast.makeText(this, "Please enter text in the email", Toast.LENGTH_SHORT).show()
+//                 password.isEmpty() -> Toast.makeText(this, "Please enter text in the password", Toast.LENGTH_SHORT).show()
                  userFirstName.isEmpty() -> Toast.makeText(this, "Please enter your first name!", Toast.LENGTH_SHORT).show()
                  userLastName.isEmpty() -> Toast.makeText(this, "Please enter your last name!", Toast.LENGTH_SHORT).show()
                  address.isEmpty() -> Toast.makeText(this, "Please enter your address!", Toast.LENGTH_SHORT).show()
