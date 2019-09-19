@@ -9,32 +9,32 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_sign_up.login
 
-class LogIn: AppCompatActivity(){
+class LogIn: AppCompatActivity() {
 
-     override fun onCreate(savedInstanceState: Bundle?) {
-         super.onCreate(savedInstanceState)
-         setContentView(R.layout.activity_login)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
 
          login.setOnClickListener {
-             val email = university_email.text.toString()
-             val password = password_login.text.toString()
-
-             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-             //if (!it.
-
-             // else if successful
-             //Log.d("Main","Successfully created user with uid: ${it.result.user.uid}")
-             //.addFailureListener
-
-
-             //val intent = Intent(this, PassengerDriverSelector::class.java)
-             //startActivity(intent)
-         }
-
-         signupnowbutton.setOnClickListener {
-             val intent = Intent(this, SignUp::class.java)
+             val intent = Intent(this, PassengerDriverSelector::class.java)
              startActivity(intent)
          }
-     }
 
+//             val email = university_email.text.toString()
+//             val password = password_login.text.toString()
+//
+//             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+//        if (!it.
+//
+//         else if successful
+//        Log.d("Main","Successfully created user with uid: ${it.result.user.uid}")
+//        .addFailureListener
+//
+//
+
+        signupnowbutton.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
+        }
+    }
 }
