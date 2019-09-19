@@ -65,11 +65,9 @@ class SignUp: AppCompatActivity(){
 
                  }
          loginherebutton.setOnClickListener {
-             Log.d("SignUp.kt", "Try to show login activity")
+             Log.d("SignUp.kt", "User has been directed to login activity")
              val intent = Intent(this, LogIn::class.java)
              startActivity(intent)
          }
-         }
-
-
      }
+}
