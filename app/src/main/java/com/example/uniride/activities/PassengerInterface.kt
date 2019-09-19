@@ -28,5 +28,10 @@ class PassengerInterface : AppCompatActivity(){
             intent.putExtra("FROM_ACTIVITY","home-uni")
             startActivity(intent)
         }
+
+        /* When TRIP HISTORY button pressed, will navigate to history page */
+        tripHistoryButton.setOnClickListener {
+            startActivity<HistoryActivity>()
+        }
     }
 }

@@ -2,28 +2,57 @@ package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.uniride.R
+import com.example.uniride.classes.UserAccount
 import com.example.uniride.showToast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_create_trip.*
+import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateTrip : AppCompatActivity() {
 
-    private var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
-    private var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
-    private val homeAddress : String = "New Lynn, Auckland"
-    private val uniAddress : String = "Auckland University of Technology"
-    var route : String = "Unknown Route"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_trip)
+
+        val db = FirebaseFirestore.getInstance()
+        val uIdRef = FirebaseAuth.getInstance().currentUser?.uid
+
+        lateinit var  driverName: String
+        var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
+        var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
+        lateinit var  homeAddress : String
+        val uniAddress : String = "Auckland University of Technology"
+        var route : String = "Unknown Route"
+
+        val docRef = uIdRef?.let { db.collection("users").document(it) }
+        docRef?.get()?.addOnSuccessListener { document ->
+            if (document != null) {
+                homeAddress = document.getString("address").toString()
+                var firstName = document.getString("first name")
+                var lastName = document.getString("last name")
+                driverName = "$firstName $lastName"
+
+            } else {
+                Log.d("Main", "No such document")
+            }
+        }?.addOnFailureListener { exception ->
+            Log.d("Main", "get failed with ", exception)
+        }
 
         //When back button pressed, page will go back to driver interface
         backButton.setOnClickListener{
@@ -100,7 +129,8 @@ class CreateTrip : AppCompatActivity() {
                         "Price of trip" to priceOfTrip,
                         "Car details" to carDetail,
                         "Route of trip" to route,
-                        "Number of passenger" to numberOfPassenger)
+                        "Number of passenger" to numberOfPassenger,
+                        "Driver Name" to driverName)
                 }
             }
         }

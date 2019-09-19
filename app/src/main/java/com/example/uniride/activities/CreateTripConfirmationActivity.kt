@@ -21,9 +21,11 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         val price = bundle.getDouble("Price of trip")
         val carDetails = bundle.getString("Car details")
         val numberOfPassenger = bundle.getInt("Number of passenger")
+        val driverName = bundle.getString("Driver Name")
 
         /* Display the trip details on screen */
-        val tripDetails = "Date: $dateOfTrip\n" +
+        val tripDetails = "Driver`s Name: $driverName\n" +
+                "Date: $dateOfTrip\n" +
                 "Arrival Time: $eta\n" +
                 "Route: $route\n" +
                 "Price: \$$price\n" +
