@@ -51,9 +51,6 @@ class SignUp: AppCompatActivity(){
                              Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
                                  .show()
                          }
-                     //GRAB INFORMATION
-                     val userAccount = com.example.uniride.classes.UserAccount(userFirstName, userLastName, address, email)
-                     userAccount.saveUserToDatabase()
                  }
 
              }
