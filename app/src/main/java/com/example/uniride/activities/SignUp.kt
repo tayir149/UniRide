@@ -24,6 +24,7 @@ class SignUp: AppCompatActivity(){
              val userLastName = lastName.text.toString()
              val address = address.text.toString()
 
+
              when{
                  email.isEmpty() -> Toast.makeText(this, "Please enter text in the email", Toast.LENGTH_SHORT).show()
                  password.isEmpty() -> Toast.makeText(this, "Please enter text in the password", Toast.LENGTH_SHORT).show()

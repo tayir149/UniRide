@@ -16,7 +16,6 @@ class Messenger : AppCompatActivity()
 
         val bundle: Bundle? = intent.extras
         val userID = bundle?.getString("userID")
-
         val intent = Intent()
         intent.putExtra(Intent.EXTRA_TEXT, "Hello")
         intent.type = "text/plain"

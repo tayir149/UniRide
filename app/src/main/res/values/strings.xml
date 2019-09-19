@@ -54,4 +54,5 @@
     <string name="enter_the_number_of_passenger_you_can_take">Enter the number of passenger you can take</string>
     <string name="title_activity_options">Options</string>
     <string name ="list_of_trips">List of Trips</string>
+    <string name="facebook_app_id">1209249802615836</string>"
 </resources>
