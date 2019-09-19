@@ -14,7 +14,7 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
     private val userEmail = email
 
     //urd = uniride dollar
-    var userURD : BigDecimal? = BigDecimal.ZERO
+    var userURD : Double? = 0.00
 
     fun saveUserToDatabase(){
         val user = mapOf("email" to userEmail, "first name" to userFirstName,"last name" to userLastName, "address" to userAddress, "user credits" to userURD)
@@ -36,13 +36,13 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
         }
     }
 
-    fun addCredit(creditToAdd:BigDecimal?){
+    fun addCredit(creditToAdd:Double?){
         userURD = userURD?.plus(creditToAdd!!)
     }
-    fun removeCredit(creditToRemove:BigDecimal?){
-        userURD = userURD?.min(creditToRemove!!)
+    fun removeCredit(creditToRemove:Double?){
+        userURD = userURD?.minus(creditToRemove!!)
     }
-    fun getCredit(): BigDecimal? {
+    fun getCredit(): Double? {
         return userURD
     }
 
