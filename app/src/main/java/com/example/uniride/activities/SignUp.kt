@@ -32,9 +32,28 @@ class SignUp: AppCompatActivity(){
                  address.isEmpty() -> Toast.makeText(this, "Please enter your address!", Toast.LENGTH_SHORT).show()
 
                  else ->{
-                     //GRAB INFORMATION
-                     val userAccount = com.example.uniride.classes.UserAccount(userFirstName, userLastName, address)
-                     userAccount.saveUserToDatabase()
+
+                     Log.d("SignUp.kt", "Email is: " +email)
+                     Log.d("SignUp.kt", "Password: $password")
+
+                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                         .addOnCompleteListener {
+                             if (!it.isSuccessful) return@addOnCompleteListener
+
+                             // else if successful
+                             Log.d("Main","Successfully created user with uid: ${it.result?.user?.uid}")
+                             //GRAB INFORMATION
+                             val userAccount = com.example.uniride.classes.UserAccount(userFirstName, userLastName, address)
+                             userAccount.saveUserToDatabase()
+                             val intent = Intent(this, PassengerDriverSelector::class.java)
+                             startActivity(intent)
+                         }
+                         .addOnFailureListener(){
+                             Log.d("Main", "Failed to create user: ${it.message}")
+                             Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
+                                 .show()
+                         }
+
                  }
 
              }
@@ -43,23 +62,7 @@ class SignUp: AppCompatActivity(){
 //                 return@setOnClickListener
 //             }
 
-             Log.d("SignUp.kt", "Email is: " +email)
-             Log.d("SignUp.kt", "Password: $password")
 
-             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                 .addOnCompleteListener {
-                     if (!it.isSuccessful) return@addOnCompleteListener
-
-                     // else if successful
-                     Log.d("Main","Successfully created user with uid: ${it.result?.user?.uid}")
-                     val intent = Intent(this, PassengerDriverSelector::class.java)
-                     startActivity(intent)
-                 }
-                 .addOnFailureListener(){
-                     Log.d("Main", "Failed to create user: ${it.message}")
-                     Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
-                         .show()
-                 }
          }
 
          loginherebutton.setOnClickListener {
