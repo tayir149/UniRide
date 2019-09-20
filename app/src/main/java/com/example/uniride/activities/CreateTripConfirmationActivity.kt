@@ -44,7 +44,9 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         }
 
         confirmButton.setOnClickListener {
+            val tripCreated = com.example.uniride.classes.Trip(driverName, dateOfTrip, eta, route, price, carDetails, numberOfPassenger).saveTripToDatabase()
             showToast("Trip Created Successfully")
+            startActivity<DriverInterface>()
         }
     }
 }
