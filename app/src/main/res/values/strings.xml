@@ -56,4 +56,17 @@
     <string name ="list_of_trips">List of Trips</string>
     <string name="facebook_app_id">1209249802615836</string>
     <string name="fb_login_protocol_scheme">fb1209249802615836</string>
+    <string name="history_title">History</string>
+    <string name="history_back_button"><![CDATA[<]]></string>
+    <string name="history_trip_date">Date</string>
+    <string name="history_driver">Driver:</string>
+    <string name="history_pickUpTime">Pickup time:</string>
+    <string name="history_ETA">ETA at Uni:</string>
+    <string name="history_num_of_passengers">No. of Passengers:</string>
+    <string name="history_driver_name" />
+    <string name="history_pickUpTime_view" />
+    <string name="history_ETA_view" />
+    <string name="history_num_of_passengers_view" />
+    <string name="history_show_route_button">SHOW ROUTE</string>
+    <string name="history_message_button">MESSAGE DRIVER</string>
 </resources>
