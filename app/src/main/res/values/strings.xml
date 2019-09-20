@@ -25,6 +25,14 @@
     <string name="please_enter_the_trip_date">Please enter the trip Date</string>
     <string name="_00_00_00">00/00/00</string>
     <string name="dd_mm_yy">DD/MM/YYYY</string>
+    <string name="buttonHistory1">SHOW ROUTE</string>
+    <string name="buttonHistory2">MESSAGE DRIVER</string>
+    <string name="HistoryHeader">History</string>
+    <string name="historyDate">Date</string>
+    <string name="historyDriver">Driver: </string>
+    <string name="historyPickup">Pickup Time: </string>
+    <string name="historyETA">ETA</string>
+    <string name="historyNumOfPsg">No. of passengers: </string>
     <string name="search_for_trips">Search for Trips</string>
     <string name="fastest">Fastest</string>
     <string name="earliest">Earliest</string>
@@ -46,17 +54,6 @@
     <string name="enter_the_number_of_passenger_you_can_take">Enter the number of passenger you can take</string>
     <string name="title_activity_options">Options</string>
     <string name ="list_of_trips">List of Trips</string>
-    <string name="history_title">History</string>
-    <string name="history_back_button"><![CDATA[<]]></string>
-    <string name="history_trip_date">Date</string>
-    <string name="history_driver">Driver:</string>
-    <string name="history_pickUpTime">Pickup time:</string>
-    <string name="history_ETA">ETA at Uni:</string>
-    <string name="history_num_of_passengers">No. of Passengers:</string>
-    <string name="history_driver_name" />
-    <string name="history_pickUpTime_view" />
-    <string name="history_ETA_view" />
-    <string name="history_num_of_passengers_view" />
-    <string name="history_show_route_button">SHOW ROUTE</string>
-    <string name="history_message_button">MESSAGE DRIVER</string>
+    <string name="facebook_app_id">1209249802615836</string>
+    <string name="fb_login_protocol_scheme">fb1209249802615836</string>
 </resources>
