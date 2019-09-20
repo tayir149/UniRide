@@ -1,5 +1,33 @@
 package com.example.uniride.classes
 
-class Trip (val driver: UserAccount,val dateOfTrip: String, val eta: String, val route: String, val priceOfTrip: Double, val carDetails: String, val numberOfPassenger: Int, var listOfPickUps: Array<Pickup>) {
+import android.util.Log
+import com.google.firebase.firestore.FirebaseFirestore
 
-}
+class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String?, priceOfTrip: Double, carDetails: String?, numberOfPassenger: Int) {
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    private val tripDriver= driverName
+    private val date = dateOfTrip
+    private val timeArrival = eta
+    private val routeOfTrip = route
+    private val price = priceOfTrip
+    private val numberOfPassengerOn = numberOfPassenger
+    private val car = carDetails
+
+    fun saveTripToDatabase(){
+        val trip = mapOf("trip_driver" to tripDriver, "date" to date,"estimated_arrival_time" to timeArrival, "route" to routeOfTrip, "price" to price,
+                                            "number_of_passengers" to numberOfPassengerOn, "car_detail" to car)
+
+            db.collection("trips").add(trip)
+                .addOnCompleteListener {
+                    if (!it.isSuccessful) return@addOnCompleteListener
+
+                    // else if successful
+                    Log.d("Trip","Successfully created trip")
+                }
+                .addOnFailureListener(){
+                    Log.d("Trip", "Failed to create trip: ${it.message}")
+                }
+        }
+    }
+

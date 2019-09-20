@@ -21,7 +21,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
-            android:layout_marginBottom="62dp"
+            android:layout_marginBottom="120dp"
             android:background="#ff6d1a"
             android:outlineAmbientShadowColor="#ff6d1a"
             android:text="Sign Up"
@@ -31,7 +31,7 @@
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_signup"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
     <TextView
             android:id="@+id/appName"
@@ -149,6 +149,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="38dp"
             android:layout_marginLeft="38dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="85dp"
             android:text="Already have an account?"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -160,6 +161,7 @@
             android:id="@+id/loginherebutton"
             android:layout_width="87dp"
             android:layout_height="20dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="117dp"
             android:layout_marginRight="117dp"
             android:layout_marginBottom="85dp"

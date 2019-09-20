@@ -91,7 +91,7 @@ class TripSearcher : AppCompatActivity() {
 
         radioGroup_searcher.setOnCheckedChangeListener { _, checkedId ->
             val radio: RadioButton = findViewById(checkedId)
-            println(radio)
+            showToast("You have chosen: ${radio.text}")
         }
 
         button_searchTrip_searcher.setOnClickListener{

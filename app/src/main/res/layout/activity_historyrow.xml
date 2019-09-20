@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.HistoryActivity">
+
+
+    <TextView
+            android:id="@+id/history_trip_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_trip_date"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+    <TextView
+            android:id="@+id/history_driver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/history_driver"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/history_trip_date" />
+
+    <TextView
+            android:id="@+id/history_pickUpTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_pickUpTime"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/history_driver" />
+
+    <TextView
+            android:id="@+id/history_ETA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_ETA"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/history_pickUpTime" />
+
+    <TextView
+            android:id="@+id/history_num_of_passengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_num_of_passengers"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/history_ETA" />
+
+    <TextView
+            android:id="@+id/history_driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_driver_name"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/history_pickUpTime"
+            app:layout_constraintStart_toEndOf="@+id/history_driver" />
+
+    <TextView
+            android:id="@+id/history_pickUpTime_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_pickUpTime_view"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/history_pickUpTime"
+            app:layout_constraintStart_toEndOf="@+id/history_pickUpTime" />
+
+    <TextView
+            android:id="@+id/history_ETA_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_ETA_view"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/history_num_of_passengers"
+            app:layout_constraintStart_toEndOf="@+id/history_ETA" />
+
+    <TextView
+            android:id="@+id/history_num_of_passengers_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_num_of_passengers_view"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/history_num_of_passengers"
+            app:layout_constraintStart_toEndOf="@+id/history_num_of_passengers" />
+
+    <Button
+            android:id="@+id/history_show_route_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:background="#00F5F1F1"
+            android:text="@string/history_show_route_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/history_num_of_passengers" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.55" />
+
+    <Button
+            android:id="@+id/history_message_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="#00F5F1F1"
+            android:text="@string/history_message_button"
+            android:textColor="#16BE12"
+            app:layout_constraintBottom_toBottomOf="@+id/history_show_route_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
