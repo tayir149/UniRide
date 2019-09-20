@@ -22,9 +22,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateTrip : AppCompatActivity() {
-
-
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_trip)
@@ -39,6 +37,7 @@ class CreateTrip : AppCompatActivity() {
         val uniAddress : String = "Auckland University of Technology"
         var route : String = "Unknown Route"
 
+        //Gets the address and name of current signed in user from the FireStore Database
         val docRef = uIdRef?.let { db.collection("users").document(it) }
         docRef?.get()?.addOnSuccessListener { document ->
             if (document != null) {
