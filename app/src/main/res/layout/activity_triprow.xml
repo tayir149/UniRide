@@ -7,15 +7,6 @@
         tools:context=".activities.HistoryActivity">
 
     <TextView
-            android:id="@+id/triplist_driver_textValue"
-            android:layout_width="150dp"
-            android:layout_height="25dp"
-            android:textSize="18sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintStart_toEndOf="@+id/triplist_driver_text"
-            app:layout_constraintTop_toTopOf="@+id/triplist_driver_text" />
-
-    <TextView
             android:id="@+id/triplist_noPassengers_textValue"
             android:layout_width="150dp"
             android:layout_height="25dp"
@@ -40,7 +31,7 @@
             android:textSize="18sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/triplist_pickup_text"
-            app:layout_constraintTop_toBottomOf="@+id/triplist_driver_textValue" />
+            app:layout_constraintTop_toBottomOf="@+id/triplist_date" />
 
     <Button
             android:id="@+id/triplist_route_button"
@@ -87,31 +78,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-            android:id="@+id/triplist_driver_text"
-            android:layout_width="150dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/history_driver"
-            android:textSize="18sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintStart_toStartOf="@+id/triplist_date"
-            app:layout_constraintTop_toBottomOf="@+id/triplist_date" />
-
-    <TextView
-            android:id="@+id/triplist_pickup_text"
-            android:layout_width="150dp"
-            android:layout_height="25dp"
-            android:text="@string/history_pickUpTime"
-            android:textSize="18sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintStart_toStartOf="@+id/triplist_driver_text"
-            app:layout_constraintTop_toBottomOf="@+id/triplist_driver_text" />
-
-    <TextView
             android:id="@+id/triplist_eta_text"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="25dp"
             android:text="@string/history_ETA"
             android:textSize="18sp"
@@ -120,8 +88,18 @@
             app:layout_constraintTop_toBottomOf="@+id/triplist_pickup_text" />
 
     <TextView
+            android:id="@+id/triplist_pickup_text"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:text="@string/history_pickUpTime"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_date"
+            tools:layout_editor_absoluteX="32dp" />
+
+    <TextView
             android:id="@+id/triplist_noPassengers_text"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="25dp"
             android:text="@string/history_num_of_passengers"
             android:textSize="18sp"
