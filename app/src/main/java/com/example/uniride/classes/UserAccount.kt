@@ -36,15 +36,28 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
         }
     }
 
-    fun addCredit(creditToAdd:Double?){
-        userURD = userURD?.plus(creditToAdd!!)
+    fun addCredit(creditToAdd:Double?, passenger:UserAccount){
+        if(passenger.getCredit()!! >= creditToAdd!!){
+            removeCredit(creditToAdd)
+            userURD = userURD?.plus(creditToAdd!!)
+        }
     }
     fun removeCredit(creditToRemove:Double?){
-        userURD = userURD?.minus(creditToRemove!!)
+        val remainingCredit = getCredit()?.minus(creditToRemove!!)
+        if(remainingCredit!! >=0){
+            userURD = userURD?.minus(creditToRemove!!)
+        }
     }
     fun getCredit(): Double? {
         return userURD
     }
-
-
+//
+//    fun main(args:Array<String>){
+//        val user1 = UserAccount("John","Doe","Address Line 2", "johnd@autuni.ac.nz")
+//        val user2 = UserAccount("Jane", "Doe", "Address Line 3", "janed@autuni.ac.nz")
+//        println(getCredit())
+//
+//        user1.addCredit(5.00, user2)
+//        println(getCredit())
+//    }
 }
