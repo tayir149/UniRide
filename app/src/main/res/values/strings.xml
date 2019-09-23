@@ -69,4 +69,5 @@
     <string name="history_num_of_passengers_view" />
     <string name="history_show_route_button">SHOW ROUTE</string>
     <string name="history_message_button">MESSAGE DRIVER</string>
+    <string name="route">Route: </string>
 </resources>

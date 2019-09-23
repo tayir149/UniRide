@@ -7,6 +7,25 @@
         tools:context=".activities.HistoryActivity">
 
     <TextView
+            android:id="@+id/triplist_carDetails_text"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:text="@string/car_make_and_model"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toStartOf="@+id/triplist_eta_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_noPassengers_text" />
+
+    <TextView
+            android:id="@+id/triplist_carDetails_textValue"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/triplist_carDetails_text"
+            app:layout_constraintTop_toBottomOf="@+id/triplist_noPassengers_textValue" />
+
+    <TextView
             android:id="@+id/triplist_noPassengers_textValue"
             android:layout_width="150dp"
             android:layout_height="25dp"
@@ -38,15 +57,14 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="25dp"
             android:background="#00F5F1F1"
             android:text="@string/history_show_route_button"
             android:textStyle="bold"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="@+id/triplist_noPassengers_text"
-            app:layout_constraintTop_toBottomOf="@+id/triplist_noPassengers_text" />
+            app:layout_constraintTop_toBottomOf="@+id/triplist_carDetails_text" />
 
     <Button
             android:id="@+id/triplist_message_button"
@@ -91,7 +109,7 @@
             android:id="@+id/triplist_pickup_text"
             android:layout_width="200dp"
             android:layout_height="25dp"
-            android:text="@string/history_pickUpTime"
+            android:text="@string/route"
             android:textSize="18sp"
             app:fontFamily="sans-serif"
             app:layout_constraintTop_toBottomOf="@+id/triplist_date"
