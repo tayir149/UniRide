@@ -3,7 +3,7 @@ package com.example.uniride.classes
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String?, priceOfTrip: Double, carDetails: String?, numberOfPassenger: Int) {
+class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String?, priceOfTrip: Double, carDetails: String?, numberOfPassenger: Int, userEmail: String?) {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private val tripDriver= driverName
@@ -13,12 +13,14 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
     private val price = priceOfTrip
     private val numberOfPassengerOn = numberOfPassenger
     private val car = carDetails
+    private val userEmailAddress = userEmail
 
     fun saveTripToDatabase(){
         val trip = mapOf("trip_driver" to tripDriver, "date" to date,"estimated_arrival_time" to timeArrival, "route" to routeOfTrip, "price" to price,
                                             "number_of_passengers" to numberOfPassengerOn, "car_detail" to car)
 
-            db.collection("users").add(trip)
+        userEmailAddress?.let {
+            db.collection("users").document(it).collection("created_trips").add(trip)
                 .addOnCompleteListener {
                     if (!it.isSuccessful) return@addOnCompleteListener
 
@@ -28,6 +30,7 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
                 .addOnFailureListener(){
                     Log.d("testCreatingTrip", "Failed to create trip: ${it.message}")
                 }
+        }
         }
     }
 
