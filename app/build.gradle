@@ -52,6 +52,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-auth:16.0.2'
     implementation 'com.android.support:multidex:1.0.3'
+    debugImplementation("androidx.test:core:1.2.0")
 
     // add SDKs for desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries

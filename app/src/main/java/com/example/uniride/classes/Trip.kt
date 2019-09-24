@@ -18,15 +18,15 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
         val trip = mapOf("trip_driver" to tripDriver, "date" to date,"estimated_arrival_time" to timeArrival, "route" to routeOfTrip, "price" to price,
                                             "number_of_passengers" to numberOfPassengerOn, "car_detail" to car)
 
-            db.collection("trips").add(trip)
+            db.collection("users").add(trip)
                 .addOnCompleteListener {
                     if (!it.isSuccessful) return@addOnCompleteListener
 
                     // else if successful
-                    Log.d("Trip","Successfully created trip")
+                    Log.d("testCreatingTrip","Successfully created trip")
                 }
                 .addOnFailureListener(){
-                    Log.d("Trip", "Failed to create trip: ${it.message}")
+                    Log.d("testCreatingTrip", "Failed to create trip: ${it.message}")
                 }
         }
     }
