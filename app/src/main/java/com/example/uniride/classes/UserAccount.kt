@@ -1,9 +1,7 @@
 package com.example.uniride.classes
 
 import android.util.Log
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.math.BigDecimal
 
 class UserAccount (firstName:String?,lastName:String?,address:String?, email:String?){
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -34,7 +32,6 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
                     //                    .show()
                 }
         }
-
     }
 
     fun addCredit(creditToAdd:Double?, passenger:UserAccount){

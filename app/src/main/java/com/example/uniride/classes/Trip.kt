@@ -36,10 +36,9 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
 
     fun saveTripToDatabase(){
         val trip = mapOf("trip_driver" to tripDriver, "date" to date,"estimated_arrival_time" to timeArrival, "route" to routeOfTrip, "price" to price,
-                                            "number_of_passengers" to numberOfPassengerOn, "car_detail" to car)
+                                            "number_of_passengers" to numberOfPassengerOn, "car_detail" to car, "user_email" to userEmailAddress)
 
-        userEmailAddress?.let {
-            db.collection("users").document(it).collection("created_trips").add(trip)
+            db.collection("trips").add(trip)
                 .addOnCompleteListener {
                     if (!it.isSuccessful) return@addOnCompleteListener
 
@@ -49,7 +48,7 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
                 .addOnFailureListener(){
                     Log.d("testCreatingTrip", "Failed to create trip: ${it.message}")
                 }
-        }
+
         }
     }
 
