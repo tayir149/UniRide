@@ -28,7 +28,7 @@ class CreateTrip : AppCompatActivity() {
         setContentView(R.layout.activity_create_trip)
 
         val db = FirebaseFirestore.getInstance()
-        val uIdRef = FirebaseAuth.getInstance().currentUser?.uid
+        val uIdRef = FirebaseAuth.getInstance().currentUser?.email
 
         lateinit var  driverName: String
         var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
@@ -129,7 +129,8 @@ class CreateTrip : AppCompatActivity() {
                         "Car details" to carDetail,
                         "Route of trip" to route,
                         "Number of passenger" to numberOfPassenger,
-                        "Driver Name" to driverName)
+                        "Driver Name" to driverName,
+                        "User Email" to uIdRef)
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.example.uniride.activities
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import com.example.uniride.showToast
@@ -22,6 +23,7 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         val carDetails = bundle.getString("Car details")
         val numberOfPassenger = bundle.getInt("Number of passenger")
         val driverName = bundle.getString("Driver Name")
+        val userEmail = bundle.getString("User Email")
 
         /* Display the trip details on screen */
         val tripDetails = "Driver`s Name: $driverName\n" +
@@ -44,8 +46,10 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         }
 
         confirmButton.setOnClickListener {
-            val tripCreated = com.example.uniride.classes.Trip(driverName, dateOfTrip, eta, route, price, carDetails, numberOfPassenger).saveTripToDatabase()
+            val tripCreated = com.example.uniride.classes.Trip(driverName, dateOfTrip, eta, route, price, carDetails, numberOfPassenger, userEmail)
+            tripCreated.saveTripToDatabase()
             showToast("Trip Created Successfully")
+            Log.d("testCreatingTrip","Successfully created trip")
             startActivity<DriverInterface>()
         }
     }

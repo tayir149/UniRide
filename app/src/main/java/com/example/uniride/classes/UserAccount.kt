@@ -19,7 +19,7 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
     fun saveUserToDatabase(){
         val user = mapOf("email" to userEmail, "first name" to userFirstName,"last name" to userLastName, "address" to userAddress, "user credits" to userURD)
 
-        FirebaseAuth.getInstance().currentUser?.uid?.let {
+        userEmail?.let {
             db.collection("users").document(it)
                 .set(user)
                 .addOnCompleteListener {
@@ -30,10 +30,11 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
                 }
                 .addOnFailureListener(){
                     Log.d("Main", "Failed to create user: ${it.message}")
-    //                Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
-    //                    .show()
+                    //                Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT)
+                    //                    .show()
                 }
         }
+
     }
 
     fun addCredit(creditToAdd:Double?, passenger:UserAccount){

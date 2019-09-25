@@ -51,7 +51,7 @@ class TripList : AppCompatActivity() {
                         var eta = document.document.getString("eta")
                         var details = document.document.getString("carDetails")
                         var passengers = document.document.getLong("noPassengers")?.toInt()
-                        tripArray.add(Trip("test", date, eta, route, 0.0, details, passengers))
+                        tripArray.add(Trip("test", date, eta, route, 0.0, details, passengers, "test"))
 
                         adapter.notifyDataSetChanged()
                         Log.d("TripList", "test $tripArray")
