@@ -5,7 +5,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
-class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String?, priceOfTrip: Double, carDetails: String?, numberOfPassenger: Int?, userEmail: String?) {
+class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String?, priceOfTrip: Double?, carDetails: String?, numberOfPassenger: Int?, userEmail: String?) {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private val tripDriver= driverName
@@ -26,7 +26,7 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
     fun getRoute():String{
         return routeOfTrip.toString()
     }
-    fun getPrice():Double{
+    fun getPrice(): Double? {
         return price
     }
     fun getPassengerNo():Int?{
