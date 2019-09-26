@@ -23,9 +23,14 @@ class DriverInterface : AppCompatActivity() {
         }
 
         /* When TRIP HISTORY button pressed, will navigate to history page */
-        creatTripButton6.setOnClickListener {
+        tripHistoryButton.setOnClickListener {
             startActivity<HistoryActivity>()
         }
+
+        upcomingTripButton.setOnClickListener {
+            startActivity<UpcomingActivity>()
+        }
+
 
 
 

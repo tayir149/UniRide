@@ -2,21 +2,16 @@ package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.example.uniride.R
-import com.example.uniride.classes.UserAccount
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_create_trip.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -34,8 +29,8 @@ class CreateTrip : AppCompatActivity() {
         var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
         var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
         lateinit var  homeAddress : String
-        val uniAddress : String = "Auckland University of Technology"
-        var route : String = "Unknown Route"
+        val uniAddress = "Auckland University of Technology"
+        var route = "Unknown Route"
 
         //Gets the address and name of current signed in user from the FireStore Database
         val docRef = uIdRef?.let { db.collection("users").document(it) }
@@ -55,11 +50,12 @@ class CreateTrip : AppCompatActivity() {
 
         //When back button pressed, page will go back to driver interface
         backButton.setOnClickListener{
-            startActivity<DriverInterface>()
+            finish()
         }
 
         //Calendar for getting current date and time
-        val now = Calendar.getInstance()
+        val nowDate = Calendar.getInstance()
+
 
         date_of_trip_in_create.setOnClickListener {
 
@@ -72,14 +68,15 @@ class CreateTrip : AppCompatActivity() {
                 val date = dateFormat.format(selectedDate.time)
 
                 //if selected date is earlier than current date, shows message:Please enter future date!
-                if(selectedDate.time < now.time){
+                if(selectedDate.time < nowDate.time){
                     val toast = Toast.makeText(this, "Please enter future date!", Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.TOP, 10, 700)
                     toast.show()
                 }
                 else date_of_trip_in_create.setText(date)
             },
-                now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH))
+                nowDate.get(Calendar.YEAR), nowDate.get(Calendar.MONTH), nowDate.get(Calendar.DAY_OF_MONTH))
+
             datePicker.show()
         }
 
@@ -91,8 +88,9 @@ class CreateTrip : AppCompatActivity() {
                 selectedTime.set(Calendar.MINUTE, minute)
                 val time = timeFormat.format(selectedTime.time)
                 arrivalTime.setText(time)
+
             },
-                now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false)
+                nowDate.get(Calendar.HOUR_OF_DAY), nowDate.get(Calendar.MINUTE), false)
             timePicker.show()
         }
 

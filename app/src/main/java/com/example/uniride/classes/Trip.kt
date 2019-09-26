@@ -1,7 +1,9 @@
 package com.example.uniride.classes
 
 import android.util.Log
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String?, priceOfTrip: Double, carDetails: String?, numberOfPassenger: Int?, userEmail: String?) {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()

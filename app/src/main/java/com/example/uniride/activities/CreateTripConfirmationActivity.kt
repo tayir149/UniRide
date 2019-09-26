@@ -37,12 +37,12 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
 
 
         backButton2.setOnClickListener {
-            startActivity<CreateTrip>()
+            finish()
 
         }
 
         cancelButton.setOnClickListener {
-            startActivity<CreateTrip>()
+            finish()
         }
 
         confirmButton.setOnClickListener {
