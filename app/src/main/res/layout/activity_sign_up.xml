@@ -16,13 +16,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="170dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="20dp"
             app:layout_constraintBottom_toTopOf="@+id/login"
+            app:layout_constraintStart_toEndOf="@+id/userIDText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password_signup"/>
+            app:layout_constraintTop_toBottomOf="@id/password_signup"
+            app:layout_constraintVertical_bias="0.461"/>
 
     <Button
             android:id="@+id/login"
@@ -64,12 +64,12 @@
 
     <EditText
             android:id="@+id/password_signup"
-            android:layout_width="329dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
 
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="40dp"
             android:autofillHints=""
             android:hint="Password"
             android:imeOptions="actionDone"
@@ -82,11 +82,11 @@
 
     <EditText
             android:id="@+id/username"
-            android:layout_width="329dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="380dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="40dp"
 
             android:autofillHints=""
             android:hint="University Email"
@@ -99,13 +99,11 @@
 
     <EditText
             android:id="@+id/address"
-            android:layout_width="329dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
+            android:layout_marginEnd="40dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="Address"
@@ -117,13 +115,11 @@
 
     <EditText
             android:id="@+id/firstName"
-            android:layout_width="329dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
+            android:layout_marginEnd="40dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="First Name"
@@ -135,13 +131,11 @@
 
     <EditText
             android:id="@+id/lastName"
-            android:layout_width="329dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
+            android:layout_marginEnd="40dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="Last Name"
@@ -153,15 +147,17 @@
 
     <TextView
             android:id="@+id/userIDText"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="38dp"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="40dp"
             android:text="Facebook UserID"
+            android:layout_marginEnd="20dp"
             app:layout_constraintBottom_toTopOf="@+id/login"
             app:layout_constraintEnd_toStartOf="@+id/login_button"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_signup" />
+            app:layout_constraintTop_toBottomOf="@+id/password_signup"
+            app:layout_constraintVertical_bias="0.487" />
 
     <TextView
             android:id="@+id/textView"
