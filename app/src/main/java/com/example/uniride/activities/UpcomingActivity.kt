@@ -7,10 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uniride.R
 import com.example.uniride.classes.Trip
 import com.example.uniride.classes.TripsAdapter
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_upcoming.*
 import org.jetbrains.anko.startActivity
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class UpcomingActivity : AppCompatActivity() {
 
@@ -18,13 +22,18 @@ class UpcomingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upcoming)
 
+        var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
+
+
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val tripArray = ArrayList<Trip>()
 
+        //Define a layout manager for recycler view
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
 
+        //Link the recycler view with the costume adapter and pass in the Trip array as data
         val adapter = TripsAdapter(this, tripArray)
         recyclerView.adapter = adapter
 
@@ -32,7 +41,12 @@ class UpcomingActivity : AppCompatActivity() {
             finish()
         }
 
-        db.collection("trips")
+        //Only gets current user created trips and only gets future trips
+        val now = Calendar.getInstance()
+        val nowDate = dateFormat.format(now.time)
+        db.collection("trips").whereEqualTo("user_email",
+            FirebaseAuth.getInstance().currentUser?.email
+        ).whereGreaterThanOrEqualTo("date", nowDate)
             .addSnapshotListener{value, e->
                 if (e!=null){
                     Log.w("TripList", "Listen failed.", e)
@@ -47,7 +61,7 @@ class UpcomingActivity : AppCompatActivity() {
                         var eta = document.document.getString("estimated_arrival_time")
                         var details = document.document.getString("car_detail")
                         var passengers = document.document.getLong("number_of_passengers")?.toInt()
-                        var price = document.document.getLong("price")!!.toDouble()
+                        var price = document.document.getDouble("price")
                         var driverEmail = document.document.getString("user_email")
                         tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
 

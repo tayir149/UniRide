@@ -14,13 +14,34 @@
             android:padding="16dp">
 
         <TextView
+                android:id="@+id/tripList_driver_name"
+                android:layout_width="170dp"
+                android:layout_height="25dp"
+                android:text="@string/history_driver"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#050505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/tripList_show_driver_name"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/tripList_driver_name"
+                app:layout_constraintTop_toTopOf="@+id/tripList_driver_name" />
+
+        <TextView
                 android:id="@+id/tripList_date"
                 android:layout_width="170dp"
                 android:layout_height="25dp"
                 android:text="@string/Date"
                 android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#050505"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_driver_name" />
 
         <TextView
                 android:id="@+id/tripList_show_date"
@@ -34,7 +55,9 @@
                 android:id="@+id/tripList_eta"
                 android:layout_width="170dp"
                 android:layout_height="25dp"
+                android:textStyle="bold"
                 android:text="@string/arrival_time"
+                android:textColor="#050505"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tripList_date" />
@@ -52,14 +75,16 @@
                 android:layout_width="170dp"
                 android:layout_height="25dp"
                 android:text="@string/route"
+                android:textStyle="bold"
+                android:textColor="#050505"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tripList_eta" />
 
         <TextView
                 android:id="@+id/tripList_show_route"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/tripList_route"
                 app:layout_constraintTop_toTopOf="@+id/tripList_route" />
@@ -68,10 +93,12 @@
                 android:id="@+id/tripList_passengers"
                 android:layout_width="170dp"
                 android:layout_height="25dp"
+                android:textStyle="bold"
                 android:text="@string/history_num_of_passengers"
+                android:textColor="#050505"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tripList_route" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_route" />
 
         <TextView
                 android:id="@+id/tripList_show_no_of_passenger"
@@ -86,14 +113,16 @@
                 android:layout_width="170dp"
                 android:layout_height="25dp"
                 android:text="@string/car_make_and_model"
+                android:textStyle="bold"
+                android:textColor="#050505"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tripList_passengers" />
 
         <TextView
                 android:id="@+id/tripList_show_car_details"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
+                android:layout_width="205dp"
+                android:layout_height="wrap_content"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/tripList_carDetails"
                 app:layout_constraintTop_toTopOf="@+id/tripList_carDetails" />
@@ -103,9 +132,11 @@
                 android:layout_width="170dp"
                 android:layout_height="25dp"
                 android:text="@string/price"
+                android:textColor="#050505"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tripList_carDetails" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_car_details" />
 
         <TextView
                 android:id="@+id/tripList_show_price"

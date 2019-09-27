@@ -17,6 +17,9 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
     private val car = carDetails
     private val userEmailAddress = userEmail
 
+    fun getTripDriver():String{
+        return tripDriver.toString()
+    }
     fun getDate():String{
         return date.toString()
     }
@@ -43,9 +46,6 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?, route: String
             db.collection("trips").add(trip)
                 .addOnCompleteListener {
                     if (!it.isSuccessful) return@addOnCompleteListener
-
-                    // else if successful
-                    Log.d("testCreatingTrip","Successfully created trip")
                 }
                 .addOnFailureListener(){
                     Log.d("testCreatingTrip", "Failed to create trip: ${it.message}")

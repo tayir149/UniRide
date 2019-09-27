@@ -54,28 +54,29 @@ class CreateTrip : AppCompatActivity() {
         }
 
         //Calendar for getting current date and time
-        val nowDate = Calendar.getInstance()
+        val now = Calendar.getInstance()
+        val selectedDate = Calendar.getInstance()
 
 
         date_of_trip_in_create.setOnClickListener {
 
             //Shows the date picker and takes the user selected date and shows on date text view
             val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, mYear, mMonth, mDay ->
-                val selectedDate = Calendar.getInstance()
+
                 selectedDate.set(Calendar.YEAR, mYear)
                 selectedDate.set(Calendar.MONTH, mMonth)
                 selectedDate.set(Calendar.DAY_OF_MONTH, mDay)
                 val date = dateFormat.format(selectedDate.time)
 
                 //if selected date is earlier than current date, shows message:Please enter future date!
-                if(selectedDate.time < nowDate.time){
+                if(selectedDate.time < now.time){
                     val toast = Toast.makeText(this, "Please enter future date!", Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.TOP, 10, 700)
                     toast.show()
                 }
                 else date_of_trip_in_create.setText(date)
             },
-                nowDate.get(Calendar.YEAR), nowDate.get(Calendar.MONTH), nowDate.get(Calendar.DAY_OF_MONTH))
+                now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH))
 
             datePicker.show()
         }
@@ -87,10 +88,18 @@ class CreateTrip : AppCompatActivity() {
                 selectedTime.set(Calendar.HOUR_OF_DAY, hourOfDay)
                 selectedTime.set(Calendar.MINUTE, minute)
                 val time = timeFormat.format(selectedTime.time)
-                arrivalTime.setText(time)
 
+                //if selected time is earlier than current time, shows message:Please enter future time!
+                if(selectedDate.time == now.time && selectedTime.time <= now.time){
+                    val toast = Toast.makeText(this, "Please enter future time!", Toast.LENGTH_SHORT)
+                    toast.setGravity(Gravity.TOP, 10, 700)
+                    toast.show()
+                }
+                else{
+                    arrivalTime.setText(time)
+                }
             },
-                nowDate.get(Calendar.HOUR_OF_DAY), nowDate.get(Calendar.MINUTE), false)
+                now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false)
             timePicker.show()
         }
 
