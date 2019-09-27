@@ -37,39 +37,43 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="18dp"
+            android:layout_marginRight="18dp"
             android:layout_marginBottom="25dp"
             android:background="#FF6D1A"
             android:text="@string/create_trip"
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/creatTripButton3"
-            app:layout_constraintEnd_toStartOf="@+id/creatTripButton2"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/earningsButton"
+            app:layout_constraintEnd_toStartOf="@+id/savedTripButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <Button
-            android:id="@+id/creatTripButton2"
+            android:id="@+id/savedTripButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
             android:layout_marginBottom="25dp"
             android:background="#FF6D1A"
             android:text="@string/saved_trip"
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/creatTripButton4"
+            app:layout_constraintBottom_toTopOf="@+id/upcomingTripButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/createTripButton"
             app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <Button
-            android:id="@+id/creatTripButton3"
+            android:id="@+id/earningsButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="36dp"
@@ -81,31 +85,33 @@
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/creatTripButton6"
-            app:layout_constraintEnd_toStartOf="@+id/creatTripButton4"
+            app:layout_constraintBottom_toTopOf="@+id/tripHistoryButton"
+            app:layout_constraintEnd_toStartOf="@+id/upcomingTripButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/createTripButton" />
 
     <Button
-            android:id="@+id/creatTripButton4"
+            android:id="@+id/upcomingTripButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
             android:layout_marginBottom="25dp"
             android:background="#FF6D1A"
             android:text="@string/upcoming_trip"
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/creatTripButton5"
+            app:layout_constraintBottom_toTopOf="@+id/optionsButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/creatTripButton3"
-            app:layout_constraintTop_toBottomOf="@+id/creatTripButton2" />
+            app:layout_constraintStart_toEndOf="@+id/earningsButton"
+            app:layout_constraintTop_toBottomOf="@+id/savedTripButton" />
 
     <Button
-            android:id="@+id/creatTripButton5"
+            android:id="@+id/optionsButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="18dp"
@@ -117,13 +123,14 @@
             android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             android:textSize="18sp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/creatTripButton6"
-            app:layout_constraintTop_toBottomOf="@+id/creatTripButton4" />
+            app:layout_constraintStart_toEndOf="@+id/tripHistoryButton"
+            app:layout_constraintTop_toBottomOf="@+id/upcomingTripButton" />
 
     <Button
-            android:id="@+id/creatTripButton6"
+            android:id="@+id/tripHistoryButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="36dp"
@@ -136,9 +143,11 @@
             android:textIsSelectable="false"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/creatTripButton5"
+            app:layout_constraintEnd_toStartOf="@+id/optionsButton"
+            app:layout_constraintHorizontal_bias="0.184"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/creatTripButton3" />
+            app:layout_constraintTop_toBottomOf="@+id/earningsButton"
+            app:layout_constraintVertical_bias="1.0" />
 
     <Switch
             android:id="@+id/driverPassengerSwitch"

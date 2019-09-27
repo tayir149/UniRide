@@ -6,13 +6,16 @@
         android:layout_height="match_parent"
         tools:context=".activities.HistoryActivity">
 
-        <ListView
-            android:id="@+id/triplist_listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
-    </ListView>
+    <ListView
+        android:id="@+id/triplist_listView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/triplist_header"
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <androidx.appcompat.widget.Toolbar
@@ -46,7 +49,6 @@
             android:layout_width="165dp"
             android:layout_height="54dp"
             android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
             android:text="@string/list_of_trips"
             android:textColor="#FFFEFE"
