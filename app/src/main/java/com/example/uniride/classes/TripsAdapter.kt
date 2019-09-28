@@ -2,6 +2,7 @@ package com.example.uniride.classes
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,13 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniride.R
 import com.example.uniride.activities.DriverInterface
+import com.example.uniride.activities.UpcomingActivity
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.upcoming_trip_list.view.*
 
-class TripsAdapter(val context: Context, val  trips: List<Trip>) :  RecyclerView.Adapter<TripsAdapter.MyViewHolder>(){
+class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: ArrayList<String>) :  RecyclerView.Adapter<TripsAdapter.MyViewHolder>(){
+
+    val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.upcoming_trip_list, parent, false)
@@ -26,13 +31,15 @@ class TripsAdapter(val context: Context, val  trips: List<Trip>) :  RecyclerView
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val trip =trips[position]
-        holder.setData(trip, position)
+        val uId = uIds[position]
+        holder.setData(trip, position, uId)
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var currentTrip: Trip? = null
         var currentPosition: Int = 0
+        var currentUId: String? = null
 
         init {
 
@@ -42,13 +49,23 @@ class TripsAdapter(val context: Context, val  trips: List<Trip>) :  RecyclerView
             }
 
             itemView.tripList_delete_Button.setOnClickListener {
-                val intent = Intent(context, DriverInterface::class.java)
-                context.startActivity(intent)
+
+                //Deletes the trip from database using Uid
+                currentUId?.let { it1 ->
+                    db.collection("trips").document(it1).delete()
+                        .addOnSuccessListener { Log.d("Trip Delete", "DocumentSnapshot successfully deleted!") }
+                        .addOnFailureListener { e -> Log.w("Trip Delete", "Error deleting document", e) }
+                }
+
+                //Deletes the current trip and Uid from the local array for refreshing the page
+                trips.remove(currentTrip)
+                uIds.remove(currentUId)
+                notifyDataSetChanged()
             }
         }
 
         //Sets the data in each text view
-        fun setData(trip: Trip?, position: Int){
+        fun setData(trip: Trip?, position: Int, uId: String){
             itemView.tripList_show_date.text = trip!!.getDate()
             itemView.tripList_show_car_details.text = trip.getCar()
             itemView.tripList_show_time.text = trip.getArrival()
@@ -59,6 +76,7 @@ class TripsAdapter(val context: Context, val  trips: List<Trip>) :  RecyclerView
 
             this.currentTrip = trip
             this.currentPosition = position
+            this.currentUId = uId
         }
     }
 }

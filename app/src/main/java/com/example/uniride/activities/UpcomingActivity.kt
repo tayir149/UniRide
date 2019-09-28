@@ -23,10 +23,12 @@ class UpcomingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_upcoming)
 
         var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
+        var timeFormat = SimpleDateFormat("HH:mm", Locale.UK)
 
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val tripArray = ArrayList<Trip>()
+        val uIdArray = ArrayList<String>()
 
         //Define a layout manager for recycler view
         val layoutManager = LinearLayoutManager(this)
@@ -34,7 +36,7 @@ class UpcomingActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
 
         //Link the recycler view with the costume adapter and pass in the Trip array as data
-        val adapter = TripsAdapter(this, tripArray)
+        val adapter = TripsAdapter(this, tripArray, uIdArray)
         recyclerView.adapter = adapter
 
         upcomingTripBackButton.setOnClickListener {
@@ -44,6 +46,8 @@ class UpcomingActivity : AppCompatActivity() {
         //Only gets current user created trips and only gets future trips
         val now = Calendar.getInstance()
         val nowDate = dateFormat.format(now.time)
+        val nowTime = timeFormat.format(now.time)
+
         db.collection("trips").whereEqualTo("user_email",
             FirebaseAuth.getInstance().currentUser?.email
         ).whereGreaterThanOrEqualTo("date", nowDate)
@@ -55,18 +59,27 @@ class UpcomingActivity : AppCompatActivity() {
 
                 for (document in value!!.documentChanges) {
                     if(document.type == DocumentChange.Type.ADDED){
-                        var driverName = document.document.getString("trip_driver")
+                        val driverName = document.document.getString("trip_driver")
                         var date = document.document.getString("date")
                         var route = document.document.getString("route")
                         var eta = document.document.getString("estimated_arrival_time")
                         var details = document.document.getString("car_detail")
                         var passengers = document.document.getLong("number_of_passengers")?.toInt()
                         var price = document.document.getDouble("price")
-                        var driverEmail = document.document.getString("user_email")
-                        tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
+                        val driverEmail = document.document.getString("user_email")
 
+                        //Saves the document Uid reference for editing and deleting trips
+                        val uId = document.document.id
+
+                        if (date == nowDate && eta!! >= nowTime) {
+                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
+                            uIdArray.add(uId)
+                        }
+                        else if (date!! > nowDate) {
+                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
+                            uIdArray.add(uId)
+                        }
                         adapter.notifyDataSetChanged()
-                        Log.d("TripList", "test $tripArray")
                     }
                 }
             }

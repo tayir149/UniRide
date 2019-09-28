@@ -27,7 +27,7 @@ class CreateTrip : AppCompatActivity() {
 
         lateinit var  driverName: String
         var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
-        var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
+        var time = SimpleDateFormat("HH:mm", Locale.UK)
         lateinit var  homeAddress : String
         val uniAddress = "Auckland University of Technology"
         var route = "Unknown Route"
@@ -37,8 +37,8 @@ class CreateTrip : AppCompatActivity() {
         docRef?.get()?.addOnSuccessListener { document ->
             if (document != null) {
                 homeAddress = document.getString("address").toString()
-                var firstName = document.getString("first name")
-                var lastName = document.getString("last name")
+                val firstName = document.getString("first name")
+                val lastName = document.getString("last name")
                 driverName = "$firstName $lastName"
 
             } else {
@@ -87,9 +87,9 @@ class CreateTrip : AppCompatActivity() {
                 val selectedTime = Calendar.getInstance()
                 selectedTime.set(Calendar.HOUR_OF_DAY, hourOfDay)
                 selectedTime.set(Calendar.MINUTE, minute)
-                val time = timeFormat.format(selectedTime.time)
+                val time = time.format(selectedTime.time)
 
-                //if selected time is earlier than current time, shows message:Please enter future time!
+                //When selected date is current date and selected time is earlier than current time, shows message:Please enter future time!
                 if(selectedDate.time == now.time && selectedTime.time <= now.time){
                     val toast = Toast.makeText(this, "Please enter future time!", Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.TOP, 10, 700)
