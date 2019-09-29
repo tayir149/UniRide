@@ -22,11 +22,9 @@ class UpcomingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upcoming)
 
+        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
         var timeFormat = SimpleDateFormat("HH:mm", Locale.UK)
-
-
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val tripArray = ArrayList<Trip>()
         val uIdArray = ArrayList<String>()
 
@@ -39,18 +37,15 @@ class UpcomingActivity : AppCompatActivity() {
         val adapter = TripsAdapter(this, tripArray, uIdArray)
         recyclerView.adapter = adapter
 
-        upcomingTripBackButton.setOnClickListener {
-            finish()
-        }
 
         //Only gets current user created trips and only gets future trips
         val now = Calendar.getInstance()
         val nowDate = dateFormat.format(now.time)
         val nowTime = timeFormat.format(now.time)
 
-        db.collection("trips").whereEqualTo("user_email",
+        db.collection("trips")/*.whereEqualTo("user_email",
             FirebaseAuth.getInstance().currentUser?.email
-        ).whereGreaterThanOrEqualTo("date", nowDate)
+        )*/.whereGreaterThanOrEqualTo("date", nowDate)
             .addSnapshotListener{value, e->
                 if (e!=null){
                     Log.w("TripList", "Listen failed.", e)
@@ -68,14 +63,17 @@ class UpcomingActivity : AppCompatActivity() {
                         var price = document.document.getDouble("price")
                         val driverEmail = document.document.getString("user_email")
 
+                        val dateEntered = dateFormat.parse(date)
+                        val now = dateFormat.parse(nowDate)
+
                         //Saves the document Uid reference for editing and deleting trips
                         val uId = document.document.id
 
-                        if (date == nowDate && eta!! >= nowTime) {
+                        if (/*date == nowDate*/ dateEntered == now && eta!! >= nowTime) {
                             tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
                             uIdArray.add(uId)
                         }
-                        else if (date!! > nowDate) {
+                        if (/*date!! > nowDate*/dateEntered > now) {
                             tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
                             uIdArray.add(uId)
                         }
@@ -83,5 +81,9 @@ class UpcomingActivity : AppCompatActivity() {
                     }
                 }
             }
+
+        upcomingTripBackButton.setOnClickListener {
+            finish()
+        }
     }
 }

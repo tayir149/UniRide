@@ -10,7 +10,9 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniride.R
 import com.example.uniride.activities.DriverInterface
+import com.example.uniride.activities.EditTrip
 import com.example.uniride.activities.UpcomingActivity
+import com.example.uniride.showToast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.upcoming_trip_list.view.*
 
@@ -37,14 +39,20 @@ class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: 
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var currentTrip: Trip? = null
-        var currentPosition: Int = 0
-        var currentUId: String? = null
+        private var currentTrip: Trip? = null
+        private var currentPosition: Int = 0
+        private var currentUId: String? = null
 
         init {
-
             itemView.tripList_edit_button.setOnClickListener {
-                val intent = Intent(context, DriverInterface::class.java)
+
+                val intent = Intent(context, EditTrip::class.java)
+                intent.putExtra("Date", currentTrip?.getDate())
+                intent.putExtra("Eta", currentTrip?.getArrival())
+                intent.putExtra("Price", currentTrip?.getPrice())
+                intent.putExtra("Car Detail", currentTrip?.getCar())
+                intent.putExtra("NoPassengers", currentTrip?.getPassengerNo())
+                intent.putExtra("uId", currentUId)
                 context.startActivity(intent)
             }
 
@@ -61,6 +69,7 @@ class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: 
                 trips.remove(currentTrip)
                 uIds.remove(currentUId)
                 notifyDataSetChanged()
+                context.showToast("Trip Deleted!")
             }
         }
 
