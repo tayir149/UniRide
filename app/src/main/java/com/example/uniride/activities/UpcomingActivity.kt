@@ -23,7 +23,7 @@ class UpcomingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_upcoming)
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
+        var dateFormat = SimpleDateFormat("dd-MM-YYYY", Locale.UK)
         var timeFormat = SimpleDateFormat("HH:mm", Locale.UK)
         val tripArray = ArrayList<Trip>()
         val uIdArray = ArrayList<String>()
@@ -39,14 +39,15 @@ class UpcomingActivity : AppCompatActivity() {
 
 
         //Only gets current user created trips and only gets future trips
-        val now = Calendar.getInstance()
-        val nowDate = dateFormat.format(now.time)
-        val nowTime = timeFormat.format(now.time)
+        val cal = Calendar.getInstance()
+        val nowDate = dateFormat.format(cal.time)
+        val nowTime = timeFormat.format(cal.time)
+        val now = dateFormat.parse(nowDate)
+        Log.d("Current_Date", nowDate)
 
-        db.collection("trips")/*.whereEqualTo("user_email",
+        db.collection("trips").whereEqualTo("user_email",
             FirebaseAuth.getInstance().currentUser?.email
-        )*/.whereGreaterThanOrEqualTo("date", nowDate)
-            .addSnapshotListener{value, e->
+        ).addSnapshotListener{value, e->
                 if (e!=null){
                     Log.w("TripList", "Listen failed.", e)
                     return@addSnapshotListener
@@ -64,18 +65,18 @@ class UpcomingActivity : AppCompatActivity() {
                         val driverEmail = document.document.getString("user_email")
 
                         val dateEntered = dateFormat.parse(date)
-                        val now = dateFormat.parse(nowDate)
+
+
+                        Log.d("Current_Date_Entered", date)
 
                         //Saves the document Uid reference for editing and deleting trips
                         val uId = document.document.id
 
-                        if (/*date == nowDate*/ dateEntered == now && eta!! >= nowTime) {
+                        //Filters the trips only show future trips
+                        if ((dateEntered.equals(now) && eta!! >= nowTime) || dateEntered.after(now)) {
                             tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
                             uIdArray.add(uId)
-                        }
-                        if (/*date!! > nowDate*/dateEntered > now) {
-                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
-                            uIdArray.add(uId)
+
                         }
                         adapter.notifyDataSetChanged()
                     }
