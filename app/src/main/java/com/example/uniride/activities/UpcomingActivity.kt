@@ -1,5 +1,6 @@
 package com.example.uniride.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_upcoming.*
-import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -42,8 +42,10 @@ class UpcomingActivity : AppCompatActivity() {
         val cal = Calendar.getInstance()
         val nowDate = dateFormat.format(cal.time)
         val nowTime = timeFormat.format(cal.time)
-        val now = dateFormat.parse(nowDate)
-        Log.d("Current_Date", nowDate)
+
+        //Inorder to correctly compare time, it needs to be Date Object
+        val currentTime = timeFormat.parse(nowTime)
+
 
         db.collection("trips").whereEqualTo("user_email",
             FirebaseAuth.getInstance().currentUser?.email
@@ -64,27 +66,32 @@ class UpcomingActivity : AppCompatActivity() {
                         var price = document.document.getDouble("price")
                         val driverEmail = document.document.getString("user_email")
 
-                        val dateEntered = dateFormat.parse(date)
-
-
-                        Log.d("Current_Date_Entered", date)
+                        //Inorder to correctly compare time, it needs to be Date Object
+                        val timeFromDataBase = timeFormat.parse(eta)
 
                         //Saves the document Uid reference for editing and deleting trips
                         val uId = document.document.id
 
                         //Filters the trips only show future trips
-                        if ((dateEntered.equals(now) && eta!! >= nowTime) || dateEntered.after(now)) {
+                        if (date!!.compareTo(nowDate) == 0 && timeFromDataBase >= currentTime) {
+
                             tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
                             uIdArray.add(uId)
-
                         }
+                        else if (date.compareTo(nowDate) > 0) {
+
+                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
+                            uIdArray.add(uId)
+                        }
+
                         adapter.notifyDataSetChanged()
                     }
                 }
             }
 
         upcomingTripBackButton.setOnClickListener {
-            finish()
+            val intent = Intent(this, DriverInterface::class.java)
+            startActivity(intent)
         }
     }
 }

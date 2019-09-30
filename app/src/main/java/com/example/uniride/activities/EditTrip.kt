@@ -2,6 +2,7 @@ package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -11,7 +12,6 @@ import com.example.uniride.R
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_create_trip.*
 import kotlinx.android.synthetic.main.activity_edit_trip.*
 import kotlinx.android.synthetic.main.activity_edit_trip.arrivalTime
 import kotlinx.android.synthetic.main.activity_edit_trip.backButton
@@ -27,7 +27,7 @@ class EditTrip : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_trip)
 
-        var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
+        var dateFormat = SimpleDateFormat("dd-MM-YYYY", Locale.UK)
         var time = SimpleDateFormat("HH:mm", Locale.UK)
         val now = Calendar.getInstance()
         val selectedDate = Calendar.getInstance()
@@ -131,7 +131,20 @@ class EditTrip : AppCompatActivity() {
                 carDetail.isEmpty() -> showToast("Please enter you car make and model")
                 numberOfPassenger == 0 -> showToast("Please enter number of passenger")
                 else -> {
-                    uId?.let { it1 ->
+                    val batch = db.batch()
+                    val tripRef = db.collection("trips").document(uId!!)
+                    batch.update(tripRef, "date", dateOfTrip)
+                    batch.update(tripRef, "estimated_arrival_time", eta)
+                    batch.update(tripRef, "route", route)
+                    batch.update(tripRef, "price", priceOfTrip)
+                    batch.update(tripRef, "car_detail", carDetail)
+                    batch.update(tripRef, "number_of_passengers", numberOfPassenger)
+                    batch.commit().addOnCompleteListener{
+                        showToast("Trip Updated!")
+                    }
+                    Log.d("editing", uId)
+                    Log.d("editing", dateOfTrip)
+                    /*uId?.let { it1 ->
                         db.collection("users").document(it1)
                             .update(
                                 "date", dateOfTrip,
@@ -141,10 +154,10 @@ class EditTrip : AppCompatActivity() {
                                 "car_detail", carDetail,
                                 "number_of_passengers", numberOfPassenger
                             )
-                    }
-                    showToast("Trip Updated!")
-                    finish()
+                    }*/
 
+                    val intent = Intent(this, UpcomingActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }
@@ -154,8 +167,8 @@ class EditTrip : AppCompatActivity() {
         }
 
         cancel_button.setOnClickListener {
-            /*finish()*/
-            showToast(uId.toString())
+
+            finish()
         }
 
 
