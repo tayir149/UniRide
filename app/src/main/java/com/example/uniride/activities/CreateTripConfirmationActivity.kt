@@ -1,9 +1,13 @@
 package com.example.uniride.activities
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
+import com.example.uniride.classes.Passenger
+import com.example.uniride.classes.Trip
 import com.example.uniride.showToast
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_create_trip_confirmation.*
 import org.jetbrains.anko.startActivity
 
@@ -45,7 +49,8 @@ class CreateTripConfirmationActivity : AppCompatActivity() {
         }
 
         confirmButton.setOnClickListener {
-            val tripCreated = com.example.uniride.classes.Trip(driverName, dateOfTrip, eta, route, price, carDetails, numberOfPassenger, userEmail)
+
+            val tripCreated = Trip(driverName, dateOfTrip, eta, route, price, carDetails, numberOfPassenger, userEmail)
             tripCreated.saveTripToDatabase()
             showToast("Trip Created Successfully")
             startActivity<DriverInterface>()

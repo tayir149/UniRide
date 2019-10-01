@@ -146,6 +146,25 @@
                 app:layout_constraintStart_toEndOf="@+id/tripList_price"
                 app:layout_constraintTop_toTopOf="@+id/tripList_price" />
 
+        <TextView
+                android:id="@+id/tripList_passengerList"
+                android:layout_width="170dp"
+                android:layout_height="25dp"
+                android:text="@string/passenger_list"
+                android:textColor="#050505"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_price" />
+
+        <TextView
+                android:id="@+id/tripList_show_passengerList"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/tripList_passengerList"
+                app:layout_constraintTop_toTopOf="@+id/tripList_passengerList" />
+
         <Button
                 android:id="@+id/tripList_delete_Button"
                 style="?android:attr/borderlessButtonStyle"
@@ -160,7 +179,7 @@
                 app:fontFamily="sans-serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tripList_price" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_passengerList" />
 
         <Button
                 android:id="@+id/tripList_edit_button"
@@ -176,7 +195,7 @@
                 app:fontFamily="sans-serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tripList_price" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_passengerList" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

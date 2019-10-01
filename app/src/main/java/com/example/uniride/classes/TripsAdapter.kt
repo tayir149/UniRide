@@ -6,12 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniride.R
-import com.example.uniride.activities.DriverInterface
 import com.example.uniride.activities.EditTrip
-import com.example.uniride.activities.UpcomingActivity
 import com.example.uniride.showToast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.upcoming_trip_list.view.*
@@ -80,8 +77,14 @@ class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: 
             itemView.tripList_show_time.text = trip.getArrival()
             itemView.tripList_show_no_of_passenger.text = trip.getPassengerNo().toString()
             itemView.tripList_show_price.text = "$" + trip.getPrice().toString()
-            itemView.tripList_show_route.text = trip.getRoute()
+            itemView.tripList_show_route.text = trip.getRouteOfTrip()
             itemView.tripList_show_driver_name.text = trip.getTripDriver()
+
+            if(trip.getPassengerList() != null){
+                for(item in trip.getPassengerList()!!){
+                    itemView.tripList_show_passengerList.text = item
+                }
+            }
 
             this.currentTrip = trip
             this.currentPosition = position

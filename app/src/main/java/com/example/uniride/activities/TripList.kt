@@ -81,7 +81,7 @@ class TripList : AppCompatActivity() {
             val dateTextView = rowMain.findViewById<TextView>(R.id.triplist_date)
             dateTextView.text = array[p0].getDate()
             val pickupTextView = rowMain.findViewById<TextView>(R.id.triplist_pickup_textValue)
-            pickupTextView.text = array[p0].getRoute()
+            pickupTextView.text = array[p0].getRouteOfTrip()
             val etaTextView = rowMain.findViewById<TextView>(R.id.triplist_eta_textValue)
             etaTextView.text = array[p0].getArrival()
             val noPassengersTextView = rowMain.findViewById<TextView>(R.id.triplist_noPassengers_textValue)

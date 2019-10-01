@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uniride.R
+import com.example.uniride.classes.Passenger
 import com.example.uniride.classes.Trip
 import com.example.uniride.classes.TripsAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -23,10 +24,11 @@ class UpcomingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_upcoming)
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        var dateFormat = SimpleDateFormat("dd-MM-YYYY", Locale.UK)
-        var timeFormat = SimpleDateFormat("HH:mm", Locale.UK)
+        val dateFormat = SimpleDateFormat("dd-MM-YYYY", Locale.UK)
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.UK)
         val tripArray = ArrayList<Trip>()
         val uIdArray = ArrayList<String>()
+
 
         //Define a layout manager for recycler view
         val layoutManager = LinearLayoutManager(this)
@@ -65,8 +67,9 @@ class UpcomingActivity : AppCompatActivity() {
                         var passengers = document.document.getLong("number_of_passengers")?.toInt()
                         var price = document.document.getDouble("price")
                         val driverEmail = document.document.getString("user_email")
+                        val passengerList =document.document.get("passenger_list") as ArrayList<String>?
 
-                        //Inorder to correctly compare time, it needs to be Date Object
+                        //In order to correctly compare time, it needs to be Date Object
                         val timeFromDataBase = timeFormat.parse(eta)
 
                         //Saves the document Uid reference for editing and deleting trips
@@ -75,7 +78,7 @@ class UpcomingActivity : AppCompatActivity() {
                         //Filters the trips only show future trips
                         if (date!!.compareTo(nowDate) == 0 && timeFromDataBase >= currentTime) {
 
-                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
+                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail, passengerList))
                             uIdArray.add(uId)
                         }
                         else if (date.compareTo(nowDate) > 0) {
