@@ -11,7 +11,9 @@
             android:layout_width="200dp"
             android:layout_height="25dp"
             android:text="@string/car_make_and_model"
+            android:textStyle="bold"
             android:textSize="18sp"
+            android:textColor="#050505"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="@+id/triplist_eta_text"
             app:layout_constraintTop_toBottomOf="@+id/triplist_noPassengers_text" />
@@ -19,7 +21,7 @@
     <TextView
             android:id="@+id/triplist_carDetails_textValue"
             android:layout_width="150dp"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:textSize="18sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/triplist_carDetails_text"
@@ -46,7 +48,7 @@
     <TextView
             android:id="@+id/triplist_pickup_textValue"
             android:layout_width="150dp"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:textSize="18sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toEndOf="@+id/triplist_pickup_text"
@@ -57,22 +59,21 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginStart="28dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
             android:background="#00F5F1F1"
             android:text="@string/history_show_route_button"
             android:textStyle="bold"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="@+id/triplist_noPassengers_text"
-            app:layout_constraintTop_toBottomOf="@+id/triplist_carDetails_text" />
+            app:layout_constraintTop_toBottomOf="@+id/triplist_carDetails_textValue" />
 
     <Button
             android:id="@+id/triplist_message_button"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="20dp"
             android:background="#00ECE3E3"
             android:text="@string/history_message_button"
             android:textColor="#16BE12"
@@ -101,18 +102,23 @@
             android:layout_height="25dp"
             android:text="@string/history_ETA"
             android:textSize="18sp"
+            android:textColor="#050505"
+            android:textStyle="bold"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="@+id/triplist_pickup_text"
-            app:layout_constraintTop_toBottomOf="@+id/triplist_pickup_text" />
+            app:layout_constraintTop_toBottomOf="@+id/triplist_pickup_textValue" />
 
     <TextView
             android:id="@+id/triplist_pickup_text"
             android:layout_width="200dp"
             android:layout_height="25dp"
             android:text="@string/route"
+            android:textStyle="bold"
             android:textSize="18sp"
+            android:textColor="#050505"
             app:fontFamily="sans-serif"
             app:layout_constraintTop_toBottomOf="@+id/triplist_date"
+            app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteX="32dp" />
 
     <TextView
@@ -120,10 +126,26 @@
             android:layout_width="200dp"
             android:layout_height="25dp"
             android:text="@string/history_num_of_passengers"
+            android:textStyle="bold"
+            android:textColor="#050505"
             android:textSize="18sp"
             app:fontFamily="sans-serif"
             app:layout_constraintStart_toStartOf="@+id/triplist_eta_text"
             app:layout_constraintTop_toBottomOf="@+id/triplist_eta_text" />
+
+    <Button
+            android:id="@+id/triplist_book_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:background="#00ECE3E3"
+            android:text="@string/book_trip"
+            android:textColor="#16BE12"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@+id/triplist_message_button"
+            app:layout_constraintTop_toTopOf="@+id/triplist_route_button" />
 
     <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"

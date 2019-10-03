@@ -21,12 +21,14 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?,
     private val userEmailAddress = userEmail
     private var passengerList = passengers
 
-    fun passengerBookedTrip(passengerEmail:String){
-        db.collection("users").document(passengerEmail).get().addOnSuccessListener {document ->
-            val firstName = document.getString("first name")
-            val lastName = document.getString("last name")
-            val passengerName = "$firstName $lastName"
-            passengerList?.add(passengerName)
+    fun passengerBookedTrip(passengerEmail: String?){
+        passengerEmail?.let {
+            db.collection("users").document(it).get().addOnSuccessListener { document ->
+                val firstName = document.getString("first name")
+                val lastName = document.getString("last name")
+                val passengerName = "$firstName $lastName"
+                passengerList?.add(passengerName)
+            }
         }
     }
 
@@ -58,7 +60,6 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?,
 
     fun saveTripToDatabase(){
 
-        this.passengerBookedTrip("aut@autuni.ac.nz")
         val trip = mapOf("trip_driver" to tripDriver, "date" to date,"estimated_arrival_time" to timeArrival, "route" to routeOfTrip, "price" to price,
                                             "number_of_passengers" to numberOfPassengerOn, "car_detail" to car, "user_email" to userEmailAddress, "passenger_list" to ArrayList<String>())
 

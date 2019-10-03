@@ -83,7 +83,7 @@ class UpcomingActivity : AppCompatActivity() {
                         }
                         else if (date.compareTo(nowDate) > 0) {
 
-                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
+                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail, passengerList))
                             uIdArray.add(uId)
                         }
 
