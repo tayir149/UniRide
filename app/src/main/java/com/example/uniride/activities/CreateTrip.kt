@@ -87,7 +87,7 @@ class CreateTrip : AppCompatActivity() {
                 val selectedTime = Calendar.getInstance()
                 selectedTime.set(Calendar.HOUR_OF_DAY, hourOfDay)
                 selectedTime.set(Calendar.MINUTE, minute)
-                val time = time.format(selectedTime.time)
+                val timeSelected = time.format(selectedTime.time)
 
                 //When selected date is current date and selected time is earlier than current time, shows message:Please enter future time!
                 if(selectedDate.time == now.time && selectedTime.time <= now.time){
@@ -96,7 +96,7 @@ class CreateTrip : AppCompatActivity() {
                     toast.show()
                 }
                 else{
-                    arrivalTime.setText(time)
+                    arrivalTime.setText(timeSelected)
                 }
             },
                 now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false)

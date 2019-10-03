@@ -104,9 +104,8 @@ class TripList : AppCompatActivity() {
             val bookTrip = rowMain.findViewById<Button>(R.id.triplist_book_button)
             bookTrip.setOnClickListener {
                 val passengerEmail = FirebaseAuth.getInstance().currentUser?.email
-                val docRef = db.collection("trips").document(uIdArray[p0])
-                /*docRef.update("passenger_list", FieldValue.arrayUnion(""))*/
-
+                db.collection("trips").document(uIdArray[p0]).update("passenger_list", FieldValue.arrayUnion(passengerEmail))
+                passengerEmail?.let { it1 -> db.collection("users").document(it1).update("booked_trips", FieldValue.arrayUnion(uIdArray[p0])) }
             }
 
 

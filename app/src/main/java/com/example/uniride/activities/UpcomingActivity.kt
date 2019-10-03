@@ -19,6 +19,7 @@ import kotlin.collections.ArrayList
 
 class UpcomingActivity : AppCompatActivity() {
 
+    @Suppress("UNCHECKED_CAST", "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upcoming)

@@ -15,7 +15,9 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
     var userURD : Double? = 0.00
 
     fun saveUserToDatabase(){
-        val user = mapOf("email" to userEmail, "first name" to userFirstName,"last name" to userLastName, "address" to userAddress, "user credits" to userURD)
+        val user = mapOf("email" to userEmail, "first name" to userFirstName,
+            "last name" to userLastName, "address" to userAddress, "user credits" to userURD,
+            "booked_trips" to ArrayList<String>())
 
         userEmail?.let {
             db.collection("users").document(it)
@@ -37,7 +39,7 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
     fun addCredit(creditToAdd:Double?, passenger:UserAccount){
         if(passenger.getCredit()!! >= creditToAdd!!){
             removeCredit(creditToAdd)
-            userURD = userURD?.plus(creditToAdd!!)
+            userURD = userURD?.plus(creditToAdd)
         }
     }
     fun removeCredit(creditToRemove:Double?){
