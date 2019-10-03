@@ -16,11 +16,14 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import com.example.uniride.classes.Trip
+import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_triplist.*
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.collections.ArrayList
 
 class TripList : AppCompatActivity() {
@@ -29,7 +32,8 @@ class TripList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_triplist)
 
-
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val tripArray = ArrayList<Trip>()
         val uIdArray = ArrayList<String>()
@@ -40,6 +44,17 @@ class TripList : AppCompatActivity() {
         //adaptor telling list what to render
         listView.adapter = adapter
 
+        //Only gets current user created trips and only gets future trips
+        val cal = Calendar.getInstance()
+        val nowDate = dateFormat.format(cal.time)
+        val nowTime = timeFormat.format(cal.time)
+
+        val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
+        currentUserEmail?.let {
+            db.collection("users").document(it)}
+            ?.get()?.addOnSuccessListener { document ->
+                val bookedTrips = document.get("booked_trips") as ArrayList<String>
+
         db.collection("trips")
             .addSnapshotListener{value, e->
                 if (e!=null){
@@ -49,18 +64,39 @@ class TripList : AppCompatActivity() {
 
                 for (document in value!!.documentChanges) {
                     if(document.type == DocumentChange.Type.ADDED){
-                        var date = document.document.getString("date")
-                        var route = document.document.getString("route")
-                        var eta = document.document.getString("estimated_arrival_time")
-                        var details = document.document.getString("car_detail")
-                        var passengers = document.document.getLong("number_of_passengers")?.toInt()
+                        val date = document.document.getString("date")
+                        val route = document.document.getString("route")
+                        val eta = document.document.getString("estimated_arrival_time")
+                        val details = document.document.getString("car_detail")
+                        val passengers = document.document.getLong("number_of_passengers")?.toInt()
                         val price = document.document.getDouble("price")
                         val driverEmail = document.document.getString("user_email")
                         val driverName = document.document.getString("trip_driver")
                         val uId = document.document.id
+                        val passengerList = document.document.get("passenger_list") as ArrayList<String>?
 
-                        tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail))
-                        uIdArray.add(uId)
+
+                        //In order to correctly compare time and date, it needs to be Date Object
+                        val dateFormatted = dateFormat.parse(date)
+                        val currentDate = dateFormat.parse(nowDate)
+                        val timeFromDataBase = timeFormat.parse(eta)
+                        val currentTime = timeFormat.parse(nowTime)
+
+                                //To determine if current user already booked this trip
+                                if(!bookedTrips.contains(uId)){
+                                    //Does not show the trips created by current user
+                                    if(currentUserEmail!!.compareTo(driverEmail!!) != 0){
+
+                                        //Filters the trips only show future trips
+                                        if((dateFormatted.compareTo(currentDate) == 0 && timeFromDataBase >= currentTime) || dateFormatted.compareTo(currentDate) > 0){
+
+                                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail, passengerList))
+                                            uIdArray.add(uId)
+                                        }
+                                    }
+
+                                }
+                            }
 
                         adapter.notifyDataSetChanged()
                         Log.d("TripList", "test $tripArray")
@@ -90,6 +126,9 @@ class TripList : AppCompatActivity() {
             val layoutInflater = LayoutInflater.from(mContext)
             val rowMain = layoutInflater.inflate(R.layout.activity_triprow, p2, false)
 
+            //gets available seats
+            val availableSpace = array[p0].getPassengerNo()?.minus(array[p0].getPassengerList()!!.size)
+
             val dateTextView = rowMain.findViewById<TextView>(R.id.triplist_date)
             dateTextView.text = array[p0].getDate()
             val pickupTextView = rowMain.findViewById<TextView>(R.id.triplist_pickup_textValue)
@@ -97,17 +136,29 @@ class TripList : AppCompatActivity() {
             val etaTextView = rowMain.findViewById<TextView>(R.id.triplist_eta_textValue)
             etaTextView.text = array[p0].getArrival()
             val noPassengersTextView = rowMain.findViewById<TextView>(R.id.triplist_noPassengers_textValue)
-            noPassengersTextView.text = array[p0].getPassengerNo().toString()
+            noPassengersTextView.text = availableSpace.toString()
             val carDetailsView = rowMain.findViewById<TextView>(R.id.triplist_carDetails_textValue)
             carDetailsView.text = array[p0].getCar()
-
+            val price = rowMain.findViewById<TextView>(R.id.triplist_price_textValue)
+            price.text = "$" + array[p0].getPrice().toString()
             val bookTrip = rowMain.findViewById<Button>(R.id.triplist_book_button)
-            bookTrip.setOnClickListener {
-                val passengerEmail = FirebaseAuth.getInstance().currentUser?.email
-                db.collection("trips").document(uIdArray[p0]).update("passenger_list", FieldValue.arrayUnion(passengerEmail))
-                passengerEmail?.let { it1 -> db.collection("users").document(it1).update("booked_trips", FieldValue.arrayUnion(uIdArray[p0])) }
-            }
 
+
+            bookTrip.setOnClickListener {
+
+                if(availableSpace!! > 0){
+                    val passengerEmail = FirebaseAuth.getInstance().currentUser?.email
+                    db.collection("trips").document(uIdArray[p0]).update("passenger_list", FieldValue.arrayUnion(passengerEmail))
+                    passengerEmail?.let { it1 -> db.collection("users").document(it1).update("booked_trips", FieldValue.arrayUnion(uIdArray[p0])) }
+                    mContext.showToast("Trip Booked Successfully!")
+                    val intent = Intent(mContext, PassengerInterface::class.java)
+                    mContext.startActivity(intent)
+
+                }
+                else{
+                    mContext.showToast("No available seats in this trip!")
+                }
+            }
 
             val messageDriverView = rowMain.findViewById<Button>(R.id.triplist_message_button)
             messageDriverView.setOnClickListener{

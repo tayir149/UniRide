@@ -17,7 +17,7 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
     fun saveUserToDatabase(){
         val user = mapOf("email" to userEmail, "first name" to userFirstName,
             "last name" to userLastName, "address" to userAddress, "user credits" to userURD,
-            "booked_trips" to ArrayList<String>())
+            "booked_trips" to ArrayList<String>(), "created_trips" to ArrayList<String>())
 
         userEmail?.let {
             db.collection("users").document(it)

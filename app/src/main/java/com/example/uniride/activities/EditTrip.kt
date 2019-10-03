@@ -13,11 +13,6 @@ import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_trip.*
-import kotlinx.android.synthetic.main.activity_edit_trip.arrivalTime
-import kotlinx.android.synthetic.main.activity_edit_trip.backButton
-import kotlinx.android.synthetic.main.activity_edit_trip.enterCarMake
-import kotlinx.android.synthetic.main.activity_edit_trip.enterPrice
-import kotlinx.android.synthetic.main.activity_edit_trip.numberOfPassenger
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,8 +22,8 @@ class EditTrip : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_trip)
 
-        var dateFormat = SimpleDateFormat("dd-MM-YYYY", Locale.UK)
-        var time = SimpleDateFormat("HH:mm", Locale.UK)
+        var dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        var time = SimpleDateFormat("HH:mm", Locale.getDefault())
         val now = Calendar.getInstance()
         val selectedDate = Calendar.getInstance()
 

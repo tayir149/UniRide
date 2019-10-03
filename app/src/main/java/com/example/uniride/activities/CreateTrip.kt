@@ -26,8 +26,8 @@ class CreateTrip : AppCompatActivity() {
         val uIdRef = FirebaseAuth.getInstance().currentUser?.email
 
         lateinit var  driverName: String
-        var dateFormat = SimpleDateFormat("dd-MM-YYYY", Locale.UK)
-        var time = SimpleDateFormat("HH:mm", Locale.UK)
+        var dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        var time = SimpleDateFormat("HH:mm", Locale.getDefault())
         lateinit var  homeAddress : String
         val uniAddress = "Auckland University of Technology"
         var route = "Unknown Route"

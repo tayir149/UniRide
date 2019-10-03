@@ -13,7 +13,8 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.UpcomingActivity"></activity>
+        <activity android:name=".activities.BookedTrips" />
+        <activity android:name=".activities.UpcomingActivity" />
 
         <meta-data
                 android:name="com.facebook.sdk.ApplicationId"
@@ -34,26 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DriverInterface">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.CreateTrip">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.DriverInterface" />
+        <activity android:name=".activities.CreateTrip" />
         <activity android:name=".activities.PassengerDriverSelector" />
-        <activity android:name=".activities.TripSearcher">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.TripSearcher" />
         <activity android:name=".activities.PassengerInterface" />
         <activity android:name=".activities.LogIn">
             <intent-filter>
@@ -69,11 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TripList">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.TripList" />
         <activity
                 android:name="com.facebook.FacebookActivity"
                 android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"

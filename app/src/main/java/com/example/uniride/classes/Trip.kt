@@ -1,8 +1,8 @@
 package com.example.uniride.classes
 
 import android.util.Log
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlin.collections.ArrayList
 
 class Trip(driverName: String?, dateOfTrip: String?, eta: String?,
                 route: String?, priceOfTrip: Double?,carDetails: String?,
@@ -20,17 +20,6 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?,
     private val car = carDetails
     private val userEmailAddress = userEmail
     private var passengerList = passengers
-
-    fun passengerBookedTrip(passengerEmail: String?){
-        passengerEmail?.let {
-            db.collection("users").document(it).get().addOnSuccessListener { document ->
-                val firstName = document.getString("first name")
-                val lastName = document.getString("last name")
-                val passengerName = "$firstName $lastName"
-                passengerList?.add(passengerName)
-            }
-        }
-    }
 
     fun getPassengerList(): ArrayList<String>? {
         return passengerList
@@ -60,16 +49,22 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?,
 
     fun saveTripToDatabase(){
 
+
         val trip = mapOf("trip_driver" to tripDriver, "date" to date,"estimated_arrival_time" to timeArrival, "route" to routeOfTrip, "price" to price,
                                             "number_of_passengers" to numberOfPassengerOn, "car_detail" to car, "user_email" to userEmailAddress, "passenger_list" to ArrayList<String>())
 
-            db.collection("trips").add(trip)
+        val newTripID = db.collection("trips").document().id
+
+            db.collection("trips").document(newTripID).set(trip)
                 .addOnCompleteListener {
                     if (!it.isSuccessful) return@addOnCompleteListener
                 }
                 .addOnFailureListener(){
                     Log.d("testCreatingTrip", "Failed to create trip: ${it.message}")
                 }
+
+        val userRef = userEmailAddress?.let { db.collection("users").document(it) }
+        userRef?.update("created_trips", FieldValue.arrayUnion(newTripID))
 
         }
     }

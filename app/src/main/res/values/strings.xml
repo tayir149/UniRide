@@ -78,4 +78,6 @@
     <string name="cancel">Cancel</string>
     <string name="passenger_list">Passenger List:</string>
     <string name="book_trip">Book Trip</string>
+    <string name="available_seats">Available Seats:</string>
+    <string name="cancel_trip">Cancel Trip</string>
 </resources>

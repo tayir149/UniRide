@@ -1,12 +1,11 @@
 package com.example.uniride.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uniride.R
-import com.example.uniride.classes.Passenger
 import com.example.uniride.classes.Trip
 import com.example.uniride.classes.TripsAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -25,8 +24,8 @@ class UpcomingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_upcoming)
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        val dateFormat = SimpleDateFormat("dd-MM-YYYY", Locale.UK)
-        val timeFormat = SimpleDateFormat("HH:mm", Locale.UK)
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
         val tripArray = ArrayList<Trip>()
         val uIdArray = ArrayList<String>()
 
@@ -46,13 +45,9 @@ class UpcomingActivity : AppCompatActivity() {
         val nowDate = dateFormat.format(cal.time)
         val nowTime = timeFormat.format(cal.time)
 
-        //Inorder to correctly compare time, it needs to be Date Object
-        val currentTime = timeFormat.parse(nowTime)
-
-
         db.collection("trips").whereEqualTo("user_email",
             FirebaseAuth.getInstance().currentUser?.email
-        ).addSnapshotListener{value, e->
+        ).orderBy("date").orderBy("estimated_arrival_time").addSnapshotListener{value, e->
                 if (e!=null){
                     Log.w("TripList", "Listen failed.", e)
                     return@addSnapshotListener
@@ -70,19 +65,17 @@ class UpcomingActivity : AppCompatActivity() {
                         val driverEmail = document.document.getString("user_email")
                         val passengerList =document.document.get("passenger_list") as ArrayList<String>?
 
-                        //In order to correctly compare time, it needs to be Date Object
+                        //In order to correctly compare time and date, it needs to be Date Object
+                        val dateFormatted = dateFormat.parse(date)
+                        val currentDate = dateFormat.parse(nowDate)
                         val timeFromDataBase = timeFormat.parse(eta)
+                        val currentTime = timeFormat.parse(nowTime)
 
                         //Saves the document Uid reference for editing and deleting trips
                         val uId = document.document.id
 
                         //Filters the trips only show future trips
-                        if (date!!.compareTo(nowDate) == 0 && timeFromDataBase >= currentTime) {
-
-                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail, passengerList))
-                            uIdArray.add(uId)
-                        }
-                        else if (date.compareTo(nowDate) > 0) {
+                        if ((dateFormatted.compareTo(currentDate) == 0 && timeFromDataBase >= currentTime) || dateFormatted.compareTo(currentDate) > 0) {
 
                             tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail, passengerList))
                             uIdArray.add(uId)
