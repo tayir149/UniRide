@@ -82,26 +82,25 @@ class TripList : AppCompatActivity() {
                         val timeFromDataBase = timeFormat.parse(eta)
                         val currentTime = timeFormat.parse(nowTime)
 
-                                //To determine if current user already booked this trip
-                                if(!bookedTrips.contains(uId)){
-                                    //Does not show the trips created by current user
-                                    if(currentUserEmail!!.compareTo(driverEmail!!) != 0){
+                        //To determine if current user already booked this trip
+                        if(!bookedTrips.contains(uId)){
+                            //Does not show the trips created by current user
+                            if(currentUserEmail!!.compareTo(driverEmail!!) != 0){
 
-                                        //Filters the trips only show future trips
-                                        if((dateFormatted.compareTo(currentDate) == 0 && timeFromDataBase >= currentTime) || dateFormatted.compareTo(currentDate) > 0){
+                                //Filters the trips only show future trips
+                                if((dateFormatted.compareTo(currentDate) == 0 && timeFromDataBase >= currentTime) || dateFormatted.compareTo(currentDate) > 0){
 
-                                            tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail, passengerList))
-                                            uIdArray.add(uId)
-                                        }
-                                    }
-
+                                    tripArray.add(Trip(driverName, date, eta, route, price, details, passengers, driverEmail, passengerList))
+                                    uIdArray.add(uId)
                                 }
                             }
-
-                        adapter.notifyDataSetChanged()
-                        Log.d("TripList", "test $tripArray")
+                        }
                     }
+
+                    adapter.notifyDataSetChanged()
+                    Log.d("TripList", "test $tripArray")
                 }
+            }
             }
 
         triplist_back_button.setOnClickListener {
@@ -148,12 +147,21 @@ class TripList : AppCompatActivity() {
 
                 if(availableSpace!! > 0){
                     val passengerEmail = FirebaseAuth.getInstance().currentUser?.email
-                    db.collection("trips").document(uIdArray[p0]).update("passenger_list", FieldValue.arrayUnion(passengerEmail))
+                    val userProfileRef = passengerEmail?.let { it1 ->
+                        db.collection("users").document(it1) }
+                    lateinit var passengerAddress: String
+                    userProfileRef?.get()?.addOnSuccessListener { document ->
+                        if(document != null){
+                            passengerAddress = document.getString("address").toString()
+                            db.collection("trips").document(uIdArray[p0]).update("passenger_list", FieldValue.arrayUnion(passengerAddress))
+                        } else{
+                            Log.d("Error", "No such document")
+                        }
+                    }
                     passengerEmail?.let { it1 -> db.collection("users").document(it1).update("booked_trips", FieldValue.arrayUnion(uIdArray[p0])) }
                     mContext.showToast("Trip Booked Successfully!")
                     val intent = Intent(mContext, PassengerInterface::class.java)
                     mContext.startActivity(intent)
-
                 }
                 else{
                     mContext.showToast("No available seats in this trip!")

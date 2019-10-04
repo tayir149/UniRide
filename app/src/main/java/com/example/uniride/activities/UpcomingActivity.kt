@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uniride.R
 import com.example.uniride.classes.Trip
-import com.example.uniride.classes.TripsAdapter
+import com.example.uniride.classes.UpcomingTripsAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
@@ -36,7 +36,7 @@ class UpcomingActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
 
         //Link the recycler view with the costume adapter and pass in the Trip array as data
-        val adapter = TripsAdapter(this, tripArray, uIdArray)
+        val adapter = UpcomingTripsAdapter(this, tripArray, uIdArray)
         recyclerView.adapter = adapter
 
 
@@ -56,12 +56,12 @@ class UpcomingActivity : AppCompatActivity() {
                 for (document in value!!.documentChanges) {
                     if(document.type == DocumentChange.Type.ADDED){
                         val driverName = document.document.getString("trip_driver")
-                        var date = document.document.getString("date")
-                        var route = document.document.getString("route")
-                        var eta = document.document.getString("estimated_arrival_time")
-                        var details = document.document.getString("car_detail")
-                        var passengers = document.document.getLong("number_of_passengers")?.toInt()
-                        var price = document.document.getDouble("price")
+                        val date = document.document.getString("date")
+                        val route = document.document.getString("route")
+                        val eta = document.document.getString("estimated_arrival_time")
+                        val details = document.document.getString("car_detail")
+                        val passengers = document.document.getLong("number_of_passengers")?.toInt()
+                        val price = document.document.getDouble("price")
                         val driverEmail = document.document.getString("user_email")
                         val passengerList =document.document.get("passenger_list") as ArrayList<String>?
 

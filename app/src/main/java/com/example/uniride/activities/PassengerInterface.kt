@@ -29,9 +29,12 @@ class PassengerInterface : AppCompatActivity(){
             startActivity(intent)
         }
 
-        /* When TRIP HISTORY button pressed, will navigate to history page */
         tripHistoryButton.setOnClickListener {
             startActivity<HistoryActivity>()
+        }
+
+        bookedTripsButton.setOnClickListener {
+            startActivity<BookedTrips>()
         }
     }
 }

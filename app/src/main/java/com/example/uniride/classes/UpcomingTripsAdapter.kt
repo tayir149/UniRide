@@ -1,7 +1,9 @@
 package com.example.uniride.classes
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.text.SpannableString
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +15,7 @@ import com.example.uniride.showToast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.upcoming_trip_list.view.*
 
-class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: ArrayList<String>) :  RecyclerView.Adapter<TripsAdapter.MyViewHolder>(){
+class UpcomingTripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: ArrayList<String>) :  RecyclerView.Adapter<UpcomingTripsAdapter.MyViewHolder>(){
 
     val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
@@ -41,6 +43,7 @@ class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: 
         private var currentUId: String? = null
 
         init {
+
             itemView.tripList_edit_button.setOnClickListener {
 
                 val intent = Intent(context, EditTrip::class.java)
@@ -55,18 +58,32 @@ class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: 
 
             itemView.tripList_delete_Button.setOnClickListener {
 
-                //Deletes the trip from database using Uid
-                currentUId?.let { it1 ->
-                    db.collection("trips").document(it1).delete()
-                        .addOnSuccessListener { Log.d("Trip Delete", "DocumentSnapshot successfully deleted!") }
-                        .addOnFailureListener { e -> Log.w("Trip Delete", "Error deleting document", e) }
+                //Building dialog message
+                val alertDialogForDelete = AlertDialog.Builder(context)
+                alertDialogForDelete.setTitle("Delete Trip")
+                alertDialogForDelete.setMessage("Are You Sure You Want To Delete This Trip?")
+
+                //Add positive button to alert dialog
+                alertDialogForDelete.setPositiveButton("YES"){dialog, id ->
+                    //Deletes the trip from database using Uid
+                    currentUId?.let { it1 ->
+                        db.collection("trips").document(it1).delete()
+                            .addOnSuccessListener { Log.d("Trip Delete", "DocumentSnapshot successfully deleted!") }
+                            .addOnFailureListener { e -> Log.w("Trip Delete", "Error deleting document", e) }
+                    }
+
+                    //Deletes the current trip and Uid from the local array for refreshing the page
+                    trips.remove(currentTrip)
+                    uIds.remove(currentUId)
+                    notifyDataSetChanged()
+                    context.showToast("Trip Deleted!")
                 }
 
-                //Deletes the current trip and Uid from the local array for refreshing the page
-                trips.remove(currentTrip)
-                uIds.remove(currentUId)
-                notifyDataSetChanged()
-                context.showToast("Trip Deleted!")
+                //Add negative button to alert dialog
+                alertDialogForDelete.setNegativeButton("NO"){dialog, id ->
+                    dialog.dismiss()
+                }
+                alertDialogForDelete.show()
             }
         }
 
@@ -81,8 +98,9 @@ class TripsAdapter(val context: Context, val  trips: ArrayList<Trip>, val uIds: 
             itemView.tripList_show_driver_name.text = trip.getTripDriver()
 
             if(trip.getPassengerList() != null){
-                for(item in trip.getPassengerList()!!){
-                    itemView.tripList_show_passengerList.text = item
+                for (item in trip.getPassengerList()!!){
+                    itemView.tripList_show_passengerList.append(item)
+                    itemView.tripList_show_passengerList.append("\n")
                 }
             }
 
