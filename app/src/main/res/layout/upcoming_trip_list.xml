@@ -15,7 +15,7 @@
 
         <TextView
                 android:id="@+id/tripList_driver_name"
-                android:layout_width="170dp"
+                android:layout_width="180dp"
                 android:layout_height="25dp"
                 android:text="@string/history_driver"
                 android:textSize="18sp"
@@ -34,7 +34,7 @@
 
         <TextView
                 android:id="@+id/tripList_date"
-                android:layout_width="170dp"
+                android:layout_width="180dp"
                 android:layout_height="25dp"
                 android:text="@string/Date"
                 android:textSize="18sp"
@@ -53,7 +53,7 @@
 
         <TextView
                 android:id="@+id/tripList_eta"
-                android:layout_width="170dp"
+                android:layout_width="180dp"
                 android:layout_height="25dp"
                 android:textStyle="bold"
                 android:text="@string/arrival_time"
@@ -72,7 +72,7 @@
 
         <TextView
                 android:id="@+id/tripList_route"
-                android:layout_width="170dp"
+                android:layout_width="180dp"
                 android:layout_height="25dp"
                 android:text="@string/route"
                 android:textStyle="bold"
@@ -91,7 +91,7 @@
 
         <TextView
                 android:id="@+id/tripList_passengers"
-                android:layout_width="170dp"
+                android:layout_width="180dp"
                 android:layout_height="25dp"
                 android:textStyle="bold"
                 android:text="@string/history_num_of_passengers"
@@ -110,7 +110,7 @@
 
         <TextView
                 android:id="@+id/tripList_carDetails"
-                android:layout_width="170dp"
+                android:layout_width="180dp"
                 android:layout_height="25dp"
                 android:text="@string/car_make_and_model"
                 android:textStyle="bold"
@@ -129,7 +129,7 @@
 
         <TextView
                 android:id="@+id/tripList_price"
-                android:layout_width="170dp"
+                android:layout_width="180dp"
                 android:layout_height="25dp"
                 android:text="@string/price"
                 android:textColor="#050505"
@@ -146,6 +146,25 @@
                 app:layout_constraintStart_toEndOf="@+id/tripList_price"
                 app:layout_constraintTop_toTopOf="@+id/tripList_price" />
 
+        <TextView
+                android:id="@+id/tripList_passengerList"
+                android:layout_width="180dp"
+                android:layout_height="25dp"
+                android:text="@string/passengers_address"
+                android:textColor="#050505"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_price" />
+
+        <TextView
+                android:id="@+id/tripList_show_passengerList"
+                android:layout_width="205dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/tripList_passengerList"
+                app:layout_constraintTop_toTopOf="@+id/tripList_passengerList" />
+
         <Button
                 android:id="@+id/tripList_delete_Button"
                 style="?android:attr/borderlessButtonStyle"
@@ -153,14 +172,14 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorButton"
+                android:background="#00ECE3E3"
+                android:textColor="#FF0000"
                 android:text="@string/tripList_delete_button"
-                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tripList_price" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_passengerList" />
 
         <Button
                 android:id="@+id/tripList_edit_button"
@@ -169,14 +188,14 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="40dp"
-                android:background="@color/colorButton"
+                android:background="#00ECE3E3"
                 android:text="@string/tripList_edit_button"
-                android:textColor="#FFFFFF"
+                android:textColor="#16BE12"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tripList_price" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_passengerList" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

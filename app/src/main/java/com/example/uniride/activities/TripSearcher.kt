@@ -6,27 +6,20 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
-import android.widget.DatePicker
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import com.example.uniride.showToast
-import kotlinx.android.synthetic.main.activity_create_trip.*
-import kotlinx.android.synthetic.main.activity_passenger_interface.*
 import kotlinx.android.synthetic.main.activity_tripsearcher.*
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class TripSearcher : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
-    private var dateFormat = SimpleDateFormat("dd/MM/YYYY", Locale.UK)
-    private var timeFormat = SimpleDateFormat("hh:mm a", Locale.UK)
+    private var dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    private var timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
 
 
     @RequiresApi(Build.VERSION_CODES.O)

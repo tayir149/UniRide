@@ -2,6 +2,7 @@ package com.example.uniride.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -11,35 +12,40 @@ import com.example.uniride.R
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_create_trip.*
-import org.jetbrains.anko.startActivity
+import kotlinx.android.synthetic.main.activity_edit_trip.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CreateTrip : AppCompatActivity() {
-    
+class EditTrip : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_trip)
+        setContentView(R.layout.activity_edit_trip)
+
+        var dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        var time = SimpleDateFormat("HH:mm", Locale.getDefault())
+        val now = Calendar.getInstance()
+        val selectedDate = Calendar.getInstance()
+
+        var route = "Unknown Route"
+        lateinit var  homeAddress : String
+        val uniAddress = "Auckland University of Technology"
 
         val db = FirebaseFirestore.getInstance()
         val uIdRef = FirebaseAuth.getInstance().currentUser?.email
 
-        lateinit var  driverName: String
-        var dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-        var time = SimpleDateFormat("HH:mm", Locale.getDefault())
-        lateinit var  homeAddress : String
-        val uniAddress = "Auckland University of Technology"
-        var route = "Unknown Route"
+        val bundle: Bundle? = intent.extras
+        date_of_trip_in_edit.setText(bundle!!.getString("Date"))
+        arrivalTime.setText(bundle.getString("Eta"))
+        enterPrice.setText(bundle.getDouble("Price").toString())
+        enterCarMake.setText(bundle.getString("Car Detail"))
+        numberOfPassenger.setText(bundle.getInt("NoPassengers").toString())
+        val uId = bundle.getString("uId")
 
-        //Gets the address and name of current signed in user from the FireStore Database
         val docRef = uIdRef?.let { db.collection("users").document(it) }
         docRef?.get()?.addOnSuccessListener { document ->
             if (document != null) {
                 homeAddress = document.getString("address").toString()
-                val firstName = document.getString("first name")
-                val lastName = document.getString("last name")
-                driverName = "$firstName $lastName"
 
             } else {
                 Log.d("Main", "No such document")
@@ -48,17 +54,7 @@ class CreateTrip : AppCompatActivity() {
             Log.d("Main", "get failed with ", exception)
         }
 
-        //When back button pressed, page will go back to driver interface
-        backButton.setOnClickListener{
-            finish()
-        }
-
-        //Calendar for getting current date and time
-        val now = Calendar.getInstance()
-        val selectedDate = Calendar.getInstance()
-
-
-        date_of_trip_in_create.setOnClickListener {
+        date_of_trip_in_edit.setOnClickListener {
 
             //Shows the date picker and takes the user selected date and shows on date text view
             val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, mYear, mMonth, mDay ->
@@ -74,7 +70,7 @@ class CreateTrip : AppCompatActivity() {
                     toast.setGravity(Gravity.TOP, 10, 700)
                     toast.show()
                 }
-                else date_of_trip_in_create.setText(date)
+                else date_of_trip_in_edit.setText(date)
             },
                 now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH))
 
@@ -83,6 +79,7 @@ class CreateTrip : AppCompatActivity() {
 
         //Shows time picker and takes the user selected time and shows on time text view
         arrivalTime.setOnClickListener{
+
             val timePicker = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
                 val selectedTime = Calendar.getInstance()
                 selectedTime.set(Calendar.HOUR_OF_DAY, hourOfDay)
@@ -103,18 +100,18 @@ class CreateTrip : AppCompatActivity() {
             timePicker.show()
         }
 
-        homeToUni.setOnClickListener {
+        homeToUni_radio_button.setOnClickListener {
             route  = "From $homeAddress to $uniAddress"
         }
 
-        uniToHome.setOnClickListener{
+        uniToHome_radio_button.setOnClickListener{
             route = "From $uniAddress to $homeAddress"
         }
 
         //When Create trip button pressed, information entered will be sent to confirmation page
-        createTripButton.setOnClickListener {
+        confirmTripButton.setOnClickListener {
 
-            val dateOfTrip = date_of_trip_in_create.text.toString()
+            val dateOfTrip = date_of_trip_in_edit.text.toString()
             val eta = arrivalTime.text.toString()
             val priceOfTrip = java.lang.Double.parseDouble(enterPrice.text.toString())
             val carDetail = enterCarMake.text.toString()
@@ -129,17 +126,49 @@ class CreateTrip : AppCompatActivity() {
                 carDetail.isEmpty() -> showToast("Please enter you car make and model")
                 numberOfPassenger == 0 -> showToast("Please enter number of passenger")
                 else -> {
-                    //Sends the information to Create trip confirmation page
-                    startActivity<CreateTripConfirmationActivity>("Date of trip" to dateOfTrip,
-                        "Arrival time" to eta,
-                        "Price of trip" to priceOfTrip,
-                        "Car details" to carDetail,
-                        "Route of trip" to route,
-                        "Number of passenger" to numberOfPassenger,
-                        "Driver Name" to driverName,
-                        "User Email" to uIdRef)
+                    val batch = db.batch()
+                    val tripRef = db.collection("trips").document(uId!!)
+                    batch.update(tripRef, "date", dateOfTrip)
+                    batch.update(tripRef, "estimated_arrival_time", eta)
+                    batch.update(tripRef, "route", route)
+                    batch.update(tripRef, "price", priceOfTrip)
+                    batch.update(tripRef, "car_detail", carDetail)
+                    batch.update(tripRef, "number_of_passengers", numberOfPassenger)
+                    batch.commit().addOnCompleteListener{
+                        showToast("Trip Updated!")
+                    }
+                    Log.d("editing", uId)
+                    Log.d("editing", dateOfTrip)
+                    /*uId?.let { it1 ->
+                        db.collection("users").document(it1)
+                            .update(
+                                "date", dateOfTrip,
+                                "estimated_arrival_time", eta,
+                                "route", route,
+                                "price", priceOfTrip,
+                                "car_detail", carDetail,
+                                "number_of_passengers", numberOfPassenger
+                            )
+                    }*/
+
+                    val intent = Intent(this, UpcomingActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }
+
+        backButton.setOnClickListener {
+            finish()
+        }
+
+        cancel_button.setOnClickListener {
+
+            finish()
+        }
+
+
+
+
+
     }
 }

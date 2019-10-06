@@ -16,7 +16,9 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
     var userURD : Double? = 0.00
 
     fun saveUserToDatabase(){
-        val user = mapOf("email" to userEmail, "first name" to userFirstName,"last name" to userLastName, "address" to userAddress, "user credits" to userURD, "fbUserID" to fbUserID)
+        val user = mapOf("email" to userEmail, "first name" to userFirstName,
+            "last name" to userLastName, "address" to userAddress, "user credits" to userURD, "fbUserID" to fbUserID,
+            "booked_trips" to ArrayList<String>(), "created_trips" to ArrayList<String>())
 
         userEmail?.let {
             db.collection("users").document(it)

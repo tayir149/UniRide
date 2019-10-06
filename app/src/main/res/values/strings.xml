@@ -74,5 +74,12 @@
     <string name="arrival_time">Arrival Time:</string>
     <string name="tripList_delete_button">Delete Trip</string>
     <string name="tripList_edit_button">Edit Trip</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="edit_trip">Edit Trip</string>
+    <string name="cancel">Cancel</string>
+    <string name="passenger_list">Passenger List:</string>
+    <string name="book_trip">Book Trip</string>
+    <string name="available_seats">Available Seats:</string>
+    <string name="cancel_trip">Cancel Trip</string>
+    <string name="finish_trip">Finish Trip</string>
+    <string name="passengers_address">Passengers Address:</string>
 </resources>
