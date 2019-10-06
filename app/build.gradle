@@ -27,7 +27,6 @@ android {
 }
 
 dependencies {
-    //implementation 'com.android.support:multidex:1.0.3'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -47,12 +46,13 @@ dependencies {
     implementation 'org.jetbrains.anko:anko-design:0.10.7'
     implementation 'org.jetbrains.anko:anko-recyclerview-v7:0.10.7'
     implementation 'org.jetbrains.anko:anko-cardview-v7:0.10.7'
-    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
-    implementation 'com.facebook.android:facebook-login:[5,6)'
+    implementation 'com.facebook.android:facebook-android-sdk:5.5.1'
+    implementation 'com.facebook.android:facebook-login:5.5.1'
     implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-auth:16.0.2'
     implementation 'com.android.support:multidex:1.0.3'
     debugImplementation("androidx.test:core:1.2.0")
+    //implementation 'com.google.android:support-v4:r7'
 
     // add SDKs for desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries

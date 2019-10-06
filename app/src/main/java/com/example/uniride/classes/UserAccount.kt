@@ -3,19 +3,20 @@ package com.example.uniride.classes
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 
-class UserAccount (firstName:String?,lastName:String?,address:String?, email:String?){
+class UserAccount (firstName:String?,lastName:String?,address:String?, email:String?, userid:String?){
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private val userFirstName = firstName
     private val userLastName = lastName
     private val userAddress = address
     private val userEmail = email
+    private val fbUserID = userid
 
     //urd = uniride dollar
     var userURD : Double? = 0.00
 
     fun saveUserToDatabase(){
-        val user = mapOf("email" to userEmail, "first name" to userFirstName,"last name" to userLastName, "address" to userAddress, "user credits" to userURD)
+        val user = mapOf("email" to userEmail, "first name" to userFirstName,"last name" to userLastName, "address" to userAddress, "user credits" to userURD, "fbUserID" to fbUserID)
 
         userEmail?.let {
             db.collection("users").document(it)

@@ -74,4 +74,5 @@
     <string name="arrival_time">Arrival Time:</string>
     <string name="tripList_delete_button">Delete Trip</string>
     <string name="tripList_edit_button">Edit Trip</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

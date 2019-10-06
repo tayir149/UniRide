@@ -91,7 +91,7 @@ class TripList : AppCompatActivity() {
 
             val messageDriverView = rowMain.findViewById<Button>(R.id.triplist_message_button)
             messageDriverView.setOnClickListener{
-                val userID = "royalty37"
+                val userID = "2659411804110269"
                 val intent = Intent(mContext, Messenger::class.java)
                 intent.putExtra("userID",userID)
                 mContext.startActivity(intent)

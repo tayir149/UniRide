@@ -11,7 +11,7 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         tools:context=".ui.login.sign_up"-->
 
-    <com.facebook.login.widget.LoginButton
+    <!--<com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             app:layout_constraintStart_toEndOf="@+id/userIDText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/password_signup"
-            app:layout_constraintVertical_bias="0.461"/>
+            app:layout_constraintVertical_bias="0.461"/>-->
 
     <Button
             android:id="@+id/login"
@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
             android:layout_marginEnd="24dp"
             android:background="#ff6d1a"
             android:outlineAmbientShadowColor="#ff6d1a"
@@ -39,7 +40,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_signup" />
+            app:layout_constraintTop_toBottomOf="@+id/userid" />
 
     <TextView
             android:id="@+id/appName"
@@ -79,6 +80,24 @@
             app:layout_constraintHorizontal_bias="0.406"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <EditText
+            android:id="@+id/userid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+
+            android:layout_marginEnd="40dp"
+            android:autofillHints=""
+            android:hint="Facebook UserID"
+            android:imeOptions="actionDone"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.406"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_signup" />
 
     <EditText
             android:id="@+id/username"
@@ -145,7 +164,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
-    <TextView
+    <!--<TextView
             android:id="@+id/userIDText"
             android:layout_width="110dp"
             android:layout_height="25dp"
@@ -157,14 +176,14 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_signup"
-            app:layout_constraintVertical_bias="0.487" />
+            app:layout_constraintVertical_bias="0.487" />-->
 
     <TextView
             android:id="@+id/textView"
             android:layout_width="169dp"
             android:layout_height="20dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="Already have an account?"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -178,7 +197,7 @@
             android:layout_width="87dp"
             android:layout_height="20dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="117dp"
             android:layout_marginBottom="20dp"
             android:clickable="true"
@@ -188,7 +207,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/login"
-            app:layout_constraintVertical_bias="1.0" /><![CDATA[
+            app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+            android:id="@+id/useridtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:text="Need help with Facebook UserID?"
+            android:textColor="#FF5722"
+            app:layout_constraintBottom_toTopOf="@+id/login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userid"
+            app:layout_constraintVertical_bias="0.625" /><![CDATA[
 
     "
     tools:layout_editor_absoluteX="32dp"
