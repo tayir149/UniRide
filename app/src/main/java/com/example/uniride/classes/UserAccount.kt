@@ -40,7 +40,7 @@ class UserAccount (firstName:String?,lastName:String?,address:String?, email:Str
     fun addCredit(creditToAdd:Double?, passenger:UserAccount){
         if(passenger.getCredit()!! >= creditToAdd!!){
             removeCredit(creditToAdd)
-            userURD = userURD?.plus(creditToAdd!!)
+            userURD = userURD?.plus(creditToAdd)
         }
     }
     fun removeCredit(creditToRemove:Double?){
