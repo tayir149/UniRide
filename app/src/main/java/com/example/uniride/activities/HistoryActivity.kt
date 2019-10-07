@@ -14,8 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import kotlinx.android.synthetic.main.activity_history.*
-
-
+import org.jetbrains.anko.startActivity
 
 
 class HistoryActivity : AppCompatActivity() {
@@ -26,7 +25,7 @@ class HistoryActivity : AppCompatActivity() {
 
         /* When HISTORY BACK button pressed, will navigate to last page */
         history_back_button.setOnClickListener {
-            finish()
+            startActivity<PassengerInterface>()
         }
 
         val listView = findViewById<ListView>(R.id.history_listview)
