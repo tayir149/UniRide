@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.55474454" />
+
+    <TextView
+            android:id="@+id/driver_history_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_date"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+            android:id="@+id/driver_history_show_route_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:background="#00F5F1F"
+            android:text="@string/driver_history_show_route_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/driver_history_passenger" />
+
+    <Button
+            android:id="@+id/driver_history_message_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="#00F5F1F"
+            android:text="@string/driver_history_message_button"
+            android:textColor="#16BE12"
+            app:layout_constraintBottom_toBottomOf="@+id/driver_history_show_route_button"
+            app:layout_constraintStart_toStartOf="@+id/guideline7" />
+
+    <TextView
+            android:id="@+id/driver_history_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/driver_history_price"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/driver_history_date" />
+
+    <TextView
+            android:id="@+id/driver_history_price_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_price_view"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/driver_history_price"
+            app:layout_constraintStart_toEndOf="@+id/driver_history_price" />
+
+    <TextView
+            android:id="@+id/driver_history_pick_up_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_pick_up_time"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/driver_history_price" />
+
+    <TextView
+            android:id="@+id/driver_history_pick_up_time_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_pick_up_time_view"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/driver_history_pick_up_time"
+            app:layout_constraintStart_toEndOf="@+id/driver_history_pick_up_time" />
+
+    <TextView
+            android:id="@+id/driver_history_ETA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_ETA"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/driver_history_pick_up_time" />
+
+    <TextView
+            android:id="@+id/driver_history_ETA_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_ETA_view"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/driver_history_ETA"
+            app:layout_constraintStart_toEndOf="@+id/driver_history_ETA" />
+
+    <TextView
+            android:id="@+id/driver_history_passenger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_passenger"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/driver_history_ETA" />
+
+    <TextView
+            android:id="@+id/driver_history_passenger_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_passenger_view"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/driver_history_passenger"
+            app:layout_constraintStart_toEndOf="@+id/driver_history_passenger" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,7 +61,7 @@
     <string name="history_trip_date">Date</string>
     <string name="history_driver">Driver:</string>
     <string name="history_pickUpTime">Pickup time:</string>
-    <string name="history_ETA">ETA at Uni:</string>
+    <string name="history_ETA">ETA to Destination:</string>
     <string name="history_num_of_passengers">No. of Passengers:</string>
     <string name="history_driver_name" />
     <string name="history_pickUpTime_view" />
@@ -82,4 +82,23 @@
     <string name="cancel_trip">Cancel Trip</string>
     <string name="finish_trip">Finish Trip</string>
     <string name="passengers_address">Passengers Address:</string>
+    <string name="driver_history_back_button"><![CDATA[<]]></string>
+    <string name="driver_history_title">History</string>
+    <string name="history_studentID">StudentID:</string>
+    <string name="history_studentID_view" />
+    <string name="history_price">Price:</string>
+    <string name="history_price_view" />
+    <string name="history_plate">PlateNumber:</string>
+    <string name="history_plate_view" />
+    <string name="driver_history_date">Date</string>
+    <string name="driver_history_price">price:</string>
+    <string name="driver_history_price_view" />
+    <string name="driver_history_pick_up_time">Pickup Time:</string>
+    <string name="driver_history_pick_up_time_view" />
+    <string name="driver_history_ETA">ETA to Destination:</string>
+    <string name="driver_history_ETA_view" />
+    <string name="driver_history_passenger">No. of Passengers:</string>
+    <string name="driver_history_passenger_view" />
+    <string name="driver_history_show_route_button">SHOW ROUTE</string>
+    <string name="driver_history_message_button">MESSAGE PASSENGER</string>
 </resources>
