@@ -33,6 +33,7 @@
 
     <Button
             android:id="@+id/driver_history_back_button"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="41dp"
             android:layout_height="30dp"
             android:background="#FF5224"
