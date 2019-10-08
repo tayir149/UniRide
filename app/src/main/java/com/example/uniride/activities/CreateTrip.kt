@@ -26,8 +26,8 @@ class CreateTrip : AppCompatActivity() {
         val uIdRef = FirebaseAuth.getInstance().currentUser?.email
 
         lateinit var  driverName: String
-        var dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-        var time = SimpleDateFormat("HH:mm", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val time = SimpleDateFormat("HH:mm", Locale.getDefault())
         lateinit var  homeAddress : String
         val uniAddress = "Auckland University of Technology"
         var route = "Unknown Route"
@@ -42,10 +42,10 @@ class CreateTrip : AppCompatActivity() {
                 driverName = "$firstName $lastName"
 
             } else {
-                Log.d("Main", "No such document")
+                showToast("No Such Document")
             }
         }?.addOnFailureListener { exception ->
-            Log.d("Main", "get failed with ", exception)
+            Log.d("Main", "Failed", exception)
         }
 
         //When back button pressed, page will go back to driver interface

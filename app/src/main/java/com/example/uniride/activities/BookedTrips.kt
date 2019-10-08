@@ -9,6 +9,7 @@ import com.example.uniride.R
 import com.example.uniride.classes.BookedTripAdapter
 import com.example.uniride.classes.Trip
 import com.example.uniride.classes.UpcomingTripsAdapter
+import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -72,7 +73,7 @@ class BookedTrips : AppCompatActivity() {
                         }
                     }
             } else{
-                Log.d("Error", "No such document")
+                showToast("No such document")
             }
         }?.addOnFailureListener { exception ->
             Log.d("Main", "get failed with ", exception)
