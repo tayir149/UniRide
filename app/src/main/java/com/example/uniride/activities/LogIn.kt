@@ -13,15 +13,15 @@ import kotlinx.android.synthetic.main.activity_sign_up.login
 
 class LogIn: AppCompatActivity() {
 
-    var mAuth = FirebaseAuth.getInstance();
+    var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         login.setOnClickListener {view ->
-            val email = university_email.text.toString();
-            val password = password_login.text.toString();
+            val email = university_email.text.toString()
+            val password = password_login.text.toString()
 
             val intent = Intent(this, PassengerDriverSelector::class.java)
             when {

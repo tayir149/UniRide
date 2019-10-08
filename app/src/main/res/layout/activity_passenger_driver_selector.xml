@@ -12,33 +12,27 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginEnd="42dp"
-            android:layout_marginRight="42dp"
             android:layout_marginBottom="204dp"
             android:background="#FF6D1A"
             android:text="@string/driver"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/passenger_or_driver_text"
             app:layout_constraintStart_toEndOf="@+id/passenger_button" />
 
     <TextView
             android:id="@+id/passenger_or_driver_text"
-            android:layout_width="279dp"
-            android:layout_height="97dp"
+            android:layout_width="314dp"
+            android:layout_height="79dp"
             android:layout_marginStart="43dp"
-            android:layout_marginLeft="43dp"
             android:layout_marginTop="197dp"
-            android:layout_marginEnd="89dp"
-            android:layout_marginRight="89dp"
+            android:layout_marginEnd="43dp"
             android:text="@string/are_you_a_passenger_or_driver"
             android:textColor="#000000"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/driver_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,10 +40,7 @@
             android:id="@+id/passenger_button"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginStart="42dp"
-            android:layout_marginLeft="42dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginBottom="204dp"
             android:background="#FF6D1A"
             android:text="@string/passenger"
@@ -57,6 +48,6 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/driver_button"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/passenger_or_driver_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
