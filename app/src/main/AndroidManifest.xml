@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.BookedTrips" />
+        <activity android:name=".activities.Earnings"/>
         <activity android:name=".activities.UpcomingActivity" />
 
         <meta-data

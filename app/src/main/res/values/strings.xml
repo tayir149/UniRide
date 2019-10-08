@@ -101,4 +101,5 @@
     <string name="driver_history_passenger_view" />
     <string name="driver_history_show_route_button">SHOW ROUTE</string>
     <string name="driver_history_message_button">MESSAGE PASSENGER</string>
+    <string name="_0_00">0.00</string>
 </resources>

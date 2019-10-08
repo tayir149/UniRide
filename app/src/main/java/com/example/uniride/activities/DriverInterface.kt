@@ -31,20 +31,8 @@ class DriverInterface : AppCompatActivity() {
             startActivity<UpcomingActivity>()
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        earningsButton.setOnClickListener{
+            startActivity<Earnings>();
+        }
     }
 }
