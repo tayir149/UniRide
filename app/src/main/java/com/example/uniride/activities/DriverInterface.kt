@@ -34,5 +34,8 @@ class DriverInterface : AppCompatActivity() {
         earningsButton.setOnClickListener{
             startActivity<Earnings>();
         }
+        optionsButton.setOnClickListener{
+            startActivity<OptionsActivity>()
+        }
     }
 }

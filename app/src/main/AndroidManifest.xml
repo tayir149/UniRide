@@ -23,7 +23,7 @@
         <activity android:name=".activities.BookedTrips" />
         <activity android:name=".activities.Earnings"/>
         <activity android:name=".activities.UpcomingActivity" />
-
+        <activity android:name=".activities.OptionsActivity"/>
         <meta-data
                 android:name="com.facebook.sdk.ApplicationId"
                 android:value="@string/facebook_app_id" />

@@ -36,5 +36,9 @@ class PassengerInterface : AppCompatActivity(){
         bookedTripsButton.setOnClickListener {
             startActivity<BookedTrips>()
         }
+
+        optionsButton.setOnClickListener{
+            startActivity<OptionsActivity>()
+        }
     }
 }
