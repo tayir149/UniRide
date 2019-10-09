@@ -10,7 +10,7 @@
             android:id="@+id/earnings_header"
             android:layout_width="461dp"
             android:layout_height="87dp"
-            android:background="#FF5224"
+            android:background="#FF6D1A"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -20,10 +20,10 @@
 
     <TextView
             android:id="@+id/earnings_title"
-            android:layout_width="165dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="161dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="20dp"
             android:text="@string/earnings"
             android:textColor="#FFFEFE"
             android:textSize="30sp"
@@ -36,7 +36,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="38dp"
             android:layout_height="54dp"
-            android:background="@color/colorPrimary"
+            android:background="#FF6D1A"
             android:text="@string/backButton"
             android:textColor="@color/whiteFont"
             android:textSize="20sp"
@@ -50,19 +50,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
+            android:text="@string/dollar_sign"
             android:textSize="50sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.235"
+            app:layout_constraintHorizontal_bias="0.241"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/earnings_header"
-            app:layout_constraintVertical_bias="0.12"
-            tools:text="$" />
+            app:layout_constraintVertical_bias="0.116" />
 
     <TextView
             android:id="@+id/earnings_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="@string/_0_00"
             android:textSize="50sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -71,4 +72,5 @@
             app:layout_constraintStart_toEndOf="@+id/earnings_text"
             app:layout_constraintTop_toBottomOf="@+id/earnings_header"
             app:layout_constraintVertical_bias="0.118" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
