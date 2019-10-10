@@ -29,7 +29,7 @@ class CreateTrip : AppCompatActivity() {
         val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         val time = SimpleDateFormat("HH:mm", Locale.getDefault())
         lateinit var  homeAddress : String
-        val uniAddress = "Auckland University of Technology"
+        val uniAddress = "AUT"
         var route = "Unknown Route"
 
         //Gets the address and name of current signed in user from the FireStore Database
@@ -120,6 +120,7 @@ class CreateTrip : AppCompatActivity() {
             val carDetail = enterCarMake.text.toString()
             val numberOfPassenger = Integer.parseInt(numberOfPassenger.text.toString())
 
+
             //If any of the field empty, will not proceed until every field filled
             when {
                 dateOfTrip.isEmpty() -> showToast("Please enter a date for the trip")
@@ -128,6 +129,7 @@ class CreateTrip : AppCompatActivity() {
                 priceOfTrip == 0.00 -> showToast("Please enter a price for the trip")
                 carDetail.isEmpty() -> showToast("Please enter you car make and model")
                 numberOfPassenger == 0 -> showToast("Please enter number of passenger")
+                numberOfPassenger >= 7 -> showToast("You can only take no more than 6 passengers")
                 else -> {
                     //Sends the information to Create trip confirmation page
                     startActivity<CreateTripConfirmationActivity>("Date of trip" to dateOfTrip,

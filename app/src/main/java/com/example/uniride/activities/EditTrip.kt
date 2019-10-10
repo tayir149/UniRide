@@ -22,8 +22,8 @@ class EditTrip : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_trip)
 
-        var dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-        var time = SimpleDateFormat("HH:mm", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val time = SimpleDateFormat("HH:mm", Locale.getDefault())
         val now = Calendar.getInstance()
         val selectedDate = Calendar.getInstance()
 
@@ -125,6 +125,7 @@ class EditTrip : AppCompatActivity() {
                 priceOfTrip == 0.00 -> showToast("Please enter a price for the trip")
                 carDetail.isEmpty() -> showToast("Please enter you car make and model")
                 numberOfPassenger == 0 -> showToast("Please enter number of passenger")
+                numberOfPassenger >= 7 -> showToast("You can only take no more than 6 passengers")
                 else -> {
                     val batch = db.batch()
                     val tripRef = db.collection("trips").document(uId!!)
@@ -137,19 +138,6 @@ class EditTrip : AppCompatActivity() {
                     batch.commit().addOnCompleteListener{
                         showToast("Trip Updated!")
                     }
-                    Log.d("editing", uId)
-                    Log.d("editing", dateOfTrip)
-                    /*uId?.let { it1 ->
-                        db.collection("users").document(it1)
-                            .update(
-                                "date", dateOfTrip,
-                                "estimated_arrival_time", eta,
-                                "route", route,
-                                "price", priceOfTrip,
-                                "car_detail", carDetail,
-                                "number_of_passengers", numberOfPassenger
-                            )
-                    }*/
 
                     val intent = Intent(this, UpcomingActivity::class.java)
                     startActivity(intent)
@@ -162,13 +150,7 @@ class EditTrip : AppCompatActivity() {
         }
 
         cancel_button.setOnClickListener {
-
             finish()
         }
-
-
-
-
-
     }
 }
