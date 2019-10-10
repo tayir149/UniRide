@@ -42,6 +42,25 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
         private var currentUId: String? = null
 
         init{
+            val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
+//
+//            itemView.bookedTrip_finish_button.setOnClickListener{
+//                //GET CURRENT USER'S CREDITS
+//                val userProfileRef = currentUserEmail?.let{it->
+//                    db.collection("users").document(it)}
+//                userProfileRef?.get()?.addOnSuccessListener { document ->
+//                    if(document!=null){
+//                        val currentUserCredits = document.getDouble("user credits")
+//                        Log.d("Test","User credits = $currentUserCredits")
+//                        Log.d("Test","UID: $currentUId")
+//                    }
+//                    else{
+//                        Log.d("Error","No such document")
+//                    }
+//                }
+//
+//                //GET DRIVER
+//            }
 
             itemView.bookedTrip_cancel_button.setOnClickListener {
 
@@ -51,7 +70,6 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
 
                 alertDialogForDelete.setPositiveButton("YES"){dialog, id ->
 
-                    val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
                     val userProfileRef = currentUserEmail?.let { it1 ->
                         db.collection("users").document(it1) }
                     userProfileRef?.update("booked_trips", FieldValue.arrayRemove(currentUId))
