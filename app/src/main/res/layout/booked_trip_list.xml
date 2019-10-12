@@ -15,11 +15,11 @@
 
         <TextView
                 android:id="@+id/bookedTrip_carDetails_text"
-                android:layout_width="200dp"
-                android:layout_height="25dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
                 android:text="@string/car_make_and_model"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textColor="#050505"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toStartOf="@+id/bookedTrip_eta_text"
@@ -27,45 +27,45 @@
 
         <TextView
                 android:id="@+id/bookedTrip_carDetails_textValue"
-                android:layout_width="150dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toEndOf="@+id/bookedTrip_carDetails_text"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_noPassengers_textValue" />
 
         <TextView
                 android:id="@+id/bookedTrip_noPassengers_textValue"
-                android:layout_width="150dp"
-                android:layout_height="25dp"
-                android:textSize="18sp"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toEndOf="@+id/bookedTrip_noPassengers_text"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_price_textValue" />
 
         <TextView
                 android:id="@+id/bookedTrip_price_textValue"
-                android:layout_width="150dp"
-                android:layout_height="25dp"
-                android:textSize="18sp"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toEndOf="@+id/bookedTrip_noPassengers_text"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_eta_textValue" />
 
         <TextView
                 android:id="@+id/bookedTrip_eta_textValue"
-                android:layout_width="150dp"
-                android:layout_height="25dp"
-                android:textSize="18sp"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toEndOf="@+id/bookedTrip_eta_text"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_pickup_textValue" />
 
         <TextView
                 android:id="@+id/bookedTrip_pickup_textValue"
-                android:layout_width="150dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toEndOf="@+id/bookedTrip_pickup_text"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_date" />
@@ -77,11 +77,12 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:layout_marginTop="25dp"
+                android:layout_marginStart="20dp"
                 android:background="#00F5F1F1"
                 android:text="@string/history_show_route_button"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
-                app:layout_constraintStart_toStartOf="@+id/bookedTrip_noPassengers_text"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_carDetails_textValue" />
 
         <Button
@@ -89,35 +90,36 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginEnd="20dp"
                 android:textSize="12sp"
                 android:background="#00ECE3E3"
                 android:text="@string/history_message_button"
                 android:textColor="#16BE12"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
-                app:layout_constraintStart_toEndOf="@+id/bookedTrip_route_button"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/bookedTrip_route_button" />
 
         <TextView
                 android:id="@+id/bookedTrip_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/history_trip_date"
-                android:textSize="36sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
+                android:textColor="#050505"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
                 android:id="@+id/bookedTrip_eta_text"
-                android:layout_width="200dp"
-                android:layout_height="25dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
                 android:text="@string/history_ETA"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textColor="#050505"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
@@ -126,12 +128,12 @@
 
         <TextView
                 android:id="@+id/bookedTrip_pickup_text"
-                android:layout_width="200dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:text="@string/route"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textColor="#050505"
                 app:fontFamily="sans-serif"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_date"
@@ -140,24 +142,24 @@
 
         <TextView
                 android:id="@+id/bookedTrip_noPassengers_text"
-                android:layout_width="200dp"
-                android:layout_height="25dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
                 android:text="@string/available_seats"
                 android:textStyle="bold"
                 android:textColor="#050505"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toStartOf="@+id/bookedTrip_eta_text"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_price_text" />
 
         <TextView
                 android:id="@+id/bookedTrip_price_text"
-                android:layout_width="200dp"
-                android:layout_height="25dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
                 android:text="@string/price"
                 android:textStyle="bold"
                 android:textColor="#050505"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 app:fontFamily="sans-serif"
                 app:layout_constraintStart_toStartOf="@+id/bookedTrip_eta_text"
                 app:layout_constraintTop_toBottomOf="@+id/bookedTrip_eta_text" />
@@ -167,30 +169,29 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:background="#00ECE3E3"
                 android:textSize="12sp"
+
                 android:text="@string/cancel_trip"
                 android:textColor="#FF0000"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
-                app:layout_constraintStart_toEndOf="@+id/bookedTrip_message_button"
-                app:layout_constraintTop_toTopOf="@+id/bookedTrip_route_button" />
+                app:layout_constraintStart_toStartOf="@+id/bookedTrip_route_button"
+                app:layout_constraintTop_toBottomOf="@+id/bookedTrip_route_button" />
 
         <Button
                 android:id="@+id/bookedTrip_finish_button"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:background="#00ECE3E3"
                 android:textSize="12sp"
                 android:text="@string/finish_trip"
                 android:textColor="#16BE12"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
-                app:layout_constraintStart_toEndOf="@+id/bookedTrip_cancel_button"
-                app:layout_constraintTop_toTopOf="@+id/bookedTrip_route_button" />
+                app:layout_constraintStart_toStartOf="@+id/bookedTrip_message_button"
+                app:layout_constraintTop_toBottomOf="@+id/bookedTrip_route_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
