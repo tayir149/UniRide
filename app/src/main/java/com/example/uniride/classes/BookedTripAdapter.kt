@@ -43,24 +43,66 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
 
         init{
             val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
-//
-//            itemView.bookedTrip_finish_button.setOnClickListener{
-//                //GET CURRENT USER'S CREDITS
-//                val userProfileRef = currentUserEmail?.let{it->
-//                    db.collection("users").document(it)}
-//                userProfileRef?.get()?.addOnSuccessListener { document ->
-//                    if(document!=null){
-//                        val currentUserCredits = document.getDouble("user credits")
-//                        Log.d("Test","User credits = $currentUserCredits")
-//                        Log.d("Test","UID: $currentUId")
-//                    }
-//                    else{
-//                        Log.d("Error","No such document")
-//                    }
-//                }
-//
-//                //GET DRIVER
-//            }
+
+            itemView.bookedTrip_finish_button.setOnClickListener {
+                //GET CURRENT TRIP
+                val driverEmail = trips[currentPosition].getDriverEmail()
+                val price = trips[currentPosition].getPrice()
+
+                //GET CURRENT USER'S CREDITS
+                val userProfileRef = currentUserEmail?.let { it ->
+                    db.collection("users").document(it)
+                }
+                userProfileRef?.get()?.addOnSuccessListener { document ->
+                    if (document != null) {
+                        var currentUserCredits = document.getDouble("user credits")
+
+                        if (currentUserCredits!! > 0) {
+                            //GET TRIP DRIVER'S CREDITS
+                            val driverProfileRef = db.collection("users").document(driverEmail)
+                            driverProfileRef?.get()?.addOnSuccessListener { document ->
+                                if (document != null) {
+                                    var driverCred = document.getDouble("user credits")
+                                    currentUserCredits -= price!!
+                                    driverCred = driverCred?.plus(price!!)
+
+                                    val batch = db.batch()
+                                    batch.update(userProfileRef, "user credits", currentUserCredits)
+                                    batch.update(driverProfileRef, "user credits", driverCred)
+                                    batch.commit()
+                                }
+                            }
+                        } else context.showToast("Insufficient Funds!")
+                    } else {
+                        Log.d("Error", "No such document")
+                    }
+                }
+                userProfileRef?.update("booked_trips", FieldValue.arrayRemove(currentUId))
+                lateinit var passengerAddress: String
+                userProfileRef?.get()?.addOnSuccessListener { document ->
+                    if (document != null) {
+                        passengerAddress = document.getString("address").toString()
+                        currentUId?.let { it1 ->
+                            db.collection("trips").document(it1).update(
+                                "passenger_list",
+                                FieldValue.arrayRemove(passengerAddress)
+                            )
+                        }
+                    } else {
+                        Log.d("Error", "No such document")
+                    }
+                }?.addOnFailureListener { exception ->
+                    Log.d("Main", "get failed with ", exception)
+                }
+
+
+                //Deletes the current trip and Uid from the local array for refreshing the page
+                trips.remove(currentTrip)
+                uIds.remove(currentUId)
+                context.showToast("Trip Finished!")
+                val intent = Intent(context, BookedTrips::class.java)
+                context.startActivity(intent)
+            }
 
             itemView.bookedTrip_cancel_button.setOnClickListener {
 

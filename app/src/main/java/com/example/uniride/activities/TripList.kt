@@ -98,7 +98,6 @@ class TripList : AppCompatActivity() {
                     }
 
                     adapter.notifyDataSetChanged()
-                    Log.d("TripList", "test $tripArray")
                 }
             }
             }
