@@ -143,27 +143,41 @@ class TripList : AppCompatActivity() {
 
 
             bookTrip.setOnClickListener {
+                val passengerEmail = FirebaseAuth.getInstance().currentUser?.email
+                val userProfileRef = passengerEmail?.let { it1 ->
+                    db.collection("users").document(it1) }
 
-                if(availableSpace!! > 0){
-                    val passengerEmail = FirebaseAuth.getInstance().currentUser?.email
-                    val userProfileRef = passengerEmail?.let { it1 ->
-                        db.collection("users").document(it1) }
-                    lateinit var passengerAddress: String
-                    userProfileRef?.get()?.addOnSuccessListener { document ->
-                        if(document != null){
-                            passengerAddress = document.getString("address").toString()
-                            db.collection("trips").document(uIdArray[p0]).update("passenger_list", FieldValue.arrayUnion(passengerAddress))
-                        } else{
-                            Log.d("Error", "No such document")
+                userProfileRef?.get()?.addOnSuccessListener { document ->
+                    val currentUserCredits = document.getDouble("user credits")!!
+
+                    if (currentUserCredits < array[p0].getPrice()!!) {
+                        mContext.showToast("Insufficient credit, please add more credit")
+                    } else {
+                        if (availableSpace!! > 0) {
+
+                            lateinit var passengerAddress: String
+                            userProfileRef?.get()?.addOnSuccessListener { document ->
+                                if (document != null) {
+                                    passengerAddress = document.getString("address").toString()
+                                    db.collection("trips").document(uIdArray[p0]).update(
+                                        "passenger_list",
+                                        FieldValue.arrayUnion(passengerAddress)
+                                    )
+                                } else {
+                                    Log.d("Error", "No such document")
+                                }
+                            }
+                            passengerEmail?.let { it1 ->
+                                db.collection("users").document(it1)
+                                    .update("booked_trips", FieldValue.arrayUnion(uIdArray[p0]))
+                            }
+                            mContext.showToast("Trip Booked Successfully!")
+                            val intent = Intent(mContext, PassengerInterface::class.java)
+                            mContext.startActivity(intent)
+                        } else {
+                            mContext.showToast("No available seats in this trip!")
                         }
                     }
-                    passengerEmail?.let { it1 -> db.collection("users").document(it1).update("booked_trips", FieldValue.arrayUnion(uIdArray[p0])) }
-                    mContext.showToast("Trip Booked Successfully!")
-                    val intent = Intent(mContext, PassengerInterface::class.java)
-                    mContext.startActivity(intent)
-                }
-                else{
-                    mContext.showToast("No available seats in this trip!")
                 }
             }
 
