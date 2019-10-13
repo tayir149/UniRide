@@ -104,4 +104,6 @@
     <string name="_0_00">0.00</string>
     <string name="dollar_sign">$</string>
     <string name="pay_user">Pay User</string>
+    <string name="title_activity_help_video">HelpVideo</string>
+    <string name="title_activity_video_help">VideoHelp</string>
 </resources>
