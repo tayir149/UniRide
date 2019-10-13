@@ -24,7 +24,9 @@ class Trip(driverName: String?, dateOfTrip: String?, eta: String?,
     fun getPassengerList(): ArrayList<String>? {
         return passengerList
     }
-
+    fun getDriverEmail():String{
+        return userEmailAddress.toString()
+    }
     fun getTripDriver():String{
         return tripDriver.toString()
     }

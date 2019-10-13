@@ -23,7 +23,6 @@ class LogIn: AppCompatActivity() {
             val email = university_email.text.toString()
             val password = password_login.text.toString()
 
-            val intent = Intent(this, PassengerDriverSelector::class.java)
             when {
                 email.isEmpty() -> showToast("Please enter your email!")
                 password.isEmpty() -> showToast("Please enter your password!")

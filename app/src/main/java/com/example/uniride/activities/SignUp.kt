@@ -105,6 +105,10 @@ class SignUp: AppCompatActivity(){
              val intent = Intent(this, LogIn::class.java)
              startActivity(intent)
          }
+         useridtext.setOnClickListener {
+             val intent = Intent(this, VideoHelp::class.java)
+             startActivity(intent)
+         }
      }
 
     /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
