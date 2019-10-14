@@ -142,12 +142,12 @@ class TripList : AppCompatActivity() {
             price.text = "$" + array[p0].getPrice().toString()
             val bookTrip = rowMain.findViewById<Button>(R.id.triplist_book_button)
 
-            val tripEmail = array[p0].getDriverEmail()
-            Log.d("Email", tripEmail)
+            val driverEmail = array[p0].getDriverEmail()
+            Log.d("Email", driverEmail)
 
             lateinit var fbUserID: String
 
-            val docRef = db.collection("users").document(tripEmail)
+            val docRef = db.collection("users").document(driverEmail)
             Log.d("docRef", docRef.toString())
 
             docRef.get().addOnSuccessListener { document ->
@@ -199,7 +199,7 @@ class TripList : AppCompatActivity() {
 
             val messageDriverView = rowMain.findViewById<Button>(R.id.triplist_message_button)
             messageDriverView.setOnClickListener{
-                val userID = "royalty37"
+                //val userID = "royalty37"
                 val intent = Intent(mContext, Messenger::class.java)
                 intent.putExtra("userID", fbUserID)
                 mContext.startActivity(intent)

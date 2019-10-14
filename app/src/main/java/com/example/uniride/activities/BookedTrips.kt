@@ -79,7 +79,6 @@ class BookedTrips : AppCompatActivity() {
             Log.d("Main", "get failed with ", exception)
         }
 
-
         bookedTripBackButton.setOnClickListener {
             val intent = Intent(this, PassengerInterface::class.java)
             startActivity(intent)

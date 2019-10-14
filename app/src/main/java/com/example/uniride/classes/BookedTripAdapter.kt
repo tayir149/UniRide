@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniride.R
 import com.example.uniride.activities.BookedTrips
+import com.example.uniride.activities.Messenger
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -95,7 +96,6 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
                     Log.d("Main", "get failed with ", exception)
                 }
 
-
                 //Deletes the current trip and Uid from the local array for refreshing the page
                 trips.remove(currentTrip)
                 uIds.remove(currentUId)
@@ -127,7 +127,6 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
                         Log.d("Main", "get failed with ", exception)
                     }
 
-
                     //Deletes the current trip and Uid from the local array for refreshing the page
                     trips.remove(currentTrip)
                     uIds.remove(currentUId)
@@ -140,6 +139,28 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
                     dialog.dismiss()
                 }
                 alertDialogForDelete.show()
+            }
+
+            val driverEmail = trips[currentPosition].getDriverEmail()
+            Log.d("Email, BookedTrip", driverEmail)
+
+            lateinit var fbUserID: String
+
+            val docRef = db.collection("users").document(driverEmail)
+            Log.d("docRef, BookedTrip", docRef.toString())
+
+            docRef.get().addOnSuccessListener { document ->
+                if (document != null) {
+                    fbUserID = document.getString("fbUserID").toString()
+                    Log.d("Success, BookedTrip", "Retrived doc")
+                } else
+                    Log.d("Fail, BookedTrip", "Document didn't retrieve")
+            }
+
+            itemView.bookedTrip_message_button.setOnClickListener {
+                val intent = Intent(context , Messenger::class.java)
+                intent.putExtra("userID", fbUserID)
+                context.startActivity(intent)
             }
         }
 
