@@ -6,6 +6,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <Button
+            android:id="@+id/earnings_addCredit_button"
+            android:layout_width="133dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="28dp"
+            android:background="#FF6D1A"
+            android:text="add credit"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numberOfPassenger" />
+
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/earnings_header"
             android:layout_width="461dp"
@@ -46,20 +60,6 @@
             app:layout_constraintTop_toTopOf="@+id/earnings_title" />
 
     <TextView
-            android:id="@+id/earnings_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:text="@string/dollar_sign"
-            android:textSize="50sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.241"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/earnings_header"
-            app:layout_constraintVertical_bias="0.116" />
-
-    <TextView
             android:id="@+id/earnings_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,6 +71,30 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/earnings_text"
             app:layout_constraintTop_toBottomOf="@+id/earnings_header"
-            app:layout_constraintVertical_bias="0.118" />
+            app:layout_constraintVertical_bias="0.093" />
+
+    <TextView
+            android:id="@+id/earnings_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:text="@string/dollar_sign"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.262"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/earnings_header"
+            app:layout_constraintVertical_bias="0.091" />
+
+    <TextView
+            android:id="@+id/earnings_remainingCredit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remaining Credit:"
+            app:layout_constraintBottom_toBottomOf="@+id/earnings_text"
+            app:layout_constraintEnd_toStartOf="@+id/earnings_text"
+            app:layout_constraintHorizontal_bias="0.625"
+            app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

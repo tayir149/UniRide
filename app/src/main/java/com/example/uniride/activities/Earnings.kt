@@ -1,31 +1,16 @@
 package com.example.uniride.activities
 
-import android.content.Context
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ListView
-import android.widget.TextView
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
-import com.example.uniride.classes.Trip
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_earnings.*
-import kotlinx.android.synthetic.main.activity_triplist.*
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
+import kotlinx.android.synthetic.main.activity_earnings.view.*
 
 class Earnings : AppCompatActivity() {
 
@@ -53,6 +38,48 @@ class Earnings : AppCompatActivity() {
 
         earnings_back_button.setOnClickListener {
             finish()
+        }
+        earnings_addCredit_button.setOnClickListener{
+            val creditDialog = AlertDialog.Builder(this)
+            creditDialog.setTitle("How much credit do you want to add?")
+            val view = layoutInflater.inflate(R.layout.dialog_addingcredit, null)
+            creditDialog.setView(view)
+
+            creditDialog.setPositiveButton(android.R.string.ok){ dialog,id->
+                val creditToAdd = view.earnings_addCredit_button.text.toString()
+
+                if(creditToAdd.isNotEmpty()){
+                    val creditToAddD = creditToAdd.toDouble()
+
+                    if(creditToAddD > 0){
+                        val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
+                        val userProfileRef = currentUserEmail?.let { it ->
+                            db.collection("users").document(it)
+                        }
+                        userProfileRef?.get()?.addOnSuccessListener { document ->
+                            if (document != null) {
+                                val currentUserCredits = document.getDouble("user credits")!!
+                                Log.d("Test","current: $currentUserCredits")
+                                val newCredit = currentUserCredits + creditToAddD
+                                Log.d("Test","new: $newCredit")
+
+                                val batch = db.batch()
+                                batch.update(userProfileRef, "user credits", newCredit)
+                                batch.commit()
+                            } else {
+                                Log.d("Error", "No such document")
+                            }
+                        }
+                    }
+                    else showToast("Please enter a value more than 0!")
+                }
+                finish()
+                startActivity(getIntent())
+            }
+            creditDialog.setNegativeButton(android.R.string.cancel){dialog, id ->
+                dialog.dismiss()
+            }
+            creditDialog.show()
         }
     }
 }
