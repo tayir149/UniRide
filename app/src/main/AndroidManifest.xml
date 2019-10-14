@@ -32,6 +32,7 @@
         <activity android:name=".activities.Earnings" />
         <activity android:name=".activities.UpcomingActivity" />
         <activity android:name=".activities.OptionsActivity" />
+        <activity android:name=".activities.AddingCredits"/>
 
         <meta-data
                 android:name="com.facebook.sdk.ApplicationId"
