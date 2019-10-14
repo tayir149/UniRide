@@ -13,10 +13,11 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.SaveTrips"></activity>
         <activity
                 android:name=".activities.VideoHelp"
                 android:label="@string/title_activity_video_help"
-                android:theme="@style/NoActionBar"></activity>
+                android:theme="@style/NoActionBar" />
         <activity
                 android:name=".activities.HelpVideo"
                 android:label="@string/title_activity_help_video"
@@ -32,7 +33,7 @@
         <activity android:name=".activities.Earnings" />
         <activity android:name=".activities.UpcomingActivity" />
         <activity android:name=".activities.OptionsActivity" />
-        <activity android:name=".activities.AddingCredits"/>
+        <activity android:name=".activities.AddingCredits" />
 
         <meta-data
                 android:name="com.facebook.sdk.ApplicationId"

@@ -22,6 +22,7 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_driver_history.*
 import org.jetbrains.anko.startActivity
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -130,6 +131,9 @@ class DriverHistory : AppCompatActivity() {
 
             val dateTextView = rowMain.findViewById<TextView>(R.id.driver_history_date)
             dateTextView.text = array[p0].getDate()
+
+            val price = rowMain.findViewById<TextView>(R.id.driver_history_price_view)
+            price.text = "$" + array[p0].getPrice().toString()
 
             val etaTextView = rowMain.findViewById<TextView>(R.id.driver_history_ETA_view)
             etaTextView.text = array[p0].getArrival()
