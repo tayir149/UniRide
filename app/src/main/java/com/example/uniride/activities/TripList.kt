@@ -18,6 +18,7 @@ import com.example.uniride.R
 import com.example.uniride.classes.Trip
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -141,6 +142,21 @@ class TripList : AppCompatActivity() {
             price.text = "$" + array[p0].getPrice().toString()
             val bookTrip = rowMain.findViewById<Button>(R.id.triplist_book_button)
 
+            val tripEmail = array[p0].getDriverEmail()
+            Log.d("Email", tripEmail)
+
+            lateinit var fbUserID: String
+
+            val docRef = db.collection("users").document(tripEmail)
+            Log.d("docRef", docRef.toString())
+
+            docRef.get().addOnSuccessListener { document ->
+                if (document != null) {
+                    fbUserID = document.getString("fbUserID").toString()
+                    Log.d("Success", "Retrived doc")
+                } else
+                    Log.d("Fail", "Document didn't retrieve")
+            }
 
             bookTrip.setOnClickListener {
 
@@ -169,9 +185,9 @@ class TripList : AppCompatActivity() {
 
             val messageDriverView = rowMain.findViewById<Button>(R.id.triplist_message_button)
             messageDriverView.setOnClickListener{
-                val userID = "2659411804110269"
+                val userID = "royalty37"
                 val intent = Intent(mContext, Messenger::class.java)
-                intent.putExtra("userID",userID)
+                intent.putExtra("userID", fbUserID)
                 mContext.startActivity(intent)
             }
 
