@@ -163,13 +163,15 @@
             android:id="@+id/button_searchTrip_searcher"
             android:layout_width="300dp"
             android:layout_height="95dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
             android:background="@color/colorButton"
             android:text="@string/search_for_trips"
             android:textColor="@color/whiteFont"
             android:textIsSelectable="false"
             android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup_searcher" />
 
