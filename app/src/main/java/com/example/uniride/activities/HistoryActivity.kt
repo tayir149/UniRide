@@ -86,12 +86,12 @@ class HistoryActivity : AppCompatActivity() {
 
                                 val dateFormatted = dateFormat.parse(date)
                                 val currentDate = dateFormat.parse(nowDate)
-                                val timeFormDateBase = timeFormat.parse(eta)
+                                val timeFromDateBase = timeFormat.parse(eta)
                                 val currentTime = timeFormat.parse(nowTime)
 
                                 if (!bookedTrips.contains(tripId)) {
                                     if (currentUserEmail!!.compareTo(userEmail!!) != 0) {
-                                        if (dateFormatted.compareTo(currentDate) == 0 && timeFormDateBase < currentTime
+                                        if (dateFormatted.compareTo(currentDate) == 0 && timeFromDateBase < currentTime
                                             || dateFormatted.compareTo(currentDate) < 0
                                         ) {
                                             tripArray.add(
@@ -206,13 +206,13 @@ class HistoryActivity : AppCompatActivity() {
 //                val timeOfETATextView = rowMain.findViewById<TextView>(R.id.history_ETA_view)
 //                timeOfETATextView.text = timeOfETA.get(position)
 //
-//                val messageDriverButton = rowMain.findViewById<Button>(R.id.history_message_button)
-//                messageDriverButton.setOnClickListener {
-//                    val userID = "royalty37"
-//                    val intent = Intent(mContext, Messenger::class.java)
-//                    intent.putExtra("userID", userID)
-//                    mContext.startActivity(intent)
-//                }
+                val messageDriverButton = rowMain.findViewById<Button>(R.id.history_message_button)
+                messageDriverButton.setOnClickListener {
+                    val userID = "royalty37"
+                    val intent = Intent(mContext, Messenger::class.java)
+                    intent.putExtra("userID", userID)
+                    mContext.startActivity(intent)
+                }
 //
                 return rowMain
         }

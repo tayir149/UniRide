@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <Button
+            android:id="@+id/addingCredit_cancel_button"
+            android:layout_width="126dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:background="@color/colorButton"
+            android:text="@string/cancel"
+            android:textColor="@color/whiteFont"
+            android:textIsSelectable="false"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/addingCredit_confirm_button"
+            app:layout_constraintHorizontal_bias="0.022"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addingCredit_confirm_button" />
+
+    <Button
+            android:id="@+id/addingCredit_confirm_button"
+            android:layout_width="126dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="30dp"
+            android:background="@color/colorButton"
+            android:text="@string/confirm"
+            android:textColor="@color/whiteFont"
+            android:textIsSelectable="false"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addingCredit_value" />
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/addingCredit_header"
+            android:layout_width="430dp"
+            android:layout_height="81dp"
+            android:background="#FF5224"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="268dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="24dp"
+            android:text="Adding Credits"
+            android:textColor="#D3FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addingCredit_header" />
+
+    <EditText
+            android:id="@+id/addingCredit_value"
+            android:layout_width="272dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Amount To Add"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.402"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addingCredit_header" />
+</androidx.constraintlayout.widget.ConstraintLayout>
