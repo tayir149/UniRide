@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniride.R
 import com.example.uniride.activities.BookedTrips
+import com.example.uniride.activities.Messenger
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
