@@ -142,22 +142,6 @@ class TripList : AppCompatActivity() {
             price.text = "$" + array[p0].getPrice().toString()
             val bookTrip = rowMain.findViewById<Button>(R.id.triplist_book_button)
 
-            val driverEmail = array[p0].getDriverEmail()
-            Log.d("Email", driverEmail)
-
-            lateinit var fbUserID: String
-
-            val docRef = db.collection("users").document(driverEmail)
-            Log.d("docRef", docRef.toString())
-
-            docRef.get().addOnSuccessListener { document ->
-                if (document != null) {
-                    fbUserID = document.getString("fbUserID").toString()
-                    Log.d("Success", "Retrived doc")
-                } else
-                    Log.d("Fail", "Document didn't retrieve")
-            }
-
             bookTrip.setOnClickListener {
                 val passengerEmail = FirebaseAuth.getInstance().currentUser?.email
                 val userProfileRef = passengerEmail?.let { it1 ->
@@ -199,10 +183,24 @@ class TripList : AppCompatActivity() {
 
             val messageDriverView = rowMain.findViewById<Button>(R.id.triplist_message_button)
             messageDriverView.setOnClickListener{
-                //val userID = "royalty37"
-                val intent = Intent(mContext, Messenger::class.java)
-                intent.putExtra("userID", fbUserID)
-                mContext.startActivity(intent)
+                val driverEmail = array[p0].getDriverEmail()
+                Log.d("Email", driverEmail)
+
+                lateinit var fbUserID: String
+
+                val docRef = db.collection("users").document(driverEmail)
+                Log.d("docRef", docRef.toString())
+
+                docRef.get().addOnSuccessListener { document ->
+                    if (document != null) {
+                        fbUserID = document.getString("fbUserID").toString()
+                        Log.d("Success", "Retrived doc")
+                        val intent = Intent(mContext, Messenger::class.java)
+                        intent.putExtra("userID", fbUserID)
+                        mContext.startActivity(intent)
+                    } else
+                        Log.d("Fail", "Document didn't retrieve")
+                }
             }
 
             return rowMain

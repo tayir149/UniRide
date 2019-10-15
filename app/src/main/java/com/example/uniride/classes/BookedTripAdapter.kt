@@ -144,26 +144,25 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
                 alertDialogForDelete.show()
             }
 
-            val driverEmail = trips[currentPosition].getDriverEmail()
-            Log.d("Email, BookedTrip", driverEmail)
-
-            lateinit var fbUserID: String
-
-            val docRef = db.collection("users").document(driverEmail)
-            Log.d("docRef, BookedTrip", docRef.toString())
-
-            docRef.get().addOnSuccessListener { document ->
-                if (document != null) {
-                    fbUserID = document.getString("fbUserID").toString()
-                    Log.d("Success, BookedTrip", "Retrived document")
-                } else
-                    Log.d("Fail, BookedTrip", "Document didn't retrieve")
-            }
-
             itemView.bookedTrip_message_button.setOnClickListener {
-                val intent = Intent(context , Messenger::class.java)
-                intent.putExtra("userID", fbUserID)
-                context.startActivity(intent)
+                val driverEmail = trips[currentPosition].getDriverEmail()
+                Log.d("Email, BookedTrip", driverEmail)
+
+                lateinit var fbUserID: String
+
+                val docRef = db.collection("users").document(driverEmail)
+                Log.d("docRef, BookedTrip", docRef.toString())
+
+                docRef.get().addOnSuccessListener { document ->
+                    if (document != null) {
+                        fbUserID = document.getString("fbUserID").toString()
+                        Log.d("Success, BookedTrip", "Retrived document")
+                        val intent = Intent(context , Messenger::class.java)
+                        intent.putExtra("userID", fbUserID)
+                        context.startActivity(intent)
+                    } else
+                        Log.d("Fail, BookedTrip", "Document didn't retrieve")
+                }
             }
         }
 
