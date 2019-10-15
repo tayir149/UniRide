@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniride.R
 import com.example.uniride.activities.BookedTrips
-import com.example.uniride.activities.Messenger
 import com.example.uniride.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -71,6 +70,32 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
                                     batch.update(userProfileRef, "user credits", currentUserCredits)
                                     batch.update(driverProfileRef, "user credits", driverCred)
                                     batch.commit()
+
+                                    userProfileRef?.update("booked_trips", FieldValue.arrayRemove(currentUId))
+                                    lateinit var passengerAddress: String
+                                    userProfileRef?.get()?.addOnSuccessListener { document ->
+                                        if (document != null) {
+                                            passengerAddress = document.getString("address").toString()
+                                            currentUId?.let { it1 ->
+                                                db.collection("trips").document(it1).update(
+                                                    "passenger_list",
+                                                    FieldValue.arrayRemove(passengerAddress)
+                                                )
+                                            }
+                                        } else {
+                                            Log.d("Error", "No such document")
+                                        }
+                                    }?.addOnFailureListener { exception ->
+                                        Log.d("Main", "get failed with ", exception)
+                                    }
+
+
+                                    //Deletes the current trip and Uid from the local array for refreshing the page
+                                    trips.remove(currentTrip)
+                                    uIds.remove(currentUId)
+                                    context.showToast("Trip Finished!")
+                                    val intent = Intent(context, BookedTrips::class.java)
+                                    context.startActivity(intent)
                                 }
                             }
                         } else context.showToast("Insufficient Funds!")
@@ -78,30 +103,6 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
                         Log.d("Error", "No such document")
                     }
                 }
-                userProfileRef?.update("booked_trips", FieldValue.arrayRemove(currentUId))
-                lateinit var passengerAddress: String
-                userProfileRef?.get()?.addOnSuccessListener { document ->
-                    if (document != null) {
-                        passengerAddress = document.getString("address").toString()
-                        currentUId?.let { it1 ->
-                            db.collection("trips").document(it1).update(
-                                "passenger_list",
-                                FieldValue.arrayRemove(passengerAddress)
-                            )
-                        }
-                    } else {
-                        Log.d("Error", "No such document")
-                    }
-                }?.addOnFailureListener { exception ->
-                    Log.d("Main", "get failed with ", exception)
-                }
-
-                //Deletes the current trip and Uid from the local array for refreshing the page
-                trips.remove(currentTrip)
-                uIds.remove(currentUId)
-                context.showToast("Trip Finished!")
-                val intent = Intent(context, BookedTrips::class.java)
-                context.startActivity(intent)
             }
 
             itemView.bookedTrip_cancel_button.setOnClickListener {
@@ -126,6 +127,7 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
                     }?.addOnFailureListener { exception ->
                         Log.d("Main", "get failed with ", exception)
                     }
+
 
                     //Deletes the current trip and Uid from the local array for refreshing the page
                     trips.remove(currentTrip)
