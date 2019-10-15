@@ -138,32 +138,13 @@
             app:layout_constraintStart_toStartOf="@+id/guideline6" />
 
     <TextView
-            android:id="@+id/history_studentID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history_studentID"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/history_driver" />
-
-    <TextView
-            android:id="@+id/history_studentID_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history_studentID_view"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/history_studentID"
-            app:layout_constraintStart_toEndOf="@+id/history_studentID" />
-
-    <TextView
             android:id="@+id/history_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/history_price"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/history_plate" />
+            app:layout_constraintTop_toBottomOf="@+id/history_driver" />
 
     <TextView
             android:id="@+id/history_price_view"
@@ -174,24 +155,5 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/history_price"
             app:layout_constraintStart_toEndOf="@+id/history_price" />
-
-    <TextView
-            android:id="@+id/history_plate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history_plate"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/history_studentID" />
-
-    <TextView
-            android:id="@+id/history_plate_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history_plate_view"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/history_plate"
-            app:layout_constraintStart_toEndOf="@+id/history_plate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
