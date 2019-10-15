@@ -152,7 +152,7 @@ class BookedTripAdapter(val context: Context, val  trips: ArrayList<Trip>, val u
             docRef.get().addOnSuccessListener { document ->
                 if (document != null) {
                     fbUserID = document.getString("fbUserID").toString()
-                    Log.d("Success, BookedTrip", "Retrived doc")
+                    Log.d("Success, BookedTrip", "Retrived document")
                 } else
                     Log.d("Fail, BookedTrip", "Document didn't retrieve")
             }

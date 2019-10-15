@@ -6,11 +6,15 @@ import android.content.Intent
 import android.text.SpannableString
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniride.R
 import com.example.uniride.activities.EditTrip
+import com.example.uniride.activities.Messenger
 import com.example.uniride.showToast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.upcoming_trip_list.view.*
@@ -84,6 +88,64 @@ class UpcomingTripsAdapter(val context: Context, val  trips: ArrayList<Trip>, va
                     dialog.dismiss()
                 }
                 alertDialogForDelete.show()
+            }
+
+            itemView.upcoming_message_button.setOnClickListener {
+
+                var passengers = currentTrip?.getPassengerList()
+                Log.d("PassengerList", passengers.toString())
+                val p = PopupMenu(context, itemView.upcoming_message_button)
+
+                if (passengers != null) {
+                    var i = 0
+                    for (item in passengers) {
+                        Log.d("Loop", "Inside Loop")
+                        val docRef = db.collection("users").whereEqualTo("address", item)
+                            .get().addOnSuccessListener { document ->
+                                if (document != null) {
+                                    Log.d("Document", "not null")
+                                    p.menu.add(document.elementAt(0).getString("email"))
+                                }
+                            }
+                        i++
+                    }
+                }
+                p.menuInflater.inflate(R.menu.message_passenger_menu, p.menu)
+                p.setOnMenuItemClickListener(object: PopupMenu.OnMenuItemClickListener {
+                    override fun onMenuItemClick(item: MenuItem): kotlin.Boolean {
+                        lateinit var fbUserID: String
+                        Log.d("item.title", item.title.toString())
+                        if (item.title.equals("Passengers:")) {
+                            Toast.makeText(context, "You clicked Passengers:... Click a name.", Toast.LENGTH_SHORT).show()
+                            Log.d("if", "clicked passengers")
+                            return false
+                        }
+                        else
+                        {
+                            Log.d("if passenger", item.title.toString())
+                            var docRef = db.collection("users").document(item.title.toString())
+                            docRef.get().addOnSuccessListener { document ->
+                                    if (document != null) {
+                                        fbUserID = document.getString("fbUserID").toString()
+                                        Log.d("Success, UpcomingTrip", fbUserID)
+                                        val intent = Intent(context , Messenger::class.java)
+                                        intent.putExtra("userID", fbUserID)
+                                        context.startActivity(intent)
+                                    } else
+                                        Log.d("Fail, UpcomingTrip", "Document didn't retrieve")
+                            }
+                            return false
+                        }
+                    }
+                })
+                p.show()
+
+                /*
+                val userID = "royalty37"
+                val intent = Intent(mContext, Messenger::class.java)
+                intent.putExtra("userID", userID)
+                mContext.startActivity(intent)
+                */
             }
         }
 
