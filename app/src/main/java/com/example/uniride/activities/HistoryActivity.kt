@@ -198,10 +198,11 @@ class HistoryActivity : AppCompatActivity() {
 //                val timeOfETATextView = rowMain.findViewById<TextView>(R.id.history_ETA_view)
 //                timeOfETATextView.text = timeOfETA.get(position)
 
-                val passengers = array[p0].getPassengerList()?.toArray()
+                //val passengers = array[p0].getPassengerList()?.toArray()
 
-                Log.d("PassengerList", passengers.toString())
+                //Log.d("PassengerList", passengers.toString())
 
+                /*
                 val messageDriverButton = rowMain.findViewById<Button>(R.id.history_message_button)
                 messageDriverButton.setOnClickListener {
 
@@ -210,7 +211,11 @@ class HistoryActivity : AppCompatActivity() {
                     if (passengers != null) {
                         var i = 0
                         for (item in passengers) {
-                            p.menu.add(i, i, i, item.toString())
+                            val docRef = db.collection("users").whereEqualTo("address", item)
+                                .get().addOnSuccessListener { document ->
+                                    if (document != null)
+                                        p.menu.add(i, i, i, document.toString())
+                                }
                             i++
                         }
                     }
@@ -220,7 +225,7 @@ class HistoryActivity : AppCompatActivity() {
                             return false;
                         }
                     })
-
+                    p.show()
 
                     /*
                     val userID = "royalty37"
@@ -228,7 +233,7 @@ class HistoryActivity : AppCompatActivity() {
                     intent.putExtra("userID", userID)
                     mContext.startActivity(intent)
                     */
-                }
+                }*/
 //
                 return rowMain
         }
