@@ -168,26 +168,41 @@
         <Button
                 android:id="@+id/tripList_delete_Button"
                 style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_marginStart="40dp"
                 android:layout_marginTop="16dp"
                 android:background="#00ECE3E3"
-                android:textColor="#FF0000"
                 android:text="@string/tripList_delete_button"
+                android:textColor="#FF0000"
                 android:textStyle="bold"
                 app:fontFamily="sans-serif"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/upcoming_message_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tripList_show_passengerList" />
+                app:layout_constraintTop_toBottomOf="@+id/tripList_show_passengerList"
+                tools:layout_constraintEnd_toStartOf="@id/upcoming_message_button" />
+
+        <Button
+                android:id="@+id/upcoming_message_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="#00ECE3E3"
+                android:text="@string/history_message_button"
+                android:textColor="#16BE12"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:fontFamily="sans-serif"
+                app:layout_constraintEnd_toStartOf="@+id/tripList_edit_button"
+                app:layout_constraintStart_toEndOf="@+id/tripList_delete_Button"
+                app:layout_constraintTop_toTopOf="@+id/tripList_delete_Button" />
 
         <Button
                 android:id="@+id/tripList_edit_button"
                 style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="40dp"
                 android:background="#00ECE3E3"
                 android:text="@string/tripList_edit_button"
                 android:textColor="#16BE12"
@@ -195,6 +210,7 @@
                 app:fontFamily="sans-serif"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/upcoming_message_button"
                 app:layout_constraintTop_toBottomOf="@+id/tripList_show_passengerList" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

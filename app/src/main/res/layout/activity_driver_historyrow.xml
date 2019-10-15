@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
-            android:background="#FFFFFF"
+            android:background="#00F5F1F1"
             android:text="@string/driver_history_show_route_button"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/driver_history_passenger" />
@@ -52,7 +52,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:background="#FFFFFF"
+            android:background="#00F5F1F1"
             android:text="@string/driver_history_message_button"
             android:textColor="#16BE12"
             app:layout_constraintBottom_toBottomOf="@+id/driver_history_show_route_button"

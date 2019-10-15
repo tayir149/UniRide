@@ -6,13 +6,8 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ListView
-import android.widget.TextView
+import android.view.*
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
@@ -25,6 +20,7 @@ import org.jetbrains.anko.startActivity
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.Boolean as Boolean1
 
 
 class HistoryActivity : AppCompatActivity() {
@@ -86,12 +82,12 @@ class HistoryActivity : AppCompatActivity() {
 
                                 val dateFormatted = dateFormat.parse(date)
                                 val currentDate = dateFormat.parse(nowDate)
-                                val timeFormDateBase = timeFormat.parse(eta)
+                                val timeFromDateBase = timeFormat.parse(eta)
                                 val currentTime = timeFormat.parse(nowTime)
 
                                 if (!bookedTrips.contains(tripId)) {
                                     if (currentUserEmail!!.compareTo(userEmail!!) != 0) {
-                                        if (dateFormatted.compareTo(currentDate) == 0 && timeFormDateBase < currentTime
+                                        if (dateFormatted.compareTo(currentDate) == 0 && timeFromDateBase < currentTime
                                             || dateFormatted.compareTo(currentDate) < 0
                                         ) {
                                             tripArray.add(
@@ -183,10 +179,6 @@ class HistoryActivity : AppCompatActivity() {
             val price = rowMain.findViewById<TextView>(R.id.history_price_view)
             price.text = "$" + array[p0].getPrice().toString()
 
-
-
-
-
 //                val rowMain = layoutInflater.inflate(R.layout.activity_historyrow, viewGroup, false)
 //
 //                val positionTextView =
@@ -205,14 +197,43 @@ class HistoryActivity : AppCompatActivity() {
 //
 //                val timeOfETATextView = rowMain.findViewById<TextView>(R.id.history_ETA_view)
 //                timeOfETATextView.text = timeOfETA.get(position)
-//
-//                val messageDriverButton = rowMain.findViewById<Button>(R.id.history_message_button)
-//                messageDriverButton.setOnClickListener {
-//                    val userID = "royalty37"
-//                    val intent = Intent(mContext, Messenger::class.java)
-//                    intent.putExtra("userID", userID)
-//                    mContext.startActivity(intent)
-//                }
+
+                //val passengers = array[p0].getPassengerList()?.toArray()
+
+                //Log.d("PassengerList", passengers.toString())
+
+                /*
+                val messageDriverButton = rowMain.findViewById<Button>(R.id.history_message_button)
+                messageDriverButton.setOnClickListener {
+
+                    val p = PopupMenu(mContext, messageDriverButton)
+                    //p.menuInflater.inflate(R.menu.message_passenger_menu, p.menu)
+                    if (passengers != null) {
+                        var i = 0
+                        for (item in passengers) {
+                            val docRef = db.collection("users").whereEqualTo("address", item)
+                                .get().addOnSuccessListener { document ->
+                                    if (document != null)
+                                        p.menu.add(i, i, i, document.toString())
+                                }
+                            i++
+                        }
+                    }
+                    p.setOnMenuItemClickListener(object: PopupMenu.OnMenuItemClickListener {
+                        override fun onMenuItemClick(item: MenuItem): kotlin.Boolean {
+                            Toast.makeText(mContext, item.title, Toast.LENGTH_SHORT).show()
+                            return false;
+                        }
+                    })
+                    p.show()
+
+                    /*
+                    val userID = "royalty37"
+                    val intent = Intent(mContext, Messenger::class.java)
+                    intent.putExtra("userID", userID)
+                    mContext.startActivity(intent)
+                    */
+                }*/
 //
                 return rowMain
         }

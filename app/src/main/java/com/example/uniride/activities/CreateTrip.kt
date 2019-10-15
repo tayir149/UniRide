@@ -120,7 +120,6 @@ class CreateTrip : AppCompatActivity() {
             val carDetail = enterCarMake.text.toString()
             val numberOfPassenger = Integer.parseInt(numberOfPassenger.text.toString())
 
-
             //If any of the field empty, will not proceed until every field filled
             when {
                 dateOfTrip.isEmpty() -> showToast("Please enter a date for the trip")

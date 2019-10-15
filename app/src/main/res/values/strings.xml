@@ -108,4 +108,6 @@
     <string name="title_activity_video_help">VideoHelp</string>
     <string name="credit_to_add">Credit To Add</string>
     <string name="enter_amount_of_credits_you_want_to_add">Enter amount of credits you want to add:</string>
+    <string name="saveTrips_title">Save Trips</string>
+    <string name="saveTrips_back_button"><![CDATA[<]]></string>
 </resources>
