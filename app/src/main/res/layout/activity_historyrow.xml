@@ -35,22 +35,13 @@
             app:layout_constraintTop_toBottomOf="@+id/history_trip_date" />
 
     <TextView
-            android:id="@+id/history_pickUpTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history_pickUpTime"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/history_price" />
-
-    <TextView
             android:id="@+id/history_ETA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/history_ETA"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/history_pickUpTime" />
+            app:layout_constraintTop_toBottomOf="@+id/history_price" />
 
     <TextView
             android:id="@+id/history_num_of_passengers"
@@ -70,16 +61,6 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/history_driver"
             app:layout_constraintStart_toEndOf="@+id/history_driver" />
-
-    <TextView
-            android:id="@+id/history_pickUpTime_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/history_pickUpTime_view"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/history_pickUpTime"
-            app:layout_constraintStart_toEndOf="@+id/history_pickUpTime" />
 
     <TextView
             android:id="@+id/history_ETA_view"

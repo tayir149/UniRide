@@ -37,5 +37,9 @@ class DriverInterface : AppCompatActivity() {
         optionsButton.setOnClickListener{
             startActivity<OptionsActivity>()
         }
+
+        savedTripButton.setOnClickListener {
+            startActivity<SaveTrips>()
+        }
     }
 }

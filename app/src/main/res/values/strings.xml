@@ -123,4 +123,5 @@
     <string name="save_trip_price_view" />
     <string name="save_trip_seat_view" />
     <string name="save_trip_car_view" />
+    <string name="driver_history_passenger_list">Passenger List:</string>
 </resources>

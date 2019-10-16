@@ -79,32 +79,13 @@
             app:layout_constraintStart_toEndOf="@+id/driver_history_price" />
 
     <TextView
-            android:id="@+id/driver_history_pick_up_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/driver_history_pick_up_time"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/driver_history_price" />
-
-    <TextView
-            android:id="@+id/driver_history_pick_up_time_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/driver_history_pick_up_time_view"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/driver_history_pick_up_time"
-            app:layout_constraintStart_toEndOf="@+id/driver_history_pick_up_time" />
-
-    <TextView
             android:id="@+id/driver_history_ETA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/driver_history_ETA"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/driver_history_pick_up_time" />
+            app:layout_constraintTop_toBottomOf="@+id/driver_history_passenger_list" />
 
     <TextView
             android:id="@+id/driver_history_ETA_view"
@@ -134,4 +115,21 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/driver_history_passenger"
             app:layout_constraintStart_toEndOf="@+id/driver_history_passenger" />
+
+    <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/driver_history_passenger_list"
+            app:layout_constraintStart_toEndOf="@+id/driver_history_passenger_list" />
+
+    <TextView
+            android:id="@+id/driver_history_passenger_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_history_passenger_list"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/driver_history_price" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
