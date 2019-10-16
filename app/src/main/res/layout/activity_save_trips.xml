@@ -43,8 +43,8 @@
             app:layout_constraintStart_toStartOf="@+id/save_trips_header"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+    <ListView
+            android:id="@+id/save_trip_listview"
             android:layout_width="409dp"
             android:layout_height="585dp"
             android:layout_marginTop="1dp"
