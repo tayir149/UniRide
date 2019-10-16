@@ -34,23 +34,25 @@ class HistoryActivity : AppCompatActivity() {
             startActivity<PassengerInterface>()
         }
 
-        val dateFormat = SimpleDateFormat("dd-mm-yyyy", Locale.getDefault())
-        val timeFormat = SimpleDateFormat("hh:mm", Locale.getDefault())
-        val tripArray = ArrayList<Trip>()
-        val userArray = ArrayList<String>()
+        //val dateFormat = SimpleDateFormat("dd-mm-yyyy", Locale.getDefault())
+        //val timeFormat = SimpleDateFormat("hh:mm", Locale.getDefault())
+        //val tripArray = ArrayList<Trip>()
+        //val userArray = ArrayList<String>()
 
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+        //val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
         val listView = findViewById<ListView>(R.id.history_listview)
-        val adapter = MyCustomAdapter(this, tripArray, userArray)
+        //val adapter = MyCustomAdapter(this, tripArray, userArray)
+
+        val adapter = MyCustomAdapter(this)
 
         listView.adapter = adapter
 
-        val cal = Calendar.getInstance()
+       /* val cal = Calendar.getInstance()
         val nowDate = dateFormat.format(cal.time)
-        val nowTime = timeFormat.format(cal.time)
+        val nowTime = timeFormat.format(cal.time)*/
 
-        val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
+        /*val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
         currentUserEmail?.let {
             db.collection("users").document(it)
         }
@@ -61,7 +63,7 @@ class HistoryActivity : AppCompatActivity() {
                 db.collection("trips")
                     .addSnapshotListener { value, e ->
                         if (e != null) {
-                            Log.w("TripList", "Listen failed.", e)
+                            Log.w("HistoryActivity", "Listen failed.", e)
                             return@addSnapshotListener
                         }
 
@@ -86,10 +88,10 @@ class HistoryActivity : AppCompatActivity() {
                                 val currentTime = timeFormat.parse(nowTime)
 
                                 if (!bookedTrips.contains(tripId)) {
-                                    if (currentUserEmail!!.compareTo(userEmail!!) != 0) {
-                                        if (dateFormatted.compareTo(currentDate) == 0 && timeFromDateBase < currentTime
-                                            || dateFormatted.compareTo(currentDate) < 0
-                                        ) {
+                                    //if (currentUserEmail!!.compareTo(userEmail!!) != 0) {
+                                        //if (dateFormatted.compareTo(currentDate) == 0 && timeFromDateBase < currentTime
+                                            //|| dateFormatted.compareTo(currentDate) < 0
+                                        //) {
                                             tripArray.add(
                                                 Trip(
                                                     driverName,
@@ -104,29 +106,29 @@ class HistoryActivity : AppCompatActivity() {
                                                 )
                                             )
                                             userArray.add(tripId)
-                                        }
-                                    }
+                                        //}
+                                    //}
                                 }
                             }
                             //adapter.notifyDateSetChanged()
-                            Log.d("TripList", "test &tripArray")
+                            //Log.d("TripList", "test &tripArray")
                         }
                     }
-            }
+            }*/
     }
 
 
-    private class MyCustomAdapter(context: Context, tripArray:ArrayList<Trip>, userArray:ArrayList<String>) : BaseAdapter() {
+    private class MyCustomAdapter(context: Context /*, tripArray:ArrayList<Trip>, userArray:ArrayList<String>*/) : BaseAdapter() {
 
         private val mContext: Context = context
-        private val array = tripArray
+        //private val array = tripArray
         //private val uIdArray = userArray
 
 
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+        //val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
         override fun getCount(): Int {
-            return array.size
+            return driverNames.size
         }
 
         override fun getItemId(p0: Int): Long {
@@ -137,25 +139,29 @@ class HistoryActivity : AppCompatActivity() {
             return "TEST"
         }
 
-//            private val driverNames = arrayListOf<String>(
-//                " Jason", " Tim", " Tayier", " Jesselle", " Liam"
-//            )
-//
-//            private val historyDate = arrayListOf<String>(
-//                "08 August, 2019",
-//                "07 August, 2019",
-//                "06 August, 2019",
-//                "05 August, 2019",
-//                "04 August, 2019"
-//            )
-//
-//            private val pickUpTime = arrayListOf<String>(
-//                " 10:00", "13:45", "9:00", "7:30", "16:10"
-//            )
-//
-//            private val timeOfETA = arrayListOf<String>(
-//                " 10:30", "14:20", "9:16", "7:48", "16:52"
-//            )
+        private val driverNames = arrayListOf<String>(
+            " Jason", " Tim", " Tayier", " Jesselle", " Liam"
+        )
+
+        private val price = arrayListOf<String>(
+            " 10", " 12", " 9", " 15", " 11"
+        )
+
+        private val historyDate = arrayListOf<String>(
+            "16-10-2019",
+            "14-10-2019",
+            "29-09-2019",
+            "27-09-2019",
+            "16-09-2019"
+        )
+
+        private val pickUpTime = arrayListOf<String>(
+            " 10:00", " 13:45", " 9:00", " 7:30", " 16:10"
+        )
+
+        private val timeOfETA = arrayListOf<String>(
+            " 30", " 20", " 90", " 45", " 66"
+        )
 //
 //            init {
 //                this.mContext = context
@@ -163,7 +169,7 @@ class HistoryActivity : AppCompatActivity() {
 
 
 
-        @RequiresApi(Build.VERSION_CODES.O)
+        /*@RequiresApi(Build.VERSION_CODES.O)
         //responsible for rendering out each row
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val layoutInflater = LayoutInflater.from(mContext)
@@ -177,26 +183,31 @@ class HistoryActivity : AppCompatActivity() {
             val noPassengerTextView = rowMain.findViewById<TextView>(R.id.history_num_of_passengers_view)
             noPassengerTextView.text = array[p0].getPassengerNo().toString()
             val price = rowMain.findViewById<TextView>(R.id.history_price_view)
-            price.text = "$" + array[p0].getPrice().toString()
+            price.text = "$" + array[p0].getPrice().toString()*/
 
-//                val rowMain = layoutInflater.inflate(R.layout.activity_historyrow, viewGroup, false)
-//
-//                val positionTextView =
-//                    rowMain.findViewById<TextView>(R.id.history_num_of_passengers_view)
-//                positionTextView.text = " $position"
-//
-//                val nameTextView = rowMain.findViewById<TextView>(R.id.history_driver_name)
-//                nameTextView.text = driverNames.get(position)
-//
-//                val dateTextView = rowMain.findViewById<TextView>(R.id.history_trip_date)
-//                dateTextView.text = historyDate.get(position)
-//
-//                val pickUpTimeTextView =
-//                    rowMain.findViewById<TextView>(R.id.history_pickUpTime_view)
-//                pickUpTimeTextView.text = pickUpTime.get(position)
-//
-//                val timeOfETATextView = rowMain.findViewById<TextView>(R.id.history_ETA_view)
-//                timeOfETATextView.text = timeOfETA.get(position)
+        override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
+            val layoutInflater = LayoutInflater.from(mContext)
+            val rowMain = layoutInflater.inflate(R.layout.activity_historyrow, viewGroup, false)
+
+            val positionTextView =
+                rowMain.findViewById<TextView>(R.id.history_num_of_passengers_view)
+            positionTextView.text = " $position"
+
+            val priceTextView = rowMain.findViewById<TextView>(R.id.history_price_view)
+            priceTextView.text = price.get(position)
+
+            val nameTextView = rowMain.findViewById<TextView>(R.id.history_driver_name)
+            nameTextView.text = driverNames.get(position)
+
+            val dateTextView = rowMain.findViewById<TextView>(R.id.history_trip_date)
+            dateTextView.text = historyDate.get(position)
+
+            val pickUpTimeTextView =
+                rowMain.findViewById<TextView>(R.id.history_pickUpTime_view)
+            pickUpTimeTextView.text = pickUpTime.get(position)
+
+            val timeOfETATextView = rowMain.findViewById<TextView>(R.id.history_ETA_view)
+            timeOfETATextView.text = timeOfETA.get(position)
 
                 //val passengers = array[p0].getPassengerList()?.toArray()
 
@@ -234,8 +245,16 @@ class HistoryActivity : AppCompatActivity() {
                     mContext.startActivity(intent)
                     */
                 }*/
-//
-                return rowMain
+
+            val messengerDriverButton = rowMain.findViewById<Button>(R.id.history_message_button)
+            messengerDriverButton.setOnClickListener {
+                val userID = "royalty37"
+                val intent = Intent(mContext, Messenger::class.java)
+                intent.putExtra("userID", userID)
+                mContext.startActivity(intent)
+            }
+
+            return rowMain
         }
     }
 }

@@ -110,4 +110,17 @@
     <string name="enter_amount_of_credits_you_want_to_add">Enter amount of credits you want to add:</string>
     <string name="saveTrips_title">Save Trips</string>
     <string name="saveTrips_back_button"><![CDATA[<]]></string>
+    <string name="save_trip_date">Date</string>
+    <string name="save_trip_route">Route:</string>
+    <string name="save_trip_ETA">ETA to Destination:</string>
+    <string name="save_trip_price">Price:</string>
+    <string name="save_trip_seat">Available seats:</string>
+    <string name="save_trip_car">Car make and model:</string>
+    <string name="save_trip_book_button">BOOK TRIP</string>
+    <string name="save_trip_delete_button">DELETE</string>
+    <string name="save_trip_route_view" />
+    <string name="save_trip_ETA_view" />
+    <string name="save_trip_price_view" />
+    <string name="save_trip_seat_view" />
+    <string name="save_trip_car_view" />
 </resources>

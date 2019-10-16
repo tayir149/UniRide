@@ -2,13 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/saveTrips_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.SaveTrips">
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
+            android:id="@+id/save_trips_header"
             android:layout_width="0dp"
             android:layout_height="72dp"
             android:background="#FF5224"
@@ -18,16 +17,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-            android:id="@+id/saveTrips_listview"
-            android:layout_width="409dp"
-            android:layout_height="585dp"
-            android:layout_marginTop="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
-
     <TextView
             android:id="@+id/saveTrips_title"
             android:layout_width="wrap_content"
@@ -36,20 +25,32 @@
             android:text="@string/saveTrips_title"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
-            app:layout_constraintStart_toStartOf="@+id/toolbar2"
+            app:layout_constraintBottom_toBottomOf="@+id/save_trips_header"
+            app:layout_constraintStart_toStartOf="@+id/save_trips_header"
             app:layout_constraintTop_toTopOf="parent" />
 
     <Button
             android:id="@+id/saveTrips_back_button"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="41dp"
             android:layout_height="30dp"
             android:background="#FF5224"
             android:text="@string/saveTrips_back_button"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+            app:layout_constraintBottom_toBottomOf="@+id/save_trips_header"
             app:layout_constraintEnd_toStartOf="@+id/saveTrips_title"
-            app:layout_constraintStart_toStartOf="@+id/toolbar2"
+            app:layout_constraintStart_toStartOf="@+id/save_trips_header"
             app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="409dp"
+            android:layout_height="585dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_trips_header" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,7 +53,7 @@ class DriverHistory : AppCompatActivity() {
 
         val cal = Calendar.getInstance()
         val nowDate = dateFormat.format(cal.time)
-        val nowTime = dateFormat.format(cal.time)
+        val nowTime = timeFormat.format(cal.time)
 
         val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
         currentUserEmail?.let {
@@ -81,6 +81,7 @@ class DriverHistory : AppCompatActivity() {
                                 val route = document.document.getString("route")
                                 val details = document.document.getString("car_detail")
                                 val passengerList = document.document.get("passenger_list") as ArrayList<String>?
+
                                 val dateFormatted = dateFormat.parse(date)
                                 val currentDate = dateFormat.parse(nowDate)
                                 val timeFromDateBase = timeFormat.parse(eta)
