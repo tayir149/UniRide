@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.uniride.R
 import kotlinx.android.synthetic.main.activity_passenger_interface.*
 import org.jetbrains.anko.startActivity
+import com.example.uniride.activities.SaveTrips as SaveTrips
 
 class PassengerInterface : AppCompatActivity(){
 
@@ -39,6 +40,10 @@ class PassengerInterface : AppCompatActivity(){
 
         optionsButton.setOnClickListener{
             startActivity<OptionsActivity>()
+        }
+
+        savedTripsButton5.setOnClickListener {
+            startActivity<SaveTrips>()
         }
     }
 }
