@@ -188,7 +188,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:background="#00ECE3E3"
-                android:text="@string/history_message_button"
+                android:text="Message Passengers"
                 android:textColor="#16BE12"
                 android:textSize="12sp"
                 android:textStyle="bold"
