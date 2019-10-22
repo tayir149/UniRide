@@ -28,6 +28,7 @@ android {
 
 dependencies {
     //implementation 'com.android.support:multidex:1.0.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -36,9 +37,10 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-firestore:21.1.1'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation "androidx.test.ext:junit:1.1.0"
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'org.jetbrains.anko:anko:0.10.7'
     implementation 'org.jetbrains.anko:anko-appcompat-v7:0.10.7'
@@ -50,7 +52,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.android.support:multidex:1.0.3'
-    debugImplementation("androidx.test:core:1.2.0")
+    androidTestImplementation "androidx.test:core:1.2.0"
     implementation 'com.google.firebase:firebase-database:19.1.0'
 
     // add SDKs for desired Firebase products

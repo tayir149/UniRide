@@ -24,6 +24,8 @@ class Messenger : AppCompatActivity()
 
         try {
             startActivity(intent)
+            Thread.sleep(2000)
+            finish()
         } catch (ex: ActivityNotFoundException) {
             Toast.makeText(
                 this,
